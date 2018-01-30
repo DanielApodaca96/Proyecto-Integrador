@@ -1,15 +1,31 @@
-section .1{
-	background-color: blue;
+#imglogo{
+  height: auto;
+  width: 52px;
 }
-section .2{
-	background-color: black;
+
+body > nav > div.pad{
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
-section .3{
-	background-color: yellow;
+
+body > header#encabezado {
+  background-image: url('../img/header-bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: white;
+  height: 100vh;
+  position: relative;
 }
-section .4{
-	background-color: green;
-}
-section .5{
-	background-color: gray;
+
+@media only screen and (max-width: 1400px) {
+  body > nav > div.pad{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
