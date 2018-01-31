@@ -3431,6 +3431,16 @@ fieldset[disabled] .btn-link:focus {
   color: #777;
   text-decoration: none;
 }
+
+.btn-xl {
+  padding: 20px 40px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 700;
+}
+
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;
@@ -4595,6 +4605,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse {
   /*background-color: #fff;
   border-color: #fff;*/
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
