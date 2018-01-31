@@ -46,23 +46,8 @@ div.secondText {
   padding-bottom: 25px;
 }
 
-<<<<<<< HEAD
-@media only screen and (max-width: 1200px) {
-  div.firstText {
-    padding-top: 300px;
-    font-size: 30px;
-  }
-  div.secondText {
-    font-size: 40px;
-  }
-  body > header#encabezado > div.container > div.introtext > button.btn-xl {
-    padding: 15px 35px;
-    font-size: 16px;
-  }
-}
-
-=======
 div.title {
+  text-align: center;
   padding-top: 120px;
   font-size: 40px;
   font-weight: 700;
@@ -72,7 +57,26 @@ div.title {
 }
 
 div.subtitle {
+  text-align: center;
   font-size: 22px;
+  font-style: italic;
+  font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-bottom: 25px;
+}
+
+div.item-titulo {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 0px;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+div.item-subtitulo {
+  text-align: center;
+  font-size: 12px;
   font-style: italic;
   font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
   padding-bottom: 25px;
@@ -92,7 +96,6 @@ div.subtitle {
   }
 }
 
->>>>>>> b498d54ca5b40b28d9768e562a64d35069eb4121
 @media only screen and (max-width: 352px) {
   div.firstText {
     padding-top: 300px;
