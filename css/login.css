@@ -1,0 +1,10 @@
+body{
+  background-color: red;
+}
+.logindiv{
+  background-color: white;
+  border-radius: 5px;
+  min-height: 450px;
+  padding-top: 30px;
+  display: none;
+}
