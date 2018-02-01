@@ -146,3 +146,11 @@ div.taller-items > img.img-fluid {
     margin: 0px;
   }
 }
+.mapa{
+  min-height: 100vh;
+  padding: 0;
+}
+.extender{
+
+
+}
