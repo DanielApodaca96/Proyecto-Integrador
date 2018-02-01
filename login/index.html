@@ -3,50 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title>Bienvenido</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="./../css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../css/login.css">
   </head>
   <body>
-    <div class="col-md-4 col-md-offset-4 logindiv">
-      <h1>Administrador</h1>
-      <form class="" action="index.html" method="post">
+    <div class="imagen">
+      <img src="../img/familia.jpg" alt="">
+      <div class="col-md-4 col-md-offset-4" id="login">
+          <h1>PANEL</h1>
+          <h2>ADMINISTRADOR</h2>
+          <br>
+          <div class="icono">
+            <i class="glyphicon glyphicon-lock candado"></i>
+          </div>
 
-        <div class="form-group">
-          <label class="sr-only" for="exampleInputAmount"></label>
-            <div class="input-group">
-              <div class="input-group-addon">
+      </div>
+
+      <div class="col-md-4 col-md-offset-4 logindiv">
+        <form class="" action="index.html" method="post">
+            <div class="input-group input-group-lg col-md-10 col-md-offset-1">
+              <span class="input-group-addon" id="sizing-addon1">
                 <i class="glyphicon glyphicon-user"></i>
-              </div>
-                <input type="text" class="form-control" id="exampleInputAmount" >
+              </span>
+              <input type="text" class="form-control" placeholder="Usuario" aria-describedby="sizing-addon1">
             </div>
-        </div>
+            <br>
 
-
-        <div class="form-group lock">
-          <label class="sr-only" for="exampleInputAmount"></label>
-            <div class="input-group">
-              <div class="input-group-addon">
+            <div class="input-group input-group-lg col-md-10 col-md-offset-1">
+              <span class="input-group-addon" id="sizing-addon1">
                 <i class="glyphicon glyphicon-lock"></i>
-              </div>
-                <input type="password" class="form-control" id="exampleInputAmount" >
+              </span>
+              <input type="password" class="form-control" placeholder="Contrasena" aria-describedby="sizing-addon1">
             </div>
-        </div>
+            <br>
 
-        <div class="form-group col-md-6">
-          <label class="sr-only" for="exampleInputAmount"></label>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="glyphicon glyphicon-lock"></i>
-              </div>
-                <input type="password" class="form-control" id="exampleInputAmount" >
+            <button type="button" class="btn btn-default btn-lg col-md-10 col-md-offset-1 btn1" id="">ACEPTAR</button>
+            <div class="diva">
+              <a href="#">Olvidaste tu contrasena?</a>
             </div>
-        </div>
-
-        <button type="button" class="btn btn-default col-md-12" id="">CREATE A FREE ACCOUNT</button>
-      </form>
+        </form>
+      </div>
     </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/bootstrap.js"></script>
+  <script src="../js/animaciones.js"></script>
 </html>
