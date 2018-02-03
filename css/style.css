@@ -61,7 +61,7 @@ div.subtitle {
   font-size: 22px;
   font-style: italic;
   font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
-  padding-bottom: 25px;
+  padding-bottom: 40px;
 }
 
 div.item-titulo {
@@ -148,9 +148,14 @@ div.taller-items > img.img-fluid {
 }
 .mapa{
   min-height: 100vh;
-  padding: 0;
+  padding-left: 0;
 }
-.extender{
-
-
+.container-fluid{
+padding-left: 0;
+}
+#t-area{
+  padding-left: 10px;
+  margin-left: 3.6%;
+  width: 92.4%;
+  margin-top: 15%;
 }
