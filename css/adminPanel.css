@@ -1,0 +1,23 @@
+body > nav.navbar{
+	border-radius: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+body > nav.navbar-inverse{
+	border: none;
+	-webkit-box-shadow: 0px 0px 78px 0px rgba(0,0,0,0.29);
+	-moz-box-shadow: 0px 0px 78px 0px rgba(0,0,0,0.29);
+	box-shadow: 0px 0px 78px 0px rgba(0,0,0,0.29);
+	height: 70px;
+}
+body > nav > div.container-fluid{
+	padding-top: 8px;
+}
+#imglogo{
+    height: 52px;
+}
+
+div.leftPane{
+	background-color: red;
+	height: 100vh;
+}

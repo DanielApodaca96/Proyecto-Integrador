@@ -7,12 +7,12 @@ $(document).ready(function () {
 
   $(window).scroll(function(){
       var posicion=$(window).scrollTop();
-      if ($("#encabezado").height()>posicion) {
+      /*if ($("#encabezado").height()>posicion) {
         var promedio=((posicion*100)/altoDiv)/100;
         $("#nav").css({
           "background-color":"rgba(10,10,10,"+promedio+")"
         });
-    }else{
+      }else{
           $("#nav").css({
             "background-color":"rgba(10,10,10,1)",
             "height":"50px"
@@ -23,9 +23,29 @@ $(document).ready(function () {
             "border-radius":"0"
           }),
           $("#imglogo").css({
-            "width":"35px",
+            "height":"45px",
             "padding-top":"5px"
           });
-    }
+      }*/
+      if ($("#encabezado").height()>posicion) {
+        var promedio=((posicion*100)/altoDiv)/100;
+        $("#nav").css({
+          "background-color":"rgba(10,10,10,"+promedio+")"
+        });
+      }else{
+          $("#nav").css({
+            "background-color":"rgba(10,10,10,1)",
+            "height":"50px"
+          }),
+          $(".navbar").css({
+            "padding-top":"0",
+            "padding-botton":"0",
+            "border-radius":"0"
+          }),
+          $("#imglogo").css({
+            "height":"45px",
+            "padding-top":"5px"
+          });
+      }
   });
 });

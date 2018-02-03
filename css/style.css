@@ -1,6 +1,10 @@
 #imglogo{
   height: auto;
-  width: 52px;
+  height: 52px;
+}
+
+body > nav.navbar{
+	border-radius: 0px;
 }
 
 body > nav > div.pad{
@@ -16,7 +20,7 @@ body > nav > div.pad{
 }
 
 body > header#encabezado {
-  background-image: url('../img/c.jpg');
+  background-image: url('../img/header1.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -127,12 +131,15 @@ div.taller-items  {
   }
 }
 
-@media only screen and (min-width: 768px) {
+
+
+@media only screen and (min-width: 310px) {
   div.taller-items  {
     min-height: 350px;
     margin: 0px;
   }
 }
+
 
 div.taller-items > img.img-fluid {
     vertical-align: middle;
