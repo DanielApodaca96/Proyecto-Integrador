@@ -41,10 +41,10 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-right" id="ul">
-		        <li><a href="#">SERVICIOS</a></li>
+		        <li><a data-easing="easeInOutCubic" href="#talleres">TALLERES</a></li>
 		        <li><a href="#">PORTAFOLIO</a></li>
 		        <li><a href="#">ACERCA DE</a></li>
-		        <li><a href="#">CONTACTO</a></li>
+		        <li><a data-easing="easeInOutCubic" href="#contacto">CONTACTO</a></li>
 		      </ul>
 		    </div>
 		  </div>
@@ -220,7 +220,7 @@
       </div>
 
     </section>
-    <section>
+    <section id="contacto">
       <div class="title">CONTACTO</div>
       <div class="subtitle">Una organizacion unica en la region</div>
       <div class="row extender">
@@ -261,11 +261,19 @@
       </div>
     </footer>
 
+     <script>
+	     var scroll = new SmoothScroll('a[href*="#"]');
+     </script>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/holder.min.js"></script>
     <script src="./js/animaciones.js"></script>
+    <script src="./js/smooth-scroll.min.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
   </body>
 </html>
