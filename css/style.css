@@ -1,3 +1,8 @@
+#midLogo{
+  height: 80px;
+  margin-bottom: 30px;
+}
+
 #imglogo{
   height: auto;
   height: 52px;
@@ -216,8 +221,11 @@ padding-left: 0;
 body > footer{
   margin-top: 30px;
   background-color: #212529;
-  height: 250px;
+  min-height: 350px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
+
 #btnenviar{
   background-color: #353895;
   border-radius: 6px;
@@ -226,7 +234,8 @@ body > footer{
   color: #fff;
 
 }
-div >ul.social-buttons{
-  font-size: 5rem;
-  text-align: center;
+
+.icon-space{
+  height: 40px;
+  margin-top: 30px;
 }
