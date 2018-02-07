@@ -239,18 +239,21 @@ body > footer{
   height: 40px;
   margin-top: 30px;
 }
+.icon-space2{
+  margin-top: 19px;
+}
 section#service{
     background-color: #353895;
 }
 img.tamanio{
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 div.redondear{
   border-radius: 100%;
-  border: solid 4px white;
-  width: 140px;
-  height: 140px;
+  background-color: white;
+  width: 100px;
+  height: 100px;
   display: inline-block;
   margin: 0 auto;
 }
