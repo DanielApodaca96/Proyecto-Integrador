@@ -14,10 +14,19 @@ body > nav > div.container-fluid{
 	padding-top: 8px;
 }
 #imglogo{
-    height: 52px;
+    height: 40px;
+		margin-top: 7%;
 }
 
 div.leftPane{
-	background-color: red;
+	background-color: #353895;
+	height: 70px;
+}
+nav.leftPane2{
 	height: 100vh;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+nav.lista{
+	border-radius: 0px;
 }
