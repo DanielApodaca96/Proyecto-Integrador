@@ -23,10 +23,38 @@ div.leftPane{
 	height: 70px;
 }
 nav.leftPane2{
-	height: 100vh;
+	height: calc(100vh - 70px);
 	padding-left: 0px;
 	padding-right: 0px;
+	background-color: #222;
 }
-nav.lista{
+
+nav.leftPane2 > ul > li > a {
+	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	color: #c1c1c1;
 	border-radius: 0px;
+	transition: all ease .2s;
+	padding: 15px 15px;
+}
+
+nav.leftPane2 > ul > li > a:hover {
+	background-color: #191919;
+}
+
+nav.leftPane2 > ul > li > a:focus {
+	background-color: #3d3c3c;
+}
+
+nav.leftPane2 > .navName {
+	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-weight: bold;
+	color: #c1c1c1;
+	padding-left: 15px;
+	padding-top: 45px;
+	padding-bottom: 10px;
+	font-size: 1.2rem;
+}
+
+i.padRight{
+	padding-right: 15px;
 }
