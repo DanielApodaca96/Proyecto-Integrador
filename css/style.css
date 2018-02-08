@@ -266,3 +266,7 @@ section#contacto > div.container {
 section#mision{
   min-height: 500px;
 }
+
+div.justify{
+  text-align: center;
+}
