@@ -244,6 +244,7 @@ body > footer{
 }
 section#service{
     background-color: #353895;
+    min-height: 440px;
 }
 img.tamanio{
   width: 50px;
@@ -256,4 +257,7 @@ div.redondear{
   height: 100px;
   display: inline-block;
   margin: 0 auto;
+}
+section#mision{
+  min-height: 500px;
 }
