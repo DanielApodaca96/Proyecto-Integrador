@@ -258,6 +258,11 @@ div.redondear{
   display: inline-block;
   margin: 0 auto;
 }
+section#contacto > div.container {
+  padding-left: 0px;
+  margin-left: 0;
+  margin-right: 0;
+}
 section#mision{
   min-height: 500px;
 }

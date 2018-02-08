@@ -8,43 +8,38 @@
         <link rel="stylesheet" href="../css/login.css">
   </head>
   <body>
-    <div class="imagen">
-      <img src="../img/familia.jpg" alt="">
-      <div class="col-md-4 col-md-offset-4" id="login">
-          <h1>PANEL</h1>
-          <h2>ADMINISTRADOR</h2>
-          <br>
-          <div class="icono">
-            <i class="glyphicon glyphicon-lock candado"></i>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 logindiv">
+          <h1 class="inicia-sesion">INICIA SESION</h1>
+          <form class="" action="index.html" method="post">
+              <div class="input-group input-group-lg col-md-10 col-md-offset-1">
+                <input type="text" class="input-style form-control" placeholder="Usuario" aria-describedby="sizing-addon1">
+                <span class="input-style input-group-addon" id="sizing-addon1">
+                  <i class="glyphicon glyphicon-user"></i>
+                </span>
+              </div>
+              <br>
 
+              <div class="input-group input-group-lg col-md-10 col-md-offset-1">
+                <input type="password" class="input-style form-control" placeholder="Contrasena" aria-describedby="sizing-addon1">
+                <span class="input-group-addon input-style" id="sizing-addon1">
+                  <i class="glyphicon glyphicon-lock"></i>
+                </span>
+              </div>
+              <br>
+
+              <button type="button" class="btn btn-default btn-lg col-md-10 col-md-offset-1 btn1" id="">ACEPTAR</button>
+              <div class="diva">
+                <a href="#">Olvidaste tu contrasena?</a>
+              </div>
+          </form>
+        </div>
       </div>
 
-      <div class="col-md-4 col-md-offset-4 logindiv">
-        <form class="" action="index.html" method="post">
-            <div class="input-group input-group-lg col-md-10 col-md-offset-1">
-              <span class="input-group-addon" id="sizing-addon1">
-                <i class="glyphicon glyphicon-user"></i>
-              </span>
-              <input type="text" class="form-control" placeholder="Usuario" aria-describedby="sizing-addon1">
-            </div>
-            <br>
-
-            <div class="input-group input-group-lg col-md-10 col-md-offset-1">
-              <span class="input-group-addon" id="sizing-addon1">
-                <i class="glyphicon glyphicon-lock"></i>
-              </span>
-              <input type="password" class="form-control" placeholder="Contrasena" aria-describedby="sizing-addon1">
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-default btn-lg col-md-10 col-md-offset-1 btn1" id="">ACEPTAR</button>
-            <div class="diva">
-              <a href="#">Olvidaste tu contrasena?</a>
-            </div>
-        </form>
       </div>
     </div>
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
