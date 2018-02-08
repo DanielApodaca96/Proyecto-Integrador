@@ -28,17 +28,17 @@ $(document).ready(function () {
             "padding-top":"5px"
           });
       }*/
-      if ($("#nav").height()<posicion) {
+      if ($(document).height()>posicion) {
         var promedio=((posicion*100)/altoDiv)/100;
         console.log(promedio);
         $("#nav").css({
           "background-color":"rgba( 33,37,41,"+promedio+")"
         });
-      }else{
-        $("#nav").animate({
-          height: '50px',
-          opacity: '2px'
-        }),
+        if(promedio>=0.1){
+          $("#nav").animate({
+            height: '50px',
+            opacity: '2px'
+          }),
           $(".navbar").css({
             "padding-top":"0",
             "padding-botton":"0",
@@ -47,6 +47,7 @@ $(document).ready(function () {
           $("#imglogo").animate({
             height:'45px'
           });
+        }
       }
   });
 });
