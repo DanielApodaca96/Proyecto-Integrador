@@ -16,6 +16,7 @@
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -69,7 +70,7 @@
   <ul class="nav nav-pills nav-stacked">
     <li role="presentation"><a href="#"><i class="fas fa-home padRight"></i>Inicio</a></li>
     <li role="presentation"><a href="#"><i class="fas fa-users padRight"></i>Grupos</a></li>
-    <li role="presentation"><a href="#"><i class="fas fa-book padRight"></i>Talleres</a></li>
+    <li role="presentation"><a href="./talleres.html"><i class="fas fa-book padRight"></i>Talleres</a></li>
     <li role="presentation"><a href="#"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>
 
@@ -81,15 +82,13 @@
 </nav>
 
 <!--------------------------------- CHART.JS -------------------------->
-<div class="container col-md-3">
+<div class="container">
   <div class="row">
-    <div id="canvas-container">
-      <canvas id="chart" width="500" height="350"></canvas>
+    <div id="canvas-container col-md-10">
+      <canvas id="chart"></canvas>
     </div>
   </div>
 </div>
-
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -164,6 +163,8 @@
     });
     </script>
 
+
+    </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
   </body>
