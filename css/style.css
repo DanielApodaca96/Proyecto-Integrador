@@ -293,3 +293,20 @@ div.justify{
   text-align: center;
   font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
+section.logros{
+  background-color: #353895;
+  min-height: 400px;
+}
+div.logro{
+  min-height: 100px;
+
+}
+div.logro > div.numeros{
+  margin: 0 auto;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 6rem;
+  color: white;
+
+}
