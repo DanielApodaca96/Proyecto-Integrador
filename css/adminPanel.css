@@ -7,7 +7,6 @@ div.title {
   margin-bottom: 0px;
   font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
-
 div.subtitle {
   text-align: center;
   font-size: 22px;
@@ -15,7 +14,6 @@ div.subtitle {
   font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
   padding-bottom: 50px;
 }
-
 body > nav.navbar{
 	border-radius: 0px;
 	padding: 0px;
