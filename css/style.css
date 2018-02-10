@@ -1,3 +1,39 @@
+.white{
+  color: white;
+}
+
+.txtcenter{
+  text-align: center;
+}
+
+.txtcenter-sans{
+  text-align: center;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 550;
+}
+
+.sans{
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.font-label{
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px !important;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+}
+
+.focus{
+  outline: none;
+}
+div.modal-des{
+  padding-top:20px !important; font-size:25px !important;
+}
+.modal-text{
+  margin-top: 14px;
+}
+
 #midLogo{
   height: 80px;
   margin-bottom: 30px;
@@ -219,7 +255,6 @@ div.item-icon {
   min-height: 100vh;
   padding-left: 0;
   padding-right: 0;
-  box-shadow: 0px 0px 15px black;
 }
 .container-fluid{
 padding-left: 0;
@@ -230,7 +265,6 @@ padding-left: 0;
 }
 
 body > footer{
-  margin-top: 30px;
   background-color: #212529;
   min-height: 350px;
   padding-top: 40px;
@@ -286,12 +320,12 @@ section#mision{
 }
 button.btnradius{
   border-radius: 300px;
-  margin-bottom: 60px;
+  margin-bottom: 90px;
 }
 
 div.justify{
   text-align: center;
-  font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 section.logros{
   background-color: #353895;
@@ -308,5 +342,8 @@ div.logro > div.numeros{
   text-align: center;
   font-size: 6rem;
   color: white;
+}
 
+textarea#t-area{
+  height: 80px;
 }
