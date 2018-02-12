@@ -64,104 +64,73 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
 <nav class="col-md-2 col-sm-3 leftPane2">
+
   <div class="navName">MENU</div>
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><a href="#"><i class="fas fa-home padRight"></i>Inicio</a></li>
+    <li role="presentation"><a href="./index.html"><i class="fas fa-home padRight"></i>Inicio</a></li>
     <li role="presentation"><a href="#"><i class="fas fa-users padRight"></i>Grupos</a></li>
-    <li role="presentation"><a href="./talleres.html"><i class="fas fa-book padRight"></i>Talleres</a></li>
-    <li role="presentation"><a href="#"><i class="fas fa-user padRight"></i>Alumnos</a></li>
+    <li role="presentation"><a href="#"><i class="fas fa-book padRight"></i>Talleres</a></li>
+    <li role="presentation"><a href="./alumnos.html"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>
 
   <div class="navName">ADMINISTRACION</div>
   <ul class="nav nav-pills nav-stacked">
     <li role="presentation"><a href="#"><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
-    <li role="presentation"><a href="./usuarios.html"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
+    <li role="presentation"><a href="#"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
   </ul>
 </nav>
 
-<div class="container">
+<div class="title" style="text-align: center; padding-top:110px;">Talleres</div>
+<div class="subtitle" style="text-align: center">Informacion acerca de todos nuestros talleres</div>
+
+<div class="container-fluid">
   <div class="row">
-    <!--------------------------------- CHART.JS -------------------------->
-    <div id="canvas-container" class="col-md-6">
-      <canvas id="chart"></canvas>
+      <div class="col-lg-4 col-lg-offset-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    <div class="table-responsive col-md-10" style="padding-left:80px; padding-right:80px;">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Tipo de usuario</th>
+            <th>Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <th>Lorenzo Arredondo Dominguez</th>
+            <th>Administrador</th>
+            <th>Lorenzo@gmail.com</th>
+            <th><form class="" action="#" method="post">
+              <button type="submit" name="btnimprimir">
+                <i class="glyphicon glyphicon-print"></i>
+              </button>
+            </form> </th>
+            <th><form class="" action="#" method="post">
+              <button type="submit" name="btneditar">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </button>
+            </form> </th>
+            <th><form class="" action="#" method="post">
+              <button type="submit" name="btnborrar">
+                <i class="glyphicon glyphicon-trash"></i>
+              </button>
+            </form> </th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../js/Chart.bundle.min.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function(){
-
-    	var datos = {
-    		labels : ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
-    		datasets : [{
-    			label : "datos 1",
-    			borderColor : "rgba(220,220,220,1)",
-    			data : [4, 12, 9, 7, 5]
-    		},
-    		{
-
-    			label : "datos 2",
-    			borderColor : "rgba(151,187,205,1)",
-    			data : [10,7,-5,6,5]
-    		},
-    		{
-    			label : "datos 3",
-    			borderColor : "rgba(151,100,205,1)",
-    			data : [9,6,15,6,17]
-    		}
-    		]
-    	};
-
-    	var canvas = document.getElementById('chart').getContext('2d');
-    	window.bar = new Chart(canvas, {
-    		type : "line",
-    		data : datos,
-    		options : {
-    			elements : {
-    				rectangle : {
-    					borderWidth : 1,
-    					borderColor : "rgb(0,255,0)",
-    					borderSkipped : 'bottom'
-    				}
-    			},
-    			responsive : true,
-    			title : {
-    				display : true,
-    				text : "Prueba de grafico de barras"
-    			}
-    		}
-    	});
-
-    	setInterval(function(){
-    		var newData = [
-    			[getRandom(),getRandom(),getRandom(),getRandom()*-1,getRandom()],
-    			[getRandom(),getRandom(),getRandom(),getRandom(),getRandom()],
-    			[getRandom(),getRandom(),getRandom(),getRandom(),getRandom()],
-    		];
-
-    		$.each(datos.datasets, function(i, dataset){
-    			dataset.data = newData[i];
-    		});
-    		window.bar.update();
-    	}, 5000);
-
-
-
-
-    	function getRandom(){
-    		return Math.round(Math.random() * 100);
-    	}
-
-
-    });
-    </script>
-
 
     </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

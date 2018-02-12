@@ -210,7 +210,40 @@ div.taller-items  {
     margin: 0px;
   }
 }
+@media screen and (min-width: 280px) and (max-width:480px){
+  div.firstText {
+    padding-top: 65%;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 0px;
+    font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
 
+  div.secondText {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding-bottom:15%;
+    text-transform: uppercase;
+  }
+  #nav{
+    background-color:rgba( 33,37,41,0.9);
+
+  }
+  section#contacto{
+    height: 920px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width:768px){
+  #nav{
+    background-color:rgba( 33,37,41,0.9);
+
+  }
+  section#contacto{
+    height: 920px;
+  }
+}
 
 img.img-fluid {
     vertical-align: middle;
