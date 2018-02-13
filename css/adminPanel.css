@@ -18,12 +18,14 @@ body > nav.navbar{
 	border-radius: 0px;
 	padding: 0px;
 	margin: 0px;
+  background-color: #fff;
+  margin-left: 250px;
 }
 body > nav.navbar-inverse{
 	border: none;
-	-webkit-box-shadow: 0px 0px 78px 0px rgba(0,0,0,0.20);
-	-moz-box-shadow: 0px 0px 78px 0px rgba(0,0,0,0.20);
-	box-shadow: 0px 0px 78px 0px rgba(0,0,0,0.20);
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
 	height: 70px;
 }
 body > nav > div.container-fluid{
@@ -31,18 +33,24 @@ body > nav > div.container-fluid{
 }
 #imglogo{
     height: 40px;
-		margin-top: 7%;
+		margin-top: 10%;
+    margin-bottom: 20%;
 }
 
-div.leftPane{
-	background-color: #353895;
-	height: 70px;
-}
 nav.leftPane2{
-	height: calc(100vh - 70px);
+  height: 100vh;
+  position: fixed;
+	/*height: calc(100vh - 70px);*/
 	padding-left: 0px;
 	padding-right: 0px;
 	background-color: #222;
+}
+
+@media (min-width: 768px){
+  .sidebar {
+      z-index: 1;
+      width: 250px;
+  }
 }
 
 nav.leftPane2 > ul > li > a {
@@ -73,4 +81,8 @@ nav.leftPane2 > .navName {
 
 i.padRight{
 	padding-right: 15px;
+}
+
+div.wrap{
+  margin-left: 250px;
 }

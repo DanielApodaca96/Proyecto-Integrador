@@ -30,10 +30,7 @@
     <![endif]-->
   </head>
   <body>
-    <div class="col-md-2 col-sm-3 leftPane">
-      <img id="imglogo" alt="ONEAMI Escuela para Padres" src="../img/icons/oneamiName.svg">
-    </div>
-  <nav class="navbar navbar-inverse nav col-md-10 col-md-offset-2">
+  <nav class="navbar navbar-inverse col-md-10 col-sm-10 col-xs-10">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header col-md-4">
@@ -48,6 +45,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
@@ -65,13 +63,13 @@
   </div><!-- /.container-fluid -->
 </nav>
 <nav class="col-md-2 col-sm-3 leftPane2">
-
+  <img  class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="imglogo" alt="ONEAMI Escuela para Padres" src="../img/icons/OneamiLogoWhite.svg">
   <div class="navName">MENU</div>
   <ul class="nav nav-pills nav-stacked">
     <li role="presentation"><a href="./index.html"><i class="fas fa-home padRight"></i>Inicio</a></li>
     <li role="presentation"><a href="#"><i class="fas fa-users padRight"></i>Grupos</a></li>
     <li role="presentation"><a href="#"><i class="fas fa-book padRight"></i>Talleres</a></li>
-    <li role="presentation"><a href="./alumnos.html"><i class="fas fa-user padRight"></i>Alumnos</a></li>
+    <li role="presentation"><a href="#"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>
 
   <div class="navName">ADMINISTRACION</div>
@@ -81,13 +79,11 @@
   </ul>
 </nav>
 
-<div class="title" style="text-align: center; padding-top:110px;">Talleres</div>
-<div class="subtitle" style="text-align: center">Informacion acerca de todos nuestros talleres</div>
-
-
-
-
-<div class="container-fluid">
+<div class="container-fluid wrap">
+  <div class="row">
+    <div class="title" style="text-align: center; padding-top:110px;">Talleres</div>
+    <div class="subtitle" style="text-align: center">Informacion acerca de todos nuestros talleres</div>
+  </div>
   <div class="row">
     <div class="col-lg-4 col-lg-offset-3">
       <div class="input-group">
@@ -97,84 +93,86 @@
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
-    <div class="table-responsive col-md-10" style="padding-left:80px; padding-right:80px;">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Instructor</th>
-            <th>Descripcion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-            <th><form class="" action="#" method="post">
-              <button type="submit" name="btnimprimir">
-                <i class="glyphicon glyphicon-print"></i>
-              </button>
-            </form> </th>
-            <th><form class="" action="#" method="post">
-              <button type="submit" name="btneditar">
-                <i class="glyphicon glyphicon-pencil"></i>
-              </button>
-            </form> </th>
-            <th><form class="" action="#" method="post">
-              <button type="submit" name="btnborrar">
-                <i class="glyphicon glyphicon-trash"></i>
-              </button>
-            </form> </th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>Educacion Sexual</th>
-            <th>Daniel Apodaca</th>
-            <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
+    <div class="row">
+      <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Instructor</th>
+              <th>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+              <th><form class="" action="#" method="post">
+                <button type="submit" name="btnimprimir">
+                  <i class="glyphicon glyphicon-print"></i>
+                </button>
+              </form> </th>
+              <th><form class="" action="#" method="post">
+                <button type="submit" name="btneditar">
+                  <i class="glyphicon glyphicon-pencil"></i>
+                </button>
+              </form> </th>
+              <th><form class="" action="#" method="post">
+                <button type="submit" name="btnborrar">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </button>
+              </form> </th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <th>Educacion Sexual</th>
+              <th>Daniel Apodaca</th>
+              <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>
 
     </script>
