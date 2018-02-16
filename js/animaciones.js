@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   if(promedio>=0.1){
     $("#nav").animate({
-      height: '50px',
+      minHeight: '50px',
       opacity: '2px'
     }),
     $(".navbar").css({
@@ -19,7 +19,7 @@ $(document).ready(function () {
       "border-radius":"0"
     }),
     $("#imglogo").animate({
-      height:'45px'
+      minHeight:'45px'
     }),
     $("#nav").css({
       "background-color":"rgba( 33,37,41,"+promedio+")"
@@ -35,7 +35,7 @@ $(document).ready(function () {
         });
         if(promedio>=0.1){
           $("#nav").animate({
-            height: '50px',
+            minHeight: '50px',
             opacity: '2px'
           }),
           $(".navbar").css({
@@ -44,7 +44,7 @@ $(document).ready(function () {
             "border-radius":"0"
           }),
           $("#imglogo").animate({
-            height:'45px'
+            minHeight:'45px'
           });
         }
       }
@@ -59,7 +59,7 @@ $(document).ready(function () {
 
         if(promedio>=0.1){
           $("#nav").animate({
-            height: '50px',
+            minHeight: '50px',
             opacity: '2px'
           }),
           $(".navbar").css({
@@ -68,7 +68,7 @@ $(document).ready(function () {
             "border-radius":"0"
           }),
           $("#imglogo").animate({
-            height:'45px'
+            minHeight:'45px'
           }),
           $("#nav").css({
             "background-color":"rgba( 33,37,41,"+promedio+")"
@@ -84,7 +84,7 @@ $(document).ready(function () {
               });
               if(promedio>=0.1){
                 $("#nav").animate({
-                  height: '50px',
+                  minHeight: '50px',
                   opacity: '2px'
                 }),
                 $(".navbar").css({
@@ -93,7 +93,7 @@ $(document).ready(function () {
                   "border-radius":"0"
                 }),
                 $("#imglogo").animate({
-                  height:'45px'
+                  minHeight:'45px'
                 });
               }
             }
