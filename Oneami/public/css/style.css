@@ -1,0 +1,382 @@
+.white{
+  color: white;
+}
+
+.txtcenter{
+  text-align: center;
+}
+
+.txtcenter-sans{
+  text-align: center;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 550;
+}
+
+.sans{
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.font-label{
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px !important;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+}
+
+.focus{
+  outline: none;
+}
+div.modal-des{
+  padding-top:20px !important; font-size:25px !important;
+}
+.modal-text{
+  margin-top: 14px;
+}
+
+#midLogo{
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+#imglogo{
+  height: auto;
+  height: 52px;
+}
+
+div.move {
+  top: 0;
+}
+
+body > nav.navbar{
+	border-radius: 0px;
+}
+
+body > nav > div.pad{
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+@media only screen and (max-width: 1400px) {
+  body > nav > div.pad{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+div.first-slide {
+    background-image: url('../img/header1.jpg');
+}
+
+div.second-slide {
+    background-image: url('../img/header2.jpg');
+}
+
+div.third-slide {
+    background-image: url('../img/header3.jpg');
+}
+
+div.responsive-img {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: white;
+  height: 100vh;
+  position: relative;
+}
+
+div.firstText {
+  padding-top: 30%;
+  font-size: 40px;
+  font-style: italic;
+  line-height: 40px;
+  margin-bottom: 0px;
+  font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+div.secondText {
+  font-size: 60px;
+  font-weight: 700;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-bottom: 25px;
+  text-transform: uppercase;
+}
+
+div.title {
+  text-align: center;
+  padding-top: 80px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 0px;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+div.subtitle {
+  text-align: center;
+  font-size: 22px;
+  font-style: italic;
+  font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-bottom: 50px;
+}
+
+div.item-titulo {
+  text-align: center;
+  max-width: 400px;
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+div.item-titulobigger {
+  text-align: center;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 23px;
+  font-weight: 700;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+div.item-subtitulo {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-bottom: 25px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  div.firstText {
+    padding-top: 300px;
+    font-size: 30px;
+  }
+  div.secondText {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 352px) {
+  div.firstText {
+    padding-top: 300px;
+    font-size: 25px;
+  }
+  div.secondText {
+    font-size: 30px;
+  }
+}
+div.taller-items  {
+  min-height: 280px;
+  margin: 0px;
+}
+
+@media only screen and (min-width: 1200px) {
+  div.item-titulo {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  div.item-titulo {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:991px){
+  div.taller-items  {
+    min-height: 360px;
+    margin: 0px;
+  }
+}
+
+@media screen and (min-width:450px) and (max-width:767px){
+  div.taller-items  {
+    min-height: 400px;
+    margin: 0px;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width:449px){
+  div.taller-items  {
+    min-height: 320px;
+    margin: 0px;
+  }
+}
+@media screen and (min-width: 280px) and (max-width:480px){
+  div.firstText {
+    padding-top: 65%;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 0px;
+    font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+
+  div.secondText {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding-bottom:15%;
+    text-transform: uppercase;
+  }
+  #nav{
+    background-color:rgba( 33,37,41,0.9);
+
+  }
+  section#contacto{
+    height: 920px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width:768px){
+  #nav{
+    background-color:rgba( 33,37,41,0.9);
+
+  }
+  section#contacto{
+    height: 920px;
+  }
+}
+
+img.img-fluid {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 100%;
+    height: auto;
+}
+/*************************************/
+a.item-link {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+div.item-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all ease .5s;
+  opacity: 0;
+  background-color: #353895;
+}
+
+div.item-hover:hover {
+  opacity: 0.7;
+}
+
+div.item-icon {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 40px;
+  margin-top: -20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/*************************************/
+.mapa{
+  min-height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+}
+.container-fluid{
+padding-left: 0;
+}
+#t-area{
+  padding-left: 10px;
+  margin-left: 0.5px;
+}
+
+body > footer{
+  background-color: #212529;
+  min-height: 350px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#btnenviar{
+  background-color: #353895;
+  border-radius: 6px;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  color: #fff;
+
+}
+
+.icon-space{
+  height: 40px;
+  margin-top: 30px;
+}
+.icon-space2{
+  margin-top: 25px;
+}
+section#service{
+    background-color: #353895;
+    padding-bottom:100px;
+}
+div.ser{
+  margin-bottom: 50px;
+}
+img.tamanio{
+  width: 50px;
+  height: 50px;
+}
+div.redondear{
+  border-radius: 100%;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 0 auto;
+}
+section#contacto > div.container {
+  padding-left: 0px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+section#contacto > div.container > div.row > div.mapa{
+  padding: 0px;
+}
+section#mision{
+  min-height: 500px;
+}
+button.btnradius{
+  border-radius: 300px;
+  margin-bottom: 90px;
+}
+
+div.justify{
+  text-align: center;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+section.logros{
+  background-color: #353895;
+  min-height: 400px;
+}
+div.logro{
+  min-height: 100px;
+
+}
+div.logro > div.numeros{
+  margin: 0 auto;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 6rem;
+  color: white;
+}
+
+textarea#t-area{
+  height: 80px;
+}

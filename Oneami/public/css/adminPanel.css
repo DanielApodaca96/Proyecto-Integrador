@@ -1,0 +1,88 @@
+div.title {
+  text-align: center;
+  padding-top: 80px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 0px;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+div.subtitle {
+  text-align: center;
+  font-size: 22px;
+  font-style: italic;
+  font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-bottom: 50px;
+}
+body > nav.navbar{
+	border-radius: 0px;
+	padding: 0px;
+	margin: 0px;
+  background-color: #fff;
+  margin-left: 250px;
+}
+body > nav.navbar-inverse{
+	border: none;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
+	height: 70px;
+}
+body > nav > div.container-fluid{
+	padding-top: 8px;
+}
+#imglogo{
+    height: 40px;
+		margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+nav.leftPane2{
+  height: 100vh;
+  position: fixed;
+	/*height: calc(100vh - 70px);*/
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: #222;
+}
+
+@media (min-width: 768px){
+  .sidebar {
+      z-index: 1;
+      width: 250px;
+  }
+}
+
+nav.leftPane2 > ul > li > a {
+	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	color: #c1c1c1;
+	border-radius: 0px;
+	transition: all ease .2s;
+	padding: 15px 15px;
+}
+
+nav.leftPane2 > ul > li > a:hover {
+	background-color: #191919;
+}
+
+nav.leftPane2 > ul > li > a:focus {
+	background-color: #3d3c3c;
+}
+
+nav.leftPane2 > .navName {
+	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-weight: bold;
+	color: #c1c1c1;
+	padding-left: 15px;
+	padding-top: 45px;
+	padding-bottom: 10px;
+	font-size: 1.2rem;
+}
+
+i.padRight{
+	padding-right: 15px;
+}
+
+div.wrap{
+  margin-left: 250px;
+}

@@ -1,0 +1,68 @@
+body{
+overflow: hidden;
+height: 100vh;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,353895+100 */
+background-image: url("../img/icons/circles-light.png");
+}
+
+#midLogo{
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.inicia-sesion{
+  font-size: 1.5rem;
+  color: #353895;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 2rem;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 992px){
+  .inicia-sesion {
+      margin-left: 8.33333333%;
+  }
+}
+.input-style{
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  border: none;
+  border-bottom: 1px solid #353895;
+  border-radius: 0px !important;
+  background-color: transparent;
+  font-size: 1.3rem !important;
+  font-weight: 500;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  box-shadow: none;
+  outline: none;
+}
+.input-style:placeholder{
+
+}
+
+.container > .input.form-control:focus {
+  outline: none !important;
+}
+.logindiv{
+  padding-top: 30px;
+  background-color: white;
+  border-radius: 5px;
+  top: 26vh;
+}
+#boton {
+  border-radius: 0px;
+  background-color: #353895;
+  border: none;
+  color: white;
+  margin-bottom: 10px;
+}
+.diva{
+  padding-right: 25px;
+  text-align: right;
+  margin-bottom: 55px;
+}
+
+i.glyphicon{
+  color: #ccc;
+}
