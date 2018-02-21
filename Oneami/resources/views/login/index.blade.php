@@ -5,7 +5,7 @@
     <title>Bienvenido</title>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="./../css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
   </head>
   <body>
     <div class="container">

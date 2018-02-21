@@ -1,6 +1,7 @@
 var bandera=true;
 var altoDiv;
 $(document).ready(function () {
+  alert("este si jala");
     $("#login").fadeIn(1000);
     $(".logindiv").fadeIn(1000);
     altoDiv=$("#myCarousel").height();

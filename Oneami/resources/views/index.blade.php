@@ -15,12 +15,12 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./img/icons/favicon.png" />
+    <link rel="icon" type="image/png" href="{{ asset('img/icons/favicon.png') }}" />
     <!-- Estilos -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Bootstrap -->
-    <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/carousel.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,7 +42,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/icons/OneamiLogoBlack.svg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/icons/OneamiLogoBlack.svg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">BIENVENIDO</div>
@@ -64,7 +64,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <img id="imglogo" alt="ONEAMI Escuela para Padres" src="./img/icons/OneamiLogoWhite.svg">
+		      <img id="imglogo" alt="ONEAMI Escuela para Padres" src="{{ asset('img/icons/OneamiLogoWhite.svg') }}">
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-right" id="ul">
@@ -161,7 +161,7 @@
 
               <div class="col-md-4 col-lg-4 ser animateme scrollme" data-when="enter" data-from="0.9" data-to="0" data-crop="false" data-opacity="0" data-translatey="200" style="opacity: 1; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
                 <div class="redondear">
-                    <img class="icon-space2 tamanio" src="./img/icons/platica.svg" alt="">
+                    <img class="icon-space2 tamanio" src="{{ asset('img/icons/platica.svg') }}" alt="">
                 </div><br>
                 <div class="item-titulobigger">PlÁticas</div>
                 <div class="justify"> Reuniones de expertos que debaten <br> sobre un tema o el intercambio de opiniones <br>en el marco de una conferencia.</div>
@@ -169,7 +169,7 @@
 
               <div class="col-md-4 col-lg-4 ser animateme scrollme" data-when="enter" data-from="0.7" data-to="0" data-crop="false" data-opacity="0" data-translatey="200" style="opacity: 1; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
                 <div class="redondear">
-                    <img class="icon-space2 tamanio" src="./img/icons/workshop.svg" alt="">
+                    <img class="icon-space2 tamanio" src="{{ asset('img/icons/workshop.svg') }}" alt="">
                 </div><br>
                 <div class="item-titulobigger">Talleres</div>
                   <div class="justify"> Metodologías de enseñanza que combina <br> la teoría y la práctica. Permiten el desarrollo<br> del trabajo en equipo. </div>
@@ -177,7 +177,7 @@
 
               <div class="col-md-4 col-lg-4 ser animateme scrollme" data-when="enter" data-from="0.5" data-to="0" data-crop="false" data-opacity="0" data-translatey="200" style="opacity: 1; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
                 <div class="redondear">
-                  <img class="icon-space2 tamanio" src="./img/icons/family.svg" alt="">
+                  <img class="icon-space2 tamanio" src="{{ asset('img/icons/family.svg') }}" alt="">
                 </div><br>
                 <div class="item-titulobigger">Orientaciones Familiares</div>
                   <div class="justify">Técnicas y prácticas profesionales <br> dirigidas a fortalecer las capacidades y los vínculos <br> que unen a los miembros de una familia.</div>
@@ -201,7 +201,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/EducacionAdultos.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/EducacionAdultos.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">EducaciÓn continua y compartida de adultos</div>
@@ -215,7 +215,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/CrecimientoPersonal.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/CrecimientoPersonal.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">Crecimiento personal</div>
@@ -228,7 +228,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/EducacionSexual.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/EducacionSexual.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">EducaciÓn sexual</div>
@@ -241,7 +241,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/Paz.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/Paz.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">Construyamos un mundo de paz</div>
@@ -254,7 +254,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/Estres.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/Estres.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">Domina el manejo del estrés</div>
@@ -267,7 +267,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/Eficaces.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/Eficaces.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">Padres eficaces con entrenamiento sistemÁtico</div>
@@ -280,7 +280,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/Valores.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/Valores.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">Domina los valores</div>
@@ -293,7 +293,7 @@
                       <i class="glyphicon glyphicon-plus"></i>
                     </div>
                   </div>
-                  <img class="img-fluid" src="./img/talleres/Optimismo.jpg" alt="">
+                  <img class="img-fluid" src="{{ asset('img/talleres/Optimismo.jpg') }}" alt="">
                 </a>
                 <div class="taller-frase">
                   <div class="item-titulo">Domina el optimismo</div>
@@ -315,7 +315,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/EducacionAdultos.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/EducacionAdultos.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -339,7 +339,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/CrecimientoPersonal.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/CrecimientoPersonal.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -363,7 +363,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/EducacionSexual.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/EducacionSexual.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -387,7 +387,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/Paz.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/Paz.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -411,7 +411,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/Estres.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/Estres.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -435,7 +435,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/Eficaces.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/Eficaces.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -459,7 +459,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/Valores.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/Valores.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -483,7 +483,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <img class="img-fluid col-md-8 col-md-offset-2" src="./img/talleres/Optimismo.jpg" alt="">
+              <img class="img-fluid col-md-8 col-md-offset-2" src="{{ asset('img/talleres/Optimismo.jpg') }}" alt="">
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
@@ -567,14 +567,14 @@
         <div class="container-fluid">
           <div class="row">
            <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3" style="text-align:center;color: gray;">
-             <img id="midLogo" src="./img/icons/OneamiMid.svg" alt=""><br>
+             <img id="midLogo" src="{{ asset('img/icons/OneamiMid.svg') }}" alt=""><br>
              Pablo VI No. 1430 Fraccionamiento Juan Pablo II C.P. 31704 <br>
              <b>Nuevo Casas Grandes, Chihuahua</b><br>
              <div class="col-md-4">
-               <a target="_blank" href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"> <img class="icon-space" src="./img/icons/fb.svg" alt=""><br>Oneami escuela para padres</a>
+               <a target="_blank" href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"> <img class="icon-space" src="{{ asset('img/icons/fb.svg') }}" alt=""><br>Oneami escuela para padres</a>
              </div>
-             <div class="col-md-4"><img class="icon-space" src="./img/icons/phone.svg" alt=""><br>(636)-694-95-00</div>
-             <div class="col-md-4"><img class="icon-space" src="./img/icons/arroba.svg" alt=""><br>contacto@oneami.com</div>
+             <div class="col-md-4"><img class="icon-space" src="{{ asset('img/icons/phone.svg') }}" alt=""><br>(636)-694-95-00</div>
+             <div class="col-md-4"><img class="icon-space" src="{{ asset('img/icons/arroba.svg') }}" alt=""><br>contacto@oneami.com</div>
 
 
            </div>
@@ -583,22 +583,17 @@
       </footer>
 
 
-
-     <script>
-	     var scroll = new SmoothScroll('a[href*="#"]');
-     </script>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/holder.min.js"></script>
-    <script src="./js/animaciones.js"></script>
-    <script src="./js/smooth-scroll.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/holder.min.js') }}"></script>
+    <script src="{{ asset('js/animaciones.js') }}"></script>
+    <script src="{{ asset('js/smooth-scroll.min.js') }}"></script>
     <script>
       var scroll = new SmoothScroll('a[href*="#"]');
     </script>
-    <script src="./js/jquery.scrollme.min.js"></script>
+    <script src="{{ asset('js/jquery.scrollme.min.js') }}"></script>
     <script type="text/javascript">
       $(window).on('load',function(){
           $('#myModal').modal('show');
