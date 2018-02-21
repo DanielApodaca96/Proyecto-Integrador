@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/login', function() {
+    return view('login.index');
+});
+
+Route::get('/panel-de-administracion', function() {
+    return view('admin.index');
+});
+
+
+Route::get('/panel-de-administracion/grupos', function() {
+    return view('admin.grupos');
+});
+
+Route::get('/panel-de-administracion/talleres', function() {
+    return view('admin.talleres');
 });
