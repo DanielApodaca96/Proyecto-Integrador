@@ -31,3 +31,6 @@ Route::get('/panel-de-administracion/grupos', function() {
 Route::get('/panel-de-administracion/talleres', function() {
     return view('admin.talleres');
 });
+Route::get('/panel-de-administracion/metas', function() {
+    return view('admin.metas');
+});

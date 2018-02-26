@@ -76,8 +76,9 @@
       </ul>
     </nav>
 
-    <div class="container wrap">
+    <div class="container col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-lg-10 col-lg-offset-2">
       @yield('contenido')
+      @yield('metas')
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -86,5 +87,6 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     @yield('scripts')
+    @yield('script-porcentajes')
   </body>
 </html>

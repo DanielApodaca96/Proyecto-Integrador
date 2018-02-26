@@ -1,6 +1,6 @@
 div.title {
   text-align: center;
-  padding-top: 80px;
+  padding-top: 30px;
   font-size: 40px;
   font-weight: 700;
   line-height: 40px;
@@ -19,7 +19,7 @@ body > nav.navbar{
 	padding: 0px;
 	margin: 0px;
   background-color: #fff;
-  margin-left: 250px;
+  margin-left: 226px;
 }
 body > nav.navbar-inverse{
 	border: none;
@@ -85,4 +85,19 @@ i.padRight{
 
 div.wrap{
   margin-left: 250px;
+}
+div > button.combo{
+  width: 100%;
+
+}
+div > ul.menu{
+  width: 100%;
+  text-align: center;
+}
+.loader3{
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 67px;
+  margin-top: 15%;
+
 }
