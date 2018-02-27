@@ -19,9 +19,7 @@ body > nav.navbar{
 	padding: 0px;
 	margin: 0px;
   background-color: #fff;
-  width: 100%;
-  position: fixed;
-  z-index: 1000;
+  margin-left: 226px;
 }
 body > nav.navbar-inverse{
 	border: none;
@@ -45,27 +43,26 @@ nav.leftPane2{
 	/*height: calc(100vh - 70px);*/
 	padding-left: 0px;
 	padding-right: 0px;
-	background-color: #F5F5F5;
+	background-color: #222;
 }
 
 @media (min-width: 768px){
   .sidebar {
       z-index: 1;
       width: 250px;
-  }
+  
 }
 
 nav.leftPane2 > ul > li > a {
 	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-weight: 600;
-	color: #888888;
+	color: #c1c1c1;
 	border-radius: 0px;
 	transition: all ease .2s;
 	padding: 15px 15px;
 }
 
 nav.leftPane2 > ul > li > a:hover {
-	background-color: #EBEBEB;
+	background-color: #191919;
 }
 
 nav.leftPane2 > ul > li > a:focus {
@@ -75,7 +72,7 @@ nav.leftPane2 > ul > li > a:focus {
 nav.leftPane2 > .navName {
 	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
 	font-weight: bold;
-	color: #1F1818;
+	color: #c1c1c1;
 	padding-left: 15px;
 	padding-top: 45px;
 	padding-bottom: 10px;

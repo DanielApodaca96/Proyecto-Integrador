@@ -1,4 +1,23 @@
-<nav class="navbar navbar-inverse col-md-10 col-sm-10 col-xs-10">
+
+<nav class="navbar-default sidebar leftPane2 col-md-2">
+  <img class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="imglogo" alt="ONEAMI Escuela para Padres" src="../img/icons/OneamiLogoWhite.svg">
+  <div class="navName">MENU</div>
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="{{ url('/panel-de-administracion') }}"><i class="fas fa-home padRight"></i>Inicio</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/grupos') }}"><i class="fas fa-users padRight"></i>Grupos</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/talleres')}}"><i class="fas fa-book padRight"></i>Talleres</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/Alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
+  </ul>
+
+  <div class="navName">ADMINISTRACION</div>
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="#"><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
+    <li role="presentation"><a href="./usuarios.html"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/metas') }}"><i class="fas fa-calendar-check padRight"></i>Metas</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/preguntas') }}"><i class="fas fa-question-circle padRight"></i>preguntas</a></li>
+  </ul>
+</nav>
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header col-md-4">
@@ -28,21 +47,4 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
-
-<nav class="navbar-default sidebar leftPane2">
-  <img class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="imglogo" alt="ONEAMI Escuela para Padres" src="../img/icons/OneamiLogoWhite.svg">
-  <div class="navName">MENU</div>
-  <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><a href="{{ url('/panel-de-administracion')}}"><i class="fas fa-home padRight"></i>Inicio</a></li>
-    <li role="presentation"><a href="#"><i class="fas fa-users padRight"></i>Grupos</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/talleres')}}"><i class="fas fa-book padRight"></i>Talleres</a></li>
-    <li role="presentation"><a href="#"><i class="fas fa-user padRight"></i>Alumnos</a></li>
-  </ul>
-
-  <div class="navName">ADMINISTRACION</div>
-  <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><a href="#"><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
-    <li role="presentation"><a href="./usuarios.html"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
-  </ul>
 </nav>

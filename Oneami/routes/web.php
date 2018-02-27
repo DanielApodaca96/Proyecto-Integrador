@@ -34,3 +34,6 @@ Route::get('/panel-de-administracion/talleres', function() {
 Route::get('/panel-de-administracion/metas', function() {
     return view('admin.metas');
 });
+Route::get('/panel-de-administracion/preguntas', function() {
+    return view('admin.preguntas');
+});

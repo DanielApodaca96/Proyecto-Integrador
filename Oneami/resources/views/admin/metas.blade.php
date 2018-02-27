@@ -1,7 +1,8 @@
 @extends('admin.plantilla')
+@extends('includes.navAdmin')
 @section('metas')
 <div class="row">
-  <div class="title" style="text-align: center; padding-top:40px;">Metas</div>
+  <div class="title" style="text-align: center; padding-top:110px;">Metas</div>
   <div class="subtitle" style="text-align: center">Estamos comprometidos a completar nuestras metas</div>
 </div>
 

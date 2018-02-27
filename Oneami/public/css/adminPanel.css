@@ -19,7 +19,9 @@ body > nav.navbar{
 	padding: 0px;
 	margin: 0px;
   background-color: #fff;
-  margin-left: 226px;
+
+
+
 }
 body > nav.navbar-inverse{
 	border: none;
@@ -27,6 +29,9 @@ body > nav.navbar-inverse{
 	-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
 	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
 	height: 70px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%
 }
 body > nav > div.container-fluid{
 	padding-top: 8px;
@@ -44,6 +49,7 @@ nav.leftPane2{
 	padding-left: 0px;
 	padding-right: 0px;
 	background-color: #222;
+    z-index: 1001;  
 }
 
 @media (min-width: 768px){

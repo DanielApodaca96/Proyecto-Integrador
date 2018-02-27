@@ -1,10 +1,5 @@
 
 @extends('admin.plantilla')
-@extends('includes.navAdmin')
-
-@section('Titulo')
-  Oneami - Inicio
-@endsection
 
 @section('contenido')
   <div class="row">
@@ -17,9 +12,8 @@
 @endsection
 
 
-
 @section('scripts')
-    <script src="{{ asset('js/Chart.bundle.min.js') }}" type="text/javascript"></script>
+    <script src="../js/Chart.bundle.min.js" type="text/javascript"></script>
     <script type="text/javascript">
     $(document).ready(function(){
 
