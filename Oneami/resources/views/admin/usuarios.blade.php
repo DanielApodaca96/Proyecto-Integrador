@@ -1,8 +1,8 @@
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
-@section('preguntas')
+@section('usuarios')
 <div class="row">
-  <div class="title" style="text-align: center; padding-top:110px;">Preguntas</div>
+  <div class="title" style="text-align: center; padding-top:110px;">Usuarios</div>
   <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
 </div>
 <div class="row">
@@ -29,7 +29,7 @@
                 </button>
                 <h4 class="panel-title">
                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapseOne">
-                    Sexualidad humana
+                    Grupo La Gaviota #701
                   </a>
                 </h4>
 
@@ -40,13 +40,22 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Pregunta</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Privilegios</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th>1</th>
-                        <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+                        <th>Daniel Apodaca</th>
+                        <th>Daniel@oneami.com</th>
+                        <th>Administrador.</th>
+                        <th><form class="" action="#" method="post">
+                          <button type="submit" name="btnimprimir">
+                            <i class="glyphicon glyphicon-print"></i>
+                          </button>
+                        </form> </th>
                         <th><form class="" action="#" method="post">
                           <button type="submit" name="btneditar">
                             <i class="glyphicon glyphicon-pencil"></i>
@@ -60,8 +69,9 @@
                       </tr>
                     </tbody>
                     </table>
-
-
+                    <a type="submit" name="btnborrar" data-toggle="modal" data-target=".usuarios">
+                      <i class="glyphicon glyphicon-plus">Agregar Alumno Nuevo</i>
+                    </a>
                 </div>
               </div>
             </div>
@@ -72,13 +82,8 @@
     </table>
   </div>
 </div>
-<form class="navbar-right" method="post">
-  <a type="submit" data-toggle="modal" data-target=".preguntas">
-    <i class="glyphicon glyphicon-plus">Agregar Pregunta</i>
-  </a>
-</form>
 @endsection
-<div class="modal fade preguntas" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div class="modal fade usuarios" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -88,22 +93,22 @@
       <div class="modal-body">
       <fieldset>
         <div class="form-group">
-          <label for="">Pregunta</label>
+          <label for="">Nombre</label>
           <input type="text" id="" class="form-control" placeholder="Disabled input">
         </div>
         <div class="form-group">
-          <label for="disabledSelect">Categoria</label>
+          <label for="">Correo</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="">Contraseña</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="disabledSelect">Privilegios</label>
           <select id="disabledSelect" class="form-control">
-            <option>TECNICAS DE COMUNICACIÓN</option>
-            <option>CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO</option>
-            <option>VIOLENCIA FAMILIAR</option>
-            <option>BAJA AUTOESTIMA / ESTRÉS</option>
-            <option>EQUIDAD DE GENERO</option>
-            <option>TIEMPO EFECTIVO EN LA FAMILIA</option>
-            <option>ESTABLECIMIENTO DE LIMITES</option>
-            <option>DESNUTRICION</option>
-            <option>SEXUALIDAD</option>
-            <option>ADICCIONES</option>
+            <option>Adimistrador</option>
+            <option>Editor</option>
           </select>
         </div>
 

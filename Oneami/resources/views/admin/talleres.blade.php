@@ -94,4 +94,39 @@
         </table>
       </div>
     </div>
+    <form class="navbar-right" method="post">
+      <a type="submit" data-toggle="modal" data-target=".taller">
+        <i class="glyphicon glyphicon-plus">Agregar taller</i>
+      </a>
+    </form>
 @endsection
+<div class="modal fade taller" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+      </div>
+      <div class="modal-body">
+      <fieldset>
+        <div class="form-group">
+          <label for="">Nombre</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="">Instructor</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="">Descripción</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+      </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

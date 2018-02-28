@@ -1,10 +1,9 @@
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
-
-@section('grupos')
+@section('alumnos')
 
   <div class="row">
-    <div class="title" style="text-align: center; padding-top:110px;">Grupos</div>
+    <div class="title" style="text-align: center; padding-top:110px;">Alumnos</div>
     <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
   </div>
   <div class="row">
@@ -43,16 +42,21 @@
                         <tr>
                           <th>#</th>
                           <th>Nombre</th>
-                          <th>Instructor</th>
-                          <th>Descripcion</th>
+                          <th>Apellidos</th>
+                          <th>Dirección</th>
+                          <th>Teléfono</th>
+                          <th>Taller</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th>1</th>
-                          <th>Educacion Sexual</th>
-                          <th>Daniel Apodaca</th>
-                          <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+
                           <th><form class="" action="#" method="post">
                             <button type="submit" name="btnimprimir">
                               <i class="glyphicon glyphicon-print"></i>
@@ -71,8 +75,8 @@
                         </tr>
                       </tbody>
                       </table>
-                      <a type="submit" name="btnborrar" data-toggle="modal" data-target=".grupo">
-                        <i class="glyphicon glyphicon-plus">Agregar Grupo</i>
+                      <a type="submit" name="btnborrar" data-toggle="modal" data-target=".alumno">
+                        <i class="glyphicon glyphicon-plus">Agregar Alumno</i>
                       </a>
                   </div>
                 </div>
@@ -86,7 +90,7 @@
   </div>
 
 @endsection
-<div class="modal fade grupo" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div class="modal fade alumno" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -100,11 +104,21 @@
           <input type="text" id="" class="form-control" placeholder="Disabled input">
         </div>
         <div class="form-group">
-          <label for="">Numero de Grupo</label>
+          <label for="">Apellido</label>
           <input type="text" id="" class="form-control" placeholder="Disabled input">
         </div>
-
-
+        <div class="form-group">
+          <label for="">Dirección</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="">Teléfono</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+          <label for="">Taller</label>
+          <input type="text" id="" class="form-control" placeholder="Disabled input">
+        </div>
         <button type="submit" class="btn btn-primary">Aceptar</button>
       </fieldset>
       </div>

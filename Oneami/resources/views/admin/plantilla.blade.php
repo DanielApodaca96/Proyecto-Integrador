@@ -36,6 +36,8 @@
       @yield('metas')
       @yield('preguntas')
       @yield('talleres')
+      @yield('usuarios')
+      @yield('alumnos')
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

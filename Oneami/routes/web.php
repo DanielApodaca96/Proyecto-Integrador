@@ -37,3 +37,9 @@ Route::get('/panel-de-administracion/metas', function() {
 Route::get('/panel-de-administracion/preguntas', function() {
     return view('admin.preguntas');
 });
+Route::get('/panel-de-administracion/usuarios', function() {
+    return view('admin.usuarios');
+});
+Route::get('/panel-de-administracion/alumnos', function() {
+    return view('admin.alumnos');
+});

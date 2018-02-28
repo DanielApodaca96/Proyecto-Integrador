@@ -6,13 +6,13 @@
     <li role="presentation"><a href="{{ url('/panel-de-administracion') }}"><i class="fas fa-home padRight"></i>Inicio</a></li>
     <li role="presentation"><a href="{{ url('/panel-de-administracion/grupos') }}"><i class="fas fa-users padRight"></i>Grupos</a></li>
     <li role="presentation"><a href="{{ url('/panel-de-administracion/talleres')}}"><i class="fas fa-book padRight"></i>Talleres</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/Alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>
 
   <div class="navName">ADMINISTRACION</div>
   <ul class="nav nav-pills nav-stacked">
     <li role="presentation"><a href="#"><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
-    <li role="presentation"><a href="./usuarios.html"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
+    <li role="presentation"><a href="{{ url('/panel-de-administracion/usuarios') }}"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
     <li role="presentation"><a href="{{ url('/panel-de-administracion/metas') }}"><i class="fas fa-calendar-check padRight"></i>Metas</a></li>
     <li role="presentation"><a href="{{ url('/panel-de-administracion/preguntas') }}"><i class="fas fa-question-circle padRight"></i>preguntas</a></li>
   </ul>
