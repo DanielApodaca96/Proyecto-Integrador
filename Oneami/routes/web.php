@@ -43,3 +43,9 @@ Route::get('/panel-de-administracion/usuarios', function() {
 Route::get('/panel-de-administracion/alumnos', function() {
     return view('admin.alumnos');
 });
+/*Route::group(['prefix'=>'administracion'],'as'='admin.'function(){
+  Route::get('/','Admin-controller@index');
+
+  Route::resource('usuarios','UsuariosController');
+  Route::resource('admin','AdminController');
+});*/
