@@ -9,7 +9,7 @@
     <li role="presentation"><a href="{{ url('/administracion/alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>
 
-  <div class="navName">ADMINISTRACION</div>
+  <div class="navName">ADMINISTRACIÓN</div>
   <ul class="nav nav-pills nav-stacked">
     <li role="presentation"><a href=""><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
     <li role="presentation"><a href="{{ url('/administracion/usuarios') }}"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
