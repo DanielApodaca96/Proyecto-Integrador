@@ -43,9 +43,25 @@ Route::get('/panel-de-administracion/usuarios', function() {
 Route::get('/panel-de-administracion/alumnos', function() {
     return view('admin.alumnos');
 });
-/*Route::group(['prefix'=>'administracion'],'as'='admin.'function(){
-  Route::get('/','Admin-controller@index');
-
-  Route::resource('usuarios','UsuariosController');
+Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
+  Route::get('/','AdminController@index');
   Route::resource('admin','AdminController');
-});*/
+
+  Route::get('/alumnos','AlumnosController@alumnos');
+  Route::resource('admin.alumnos','AlumnosController');
+
+  Route::get('/grupos','GruposController@grupos');
+  Route::resource('admin.grupos','GruposController');
+
+  Route::get('/metas','MetasController@metas');
+  Route::resource('admin.metas','MetasController');
+
+  Route::get('/preguntas','PreguntasController@preguntas');
+  Route::resource('admin.preguntas','PreguntasController');
+
+  Route::get('/talleres','TalleresController@talleres');
+  Route::resource('admin.talleres','TalleresController');
+
+  Route::get('/usuarios','UsuariosController@usuarios');
+  Route::resource('admin.usuarios','UsuariosController');
+});

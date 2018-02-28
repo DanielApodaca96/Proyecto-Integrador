@@ -8,6 +8,8 @@ class TalleresController extends Controller
 {
     //
     public function talleres(){
-      return view('admin.talleres');
+      $title = "Oneami - Talleres";
+      return view('admin.talleres')
+        ->with('title', $title);
     }
 }

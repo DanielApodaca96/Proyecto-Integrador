@@ -3,7 +3,7 @@
 @extends('includes.navAdmin')
 
 @section('Titulo')
-  Oneami - Inicio
+  {{ $title }}
 @endsection
 
 @section('contenido')

@@ -9,6 +9,8 @@ class AdminController extends Controller
     //
 
     public function index(){
-      return view('admin.index');
+      $title = "Oneami - Inicio";
+      return view('admin.index')
+        ->with('title', $title);
     }
 }

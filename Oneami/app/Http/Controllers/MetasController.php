@@ -8,6 +8,8 @@ class MetasController extends Controller
 {
     //
     public function metas(){
-      return view('admin.metas');
+      $title = "Oneami - Metas";
+      return view('admin.metas')
+        ->with('title', $title);
     }
 }
