@@ -3,18 +3,18 @@
   <img class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="imglogo" alt="ONEAMI Escuela para Padres" src="../img/icons/OneamiLogoWhite.svg">
   <div class="navName">MENU</div>
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><a href="{{ url('/panel-de-administracion') }}"><i class="fas fa-home padRight"></i>Inicio</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/grupos') }}"><i class="fas fa-users padRight"></i>Grupos</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/talleres')}}"><i class="fas fa-book padRight"></i>Talleres</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
+    <li role="presentation"><a href="{{ url('/administracion') }}"><i class="fas fa-home padRight"></i>Inicio</a></li>
+    <li role="presentation"><a href="{{ url('/administracion/grupos') }}"><i class="fas fa-users padRight"></i>Grupos</a></li>
+    <li role="presentation"><a href="{{ url('/administracion/talleres')}}"><i class="fas fa-book padRight"></i>Talleres</a></li>
+    <li role="presentation"><a href="{{ url('/administracion/alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>
 
   <div class="navName">ADMINISTRACIÓN</div>
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><a href="#"><i class="fas fa-chart-line padRight"></i>Estadísticas</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/usuarios') }}"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/metas') }}"><i class="fas fa-calendar-check padRight"></i>Metas</a></li>
-    <li role="presentation"><a href="{{ url('/panel-de-administracion/preguntas') }}"><i class="fas fa-question-circle padRight"></i>Preguntas</a></li>
+    <li role="presentation"><a href="#"><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
+    <li role="presentation"><a href="{{ url('/administracion/usuarios') }}"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
+    <li role="presentation"><a href="{{ url('/administracion/metas') }}"><i class="fas fa-calendar-check padRight"></i>Metas</a></li>
+    <li role="presentation"><a href="{{ url('/administracion/preguntas') }}"><i class="fas fa-question-circle padRight"></i>preguntas</a></li>
   </ul>
 </nav>
 <nav class="navbar navbar-inverse">
