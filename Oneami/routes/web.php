@@ -15,34 +15,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function() {
-    return view('login.index');
-});
-
-Route::get('/panel-de-administracion', function() {
-    return view('admin.index');
-});
 
 
-Route::get('/panel-de-administracion/grupos', function() {
-    return view('admin.grupos');
-});
 
-Route::get('/panel-de-administracion/talleres', function() {
-    return view('admin.talleres');
-});
-Route::get('/panel-de-administracion/metas', function() {
-    return view('admin.metas');
-});
-Route::get('/panel-de-administracion/preguntas', function() {
-    return view('admin.preguntas');
-});
-Route::get('/panel-de-administracion/usuarios', function() {
-    return view('admin.usuarios');
-});
-Route::get('/panel-de-administracion/alumnos', function() {
-    return view('admin.alumnos');
-});
+
+
+
 Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/','AdminController@index');
   Route::resource('admin','AdminController');
@@ -65,3 +43,7 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/usuarios','UsuariosController@usuarios');
   Route::resource('admin.usuarios','UsuariosController');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

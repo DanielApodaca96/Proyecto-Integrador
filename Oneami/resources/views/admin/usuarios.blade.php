@@ -94,15 +94,15 @@
       <fieldset>
         <div class="form-group">
           <label for="">Nombre</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control" >
         </div>
         <div class="form-group">
           <label for="">Correo</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <div class="form-group">
           <label for="">Contraseña</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <div class="form-group">
           <label for="disabledSelect">Privilegios</label>

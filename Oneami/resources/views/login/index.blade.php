@@ -12,7 +12,8 @@
       <div class="row">
         <div class="col-md-4 col-md-offset-4 logindiv">
           <h1 class="inicia-sesion">INICIA SESION</h1>
-          <form class="" action="index.html" method="post">
+
+            <form class="" action="index.html" method="post">
               <div class="input-group input-group-lg col-md-10 col-md-offset-1">
                 <input type="text" class="input-style form-control" placeholder="Usuario" aria-describedby="sizing-addon1">
                 <span class="input-style input-group-addon" id="sizing-addon1">

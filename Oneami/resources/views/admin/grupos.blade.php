@@ -97,11 +97,11 @@
       <fieldset>
         <div class="form-group">
           <label for="">Nombre</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <div class="form-group">
           <label for="">Numero de Grupo</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
 
 

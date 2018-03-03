@@ -111,15 +111,15 @@
       <fieldset>
         <div class="form-group">
           <label for="">Nombre</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <div class="form-group">
           <label for="">Instructor</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <div class="form-group">
           <label for="">Descripción</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Aceptar</button>
       </fieldset>

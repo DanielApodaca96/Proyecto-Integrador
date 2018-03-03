@@ -20,7 +20,7 @@
     <canvas class="loader3" width="400" height="400"></canvas>
 </div>
 <div class="col-md-12">
-  <h4 style="text-align:center;">Porcentaje de alumnos registrados en este prediodo.</h4>
+  <h4 style="text-align:center;">Porcentaje de alumnos registrados en este periodo.</h4>
 </div>
 
 

@@ -89,7 +89,7 @@
       <fieldset>
         <div class="form-group">
           <label for="">Pregunta</label>
-          <input type="text" id="" class="form-control" placeholder="Disabled input">
+          <input type="text" id="" class="form-control">
         </div>
         <div class="form-group">
           <label for="disabledSelect">Categoria</label>
