@@ -46,7 +46,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">BIENVENIDO</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -64,15 +64,15 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <img id="imglogo" alt="ONEAMI Escuela para Padres" src="{{ asset('img/icons/OneamiLogoWhite.svg') }}">
+		      <a href="#myCarousel"><img id="imglogo" alt="ONEAMI Escuela para Padres" src="{{ asset('img/icons/OneamiLogoWhite.svg') }}"></a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-right" id="ul">
-		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#mision">MISIÓN</a></li>
-		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#service">SERVICIOS</a></li>
-		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#talleres">TALLERES</a></li>
-		        <li><a class="bluecolor" class="bluecolor"data-easing="easeInOutCubic" href="#logros">LOGROS</a></li>
-		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#contacto">CONTACTO</a></li>
+		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#mision"><b>MISIÓN</b></a></li>
+		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#service"><b>SERVICIOS</b></a></li>
+		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#talleres"><b>TALLERES</b></a></li>
+		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#logros"><b>LOGROS</b></a></li>
+		        <li><a class="bluecolor" data-easing="easeInOutCubic" href="#contacto"><b>CONTACTO</b></a></li>
 		      </ul>
 		    </div>
 		  </div>
@@ -319,7 +319,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">Identificar las etapas de la vida de un individuo y los estilos de vida familiar que ayuden a entender las relaciones que se mantienen entre los miembros de la familia y reflexionar sobre como mejorar la relación familiar.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">Identificar las etapas de la vida de un individuo y los estilos de vida familiar que ayuden a entender las relaciones que se mantienen entre los miembros de la familia y reflexionar sobre como mejorar la relación familiar.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -343,7 +343,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo de este taller es desarrollar capacidades, potencialidades y superar situaciones personales modificando conductas y actitudes para desempeñarse mejor como individuos.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo de este taller es desarrollar capacidades, potencialidades y superar situaciones personales modificando conductas y actitudes para desempeñarse mejor como individuos.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -367,7 +367,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo de este taller es dar herramientas para una adecuada educación sexual para prevenir problemas graves como el abuso sexual en la niñez, adolesencia y en la edad adulta.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo de este taller es dar herramientas para una adecuada educación sexual para prevenir problemas graves como el abuso sexual en la niñez, adolesencia y en la edad adulta.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -391,7 +391,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo de este taller es reconocer que la violencia familiar es un problema social, responsabilidad de todos y que es posible prevenirla y atenderla a partir de orientar a los padres de familia sobre qué pueden hacer para convivir sin ella.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo de este taller es reconocer que la violencia familiar es un problema social, responsabilidad de todos y que es posible prevenirla y atenderla a partir de orientar a los padres de familia sobre qué pueden hacer para convivir sin ella.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -415,7 +415,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo de este taller es alcanzar un buen estado de salud mediante una alimentación sana, ejercicio, descanso, así como cambiar nuestra mentalidad, nuestro cuerpo y las situaciones, eliminando las reacciones de estrés, aprendiendo a sustituirlas por reacciones relajantes.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo de este taller es alcanzar un buen estado de salud mediante una alimentación sana, ejercicio, descanso, así como cambiar nuestra mentalidad, nuestro cuerpo y las situaciones, eliminando las reacciones de estrés, aprendiendo a sustituirlas por reacciones relajantes.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -439,7 +439,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo principal es promover el respeto mutuo, el amor, las responsabilidades, así como aprender a crear una atmósfera que facilite el desarrollo integral de los hijos.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo principal es promover el respeto mutuo, el amor, las responsabilidades, así como aprender a crear una atmósfera que facilite el desarrollo integral de los hijos.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -463,7 +463,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo de este taller es poner en práctica los valores universales para que nos den felicidad, nos enriquezcan y nos hagan crecer como personas, como seres humanos.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo de este taller es poner en práctica los valores universales para que nos den felicidad, nos enriquezcan y nos hagan crecer como personas, como seres humanos.</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -487,7 +487,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">DESCRIPCIÓN</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2">El objetivo de este taller es usar el optimismo inteligente para ejercitar el pensamiento que es el que determina nuestros sentimientos y comportamientos. <br><br> Ser optimista es una elección nuestra y esta a nuestro alcance como lo están nuestros pensamientos, nosotros tenemos control sobre ellos.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">El objetivo de este taller es usar el optimismo inteligente para ejercitar el pensamiento que es el que determina nuestros sentimientos y comportamientos. <br><br> Ser optimista es una elección nuestra y esta a nuestro alcance como lo están nuestros pensamientos, nosotros tenemos control sobre ellos.</p>
             </div>
           </div>
           <div class="modal-footer">

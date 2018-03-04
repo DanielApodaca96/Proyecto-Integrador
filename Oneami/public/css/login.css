@@ -6,8 +6,7 @@ background-image: url("../img/icons/circles-light.png");
 }
 
 #midLogo{
-  height: 80px;
-  margin-bottom: 30px;
+  height: 45px;
 }
 
 .inicia-sesion{
@@ -19,11 +18,6 @@ background-image: url("../img/icons/circles-light.png");
   margin-bottom: 20px;
 }
 
-@media (min-width: 992px){
-  .inicia-sesion {
-      margin-left: 8.33333333%;
-  }
-}
 .input-style{
   font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
   border: none;
@@ -35,21 +29,37 @@ background-image: url("../img/icons/circles-light.png");
   padding-left: 10px !important;
   padding-right: 10px !important;
   box-shadow: none;
-  outline: none;
+  outline: none !important;
 }
-.input-style:placeholder{
 
+.form-control:focus{
+    border-color:#353895;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
 .container > .input.form-control:focus {
   outline: none !important;
 }
+
 .logindiv{
   padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
   background-color: white;
   border-radius: 5px;
-  top: 26vh;
+  top: 18vh;
 }
+
+.posicion{
+  top: 10vh;
+}
+
 #boton {
   border-radius: 0px;
   background-color: #353895;
@@ -57,10 +67,8 @@ background-image: url("../img/icons/circles-light.png");
   color: white;
   margin-bottom: 10px;
 }
-.diva{
-  padding-right: 25px;
-  text-align: right;
-  margin-bottom: 55px;
+.diva:hover{
+  color: #353895;
 }
 
 i.glyphicon{

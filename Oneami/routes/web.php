@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-
-
-
-
-
 Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/','AdminController@index');
   Route::resource('admin','AdminController');
