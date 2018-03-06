@@ -17,4 +17,7 @@ class UsuariosController extends Controller
       return view('admin.usuarios')
         ->with('title', $title);
     }
+    public function store(){
+      dd('Yeah');
+    }
 }

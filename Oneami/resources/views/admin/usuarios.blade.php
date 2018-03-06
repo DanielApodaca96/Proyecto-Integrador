@@ -91,29 +91,35 @@
         <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
       </div>
       <div class="modal-body">
-      <fieldset>
-        <div class="form-group">
-          <label for="">Nombre</label>
-          <input type="text" id="" class="form-control" >
-        </div>
-        <div class="form-group">
-          <label for="">Correo</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Contraseña</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="disabledSelect">Privilegios</label>
-          <select id="disabledSelect" class="form-control">
-            <option>Adimistrador</option>
-            <option>Editor</option>
-          </select>
+        <div class="card-body">
+          {{ Form::open (array('url'=>'/administracion/usuarios','files'=>"true") )}}
+          <fieldset>
+            <div class="form-group">
+              <label for="">Nombre</label>
+              {{ Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
+
+            </div>
+            <div class="form-group">
+              <label for="">Correo</label>
+                  {{ Form::email('correo','',array('class'=>'form-control','placeholder'=>'Correo')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Contraseña</label>
+                  {{ Form::password('contrasena',array('class'=>'form-control','placeholder'=>'Contraseña')  )}}
+            </div>
+            <div class="form-group">
+              <label for="disabledSelect">Privilegios</label>
+              {{ Form::select('privilegios',array('admin'=>'Administrador','Editor'),array('class'=>'form-control','placeholder'=>'Privilegios')  )}}
+            </div>
+            <div class="form-group">
+                {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+            </div>
+          </fieldset>
+          {{ Form::close() }}
+
         </div>
 
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-      </fieldset>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
