@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class AlumnosController extends Controller
 {
-    //
+
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
     public function alumnos(){
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')

@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class GruposController extends Controller
 {
-    //
+
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
 
     public function grupos(){
       $title = "Oneami - Grupos";

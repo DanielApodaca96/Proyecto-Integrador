@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class MetasController extends Controller
 {
-    //
+
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
     public function metas(){
       $title = "Oneami - Metas";
       return view('admin.metas')
