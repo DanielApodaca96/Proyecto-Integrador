@@ -92,11 +92,27 @@
       </div>
       <div class="modal-body">
         <div class="card-body">
+          @if($errors->any())
+            <div class="alert alert-warning alert-dismissable">
+              <ul>
+                @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+
+          @if(session()->has('mensaje'))
+            <div class="alert alert-success">
+              {{ session()->get('mensaje') }}
+            </div>
+          @endif
+
           {{ Form::open (array('url'=>'/administracion/usuarios','files'=>"true") )}}
           <fieldset>
             <div class="form-group">
               <label for="">Nombre</label>
-              {{ Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
+                  {{ Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
 
             </div>
             <div class="form-group">
@@ -105,7 +121,11 @@
             </div>
             <div class="form-group">
               <label for="">Contraseña</label>
-                  {{ Form::password('contrasena',array('class'=>'form-control','placeholder'=>'Contraseña')  )}}
+                  {{ Form::password('contrasena1',array('class'=>'form-control','placeholder'=>'Contraseña')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Contraseña</label>
+                  {{ Form::password('contrasena2',array('class'=>'form-control','placeholder'=>'Confirma contraseña')  )}}
             </div>
             <div class="form-group">
               <label for="disabledSelect">Privilegios</label>

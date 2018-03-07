@@ -34,10 +34,10 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/talleres','TalleresController@talleres');
   Route::resource('admin.talleres','TalleresController');
 
-  Route::get('/usuarios','UsuariosController@usuarios');
-  Route::resource('admin.usuarios','UsuariosController');
+  Route::get('/usuarios','UsuariosController@index');
+  Route::resource('usuarios','UsuariosController');
 });
 
 Auth::routes();
 
-Route::get('/home', 'UsuariosController@usuarios')->name('home');
+Route::get('/home', 'HomeController@usuarios')->name('home');
