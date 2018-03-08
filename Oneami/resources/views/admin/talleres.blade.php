@@ -108,24 +108,49 @@
         <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
       </div>
       <div class="modal-body">
-      <fieldset>
-        <div class="form-group">
-          <label for="">Nombre</label>
-          <input type="text" id="" class="form-control">
+        <div class="card-body">
+          @if($errors->any())
+            <div class="alert alert-warning alert-dismissable">
+              <ul>
+                @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+
+          @if(session()->has('mensaje'))
+            <div class="alert alert-success">
+              {{ session()->get('mensaje') }}
+            </div>
+          @endif
+          {{ Form::open (array('url'=>'/administracion/talleres')) }}
+          <fieldset>
+            <div class="form-group">
+              <label for="">Nombre</label>
+                {{ Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
+
+            </div>
+            <div class="form-group">
+              <label for="">Instructor</label>
+              {{ Form::text('Instructor','',array('class'=>'form-control','placeholder'=>'Instructor'))}}
+
+            </div>
+            <div class="form-group">
+              <label for="">Descripción</label>
+              {{ Form::text('descripcion','',array('class'=>'form-control','placeholder'=>'Descripción'))}}
+
+            </div>
+            <div class="form-group">
+                {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+            </div>
+          </fieldset>
+
+          {{ Form::close() }}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="">Instructor</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Descripción</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-      </fieldset>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

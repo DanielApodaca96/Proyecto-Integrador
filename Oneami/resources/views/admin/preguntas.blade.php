@@ -86,29 +86,33 @@
         <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
       </div>
       <div class="modal-body">
+        {{ Form::open (array('url'=>'administracion/preguntas')) }}
       <fieldset>
         <div class="form-group">
           <label for="">Pregunta</label>
-          <input type="text" id="" class="form-control">
+          {{ Form::text('pregunta','',array('class'=>'form-control','placeholder'=>'Pregunta')) }}
         </div>
         <div class="form-group">
           <label for="disabledSelect">Categoria</label>
-          <select id="disabledSelect" class="form-control">
-            <option>TECNICAS DE COMUNICACIÓN</option>
-            <option>CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO</option>
-            <option>VIOLENCIA FAMILIAR</option>
-            <option>BAJA AUTOESTIMA / ESTRÉS</option>
-            <option>EQUIDAD DE GENERO</option>
-            <option>TIEMPO EFECTIVO EN LA FAMILIA</option>
-            <option>ESTABLECIMIENTO DE LIMITES</option>
-            <option>DESNUTRICION</option>
-            <option>SEXUALIDAD</option>
-            <option>ADICCIONES</option>
-          </select>
+          {{ Form::select('categoria',array('taller'=>
+          'TECNICAS DE COMUNICACIÓN',
+          'CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO',
+          'VIOLENCIA FAMILIAR',
+          'BAJA AUTOESTIMA / ESTRÉS',
+          'EQUIDAD DE GENERO',
+          'TIEMPO EFECTIVO EN LA FAMILIA',
+          'ESTABLECIMIENTO DE LIMITES',
+          'DESNUTRICION',
+          'SEXUALIDAD',
+          'ADICCIONES'
+          ), array('id'=>'disabledSelect','class'=>'form-control','placeholder'=>'Talleres')) }}
         </div>
-
-        <button type="submit" class="btn btn-primary">Aceptar</button>
+        <div class="form-group">
+          {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}
+        </div>
       </fieldset>
+
+       {{ Form::close() }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
