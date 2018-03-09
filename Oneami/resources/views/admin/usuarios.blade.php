@@ -1,23 +1,45 @@
+    @if($errors->any())
+      <div class="conf alert alert-warning alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        <ul>
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+    @if(session()->has('mensaje'))
+      <div class="conf alert alert-success alert-dismissible fade in" data-backdrop="static">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        {{ session()->get('mensaje') }}
+      </div>
+    @endif
+
+
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
+
 @section('usuarios')
 <div class="row">
   <div class="title" style="text-align: center; padding-top:110px;">Usuarios</div>
   <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
 </div>
+
 <div class="row">
-  <div class="col-lg-4 col-lg-offset-4">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div>
-<div class="row">
+
   <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
+
     <table class="table table-striped">
+      <div class="col-lg-4 col-lg-offset-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+      
       <tbody>
         <tr>
           <th>
@@ -92,21 +114,6 @@
       </div>
       <div class="modal-body">
         <div class="card-body">
-          @if($errors->any())
-            <div class="alert alert-warning alert-dismissable">
-              <ul>
-                @foreach($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-            </div>
-          @endif
-
-          @if(session()->has('mensaje'))
-            <div class="alert alert-success">
-              {{ session()->get('mensaje') }}
-            </div>
-          @endif
 
           {{ Form::open (array('url'=>'/administracion/usuarios','files'=>"true") )}}
           <fieldset>

@@ -21,12 +21,12 @@
                                 <span class="input-group-addon input-style" id="sizing-addon1">
                                   <i class="glyphicon glyphicon-user"></i>
                                 </span>
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                             </div>
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group row">
@@ -37,12 +37,12 @@
                                 <span class="input-group-addon input-style" id="sizing-addon1">
                                   <i class="glyphicon glyphicon-lock"></i>
                                 </span>
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                             </div>
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group row">

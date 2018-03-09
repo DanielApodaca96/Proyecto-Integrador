@@ -1,3 +1,7 @@
+body{
+  background-color: #ecf0f1 !important;
+}
+
 div.title {
   text-align: center;
   padding-top: 30px;
@@ -18,11 +22,27 @@ body > nav.navbar{
 	border-radius: 0px;
 	padding: 0px;
 	margin: 0px;
-  background-color: #fff;
-
-
-
+  background-color: #2c3e50;
 }
+
+nav.navbar li:hover{
+  background-color: #243342;
+  transition: all ease .2s;
+  border-radius: 5px;
+}
+
+nav.navbar a:focus{
+  background-color: #337ab7;
+  transition: all ease .2s;
+  border-radius: 5px;
+}
+
+nav.navbar a:hover{
+  background-color: #337ab7;
+  transition: all ease .2s;
+  border-radius: 5px;
+}
+
 body > nav.navbar-inverse{
 	border: none;
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.15);
@@ -48,8 +68,8 @@ nav.leftPane2{
 	/*height: calc(100vh - 70px);*/
 	padding-left: 0px;
 	padding-right: 0px;
-	background-color: #222;
-    z-index: 1001;  
+	background-color: #3498db;
+    z-index: 1001;
 }
 
 @media (min-width: 768px){
@@ -61,24 +81,24 @@ nav.leftPane2{
 
 nav.leftPane2 > ul > li > a {
 	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-	color: #c1c1c1;
+	color: #fff;
 	border-radius: 0px;
 	transition: all ease .2s;
 	padding: 15px 15px;
 }
 
 nav.leftPane2 > ul > li > a:hover {
-	background-color: #191919;
+	background-color: #287eb7;
 }
 
 nav.leftPane2 > ul > li > a:focus {
-	background-color: #3d3c3c;
+	background-color: #1f699b;
 }
 
 nav.leftPane2 > .navName {
 	font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
 	font-weight: bold;
-	color: #c1c1c1;
+	color: #fff;
 	padding-left: 15px;
 	padding-top: 45px;
 	padding-bottom: 10px;
@@ -105,5 +125,15 @@ div > ul.menu{
   margin: 0 auto;
   margin-left: 67px;
   margin-top: 15%;
+}
 
+.conf{
+  z-index: 2000;
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  margin-top: 15px;
+  -webkit-box-shadow: 0px 0px 37px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: 0px 0px 37px 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 0px 37px 0px rgba(0,0,0,0.10);
 }
