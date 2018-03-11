@@ -19,20 +19,20 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/','AdminController@index');
   Route::resource('admin','AdminController');
 
-  Route::get('/alumnos','AlumnosController@alumnos');
-  Route::resource('admin.alumnos','AlumnosController');
+  Route::get('/alumnos','AlumnosController@index');
+  Route::resource('alumnos','AlumnosController');
 
-  Route::get('/grupos','GruposController@grupos');
-  Route::resource('admin.grupos','GruposController');
+  Route::get('/grupos','GruposController@index');
+  Route::resource('grupos','GruposController');
 
-  Route::get('/metas','MetasController@metas');
-  Route::resource('admin.metas','MetasController');
+  Route::get('/metas','MetasController@index');
+  Route::resource('metas','MetasController');
 
-  Route::get('/preguntas','PreguntasController@preguntas');
-  Route::resource('admin.preguntas','PreguntasController');
+  Route::get('/preguntas','PreguntasController@index');
+  Route::resource('preguntas','PreguntasController');
 
-  Route::get('/talleres','TalleresController@talleres');
-  Route::resource('admin.talleres','TalleresController');
+  Route::get('/talleres','TalleresController@index');
+  Route::resource('talleres','TalleresController');
 
   Route::get('/usuarios','UsuariosController@index');
   Route::resource('usuarios','UsuariosController');

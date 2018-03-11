@@ -93,7 +93,7 @@
           {{ Form::text('pregunta','',array('class'=>'form-control','placeholder'=>'Pregunta')) }}
         </div>
         <div class="form-group">
-          <label for="disabledSelect">Categoria</label>
+          <label>Categoria</label>
           {{ Form::select('categoria',array('taller'=>
           'TECNICAS DE COMUNICACIÓN',
           'CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO',

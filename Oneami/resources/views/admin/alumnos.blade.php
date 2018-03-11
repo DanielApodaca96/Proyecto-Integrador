@@ -1,3 +1,21 @@
+@if($errors->any())
+  <div class="conf alert alert-warning alert-dismissible fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+    <ul>
+      @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
+@if(session()->has('mensaje'))
+  <div class="conf alert alert-success alert-dismissible fade in" data-backdrop="static">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+    {{ session()->get('mensaje') }}
+  </div>
+@endif
+
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
 @section('alumnos')
@@ -98,29 +116,45 @@
         <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
       </div>
       <div class="modal-body">
-      <fieldset>
-        <div class="form-group">
-          <label for="">Nombre</label>
-          <input type="text" id="" class="form-control">
+        <div class="card-body">
+          {{  Form::open(array('url'=>'/administracion/alumnos')  )}}
+          <fieldset>
+            <div class="form-group">
+              <label for="">Nombre</label>
+              {{  Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Apellido Paterno</label>
+              {{  Form::text('apellidoP','',array('class'=>'form-control','placeholder'=>'Apellido Paterno')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Apellido Materno</label>
+              {{  Form::text('apellidoM','',array('class'=>'form-control','placeholder'=>'Apellido Materno')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Edad</label>
+              {{  Form::text('edad','',array('class'=>'form-control','placeholder'=>'Edad')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Teléfono</label>
+              {{  Form::text('telefono','',array('class'=>'form-control','placeholder'=>'Teléfono')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Sexo</label><br>
+              {{  Form::select('sexo',array('sexo'=>'Masculino','Femenino')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Estado Civil</label><br>
+              {{  Form::select('estado_civil',array('estado'=>'Soltero/a','Casado/a','Divorciado/a','Viudo/a')  )}}
+            </div>
+            <div class="form-group">
+              <label for="">Escolaridad</label><br>
+              {{  Form::select('escolaridad',array('esco'=>'Primaria','Secundaria','Media Superior','Superior')  )}}
+            </div>
+              {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+          </fieldset>
+          {{  Form::close()  }}
         </div>
-        <div class="form-group">
-          <label for="">Apellido</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Dirección</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Teléfono</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Taller</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-      </fieldset>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
