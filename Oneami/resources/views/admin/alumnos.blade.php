@@ -27,7 +27,7 @@
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Buscar alumno...">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
         </span>
@@ -94,7 +94,7 @@
                       </tbody>
                       </table>
                       <a type="submit" name="btnborrar" data-toggle="modal" data-target=".alumno">
-                        <i class="glyphicon glyphicon-plus">Agregar Alumno</i>
+                        <i class="glyphicon glyphicon-plus">Agregar alumno</i>
                       </a>
                   </div>
                 </div>
@@ -113,7 +113,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un alumno nuevo.</h4>
       </div>
       <div class="modal-body">
         <div class="card-body">

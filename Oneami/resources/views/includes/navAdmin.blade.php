@@ -11,7 +11,7 @@
 
   <div class="navName">ADMINISTRACIÓN</div>
   <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><a href=""><i class="fas fa-chart-line padRight"></i>Estadisticas</a></li>
+    <li role="presentation"><a href=""><i class="fas fa-chart-line padRight"></i>Estadísticas</a></li>
     <li role="presentation"><a href="{{ url('/administracion/usuarios') }}"><i class="fas fa-user-plus padRight"></i>Usuarios</a></li>
     <li role="presentation"><a href="{{ url('/administracion/metas') }}"><i class="fas fa-calendar-check padRight"></i>Metas</a></li>
     <li role="presentation"><a href="{{ url('/administracion/preguntas') }}"><i class="fas fa-question-circle padRight"></i>Preguntas</a></li>

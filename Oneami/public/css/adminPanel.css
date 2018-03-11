@@ -128,7 +128,7 @@ div > ul.menu{
 }
 
 .conf{
-  z-index: 2000;
+  z-index: 999;
   position: fixed;
   width: 80%;
   left: 18.5%;

@@ -12,7 +12,7 @@ class MetasController extends Controller
       $this->middleware('auth');
   }
 
-    public function metas(){
+    public function index(){
       $title = "Oneami - Metas";
       return view('admin.metas')
         ->with('title', $title);

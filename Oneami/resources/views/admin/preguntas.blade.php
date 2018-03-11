@@ -1,14 +1,34 @@
+    @if($errors->any())
+      <div class="conf alert alert-warning alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        <ul>
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+    @if(session()->has('mensaje'))
+      <div class="conf alert alert-success alert-dismissible fade in" data-backdrop="static">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        {{ session()->get('mensaje') }}
+      </div>
+    @endif
+
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
+
 @section('preguntas')
 <div class="row">
   <div class="title" style="text-align: center; padding-top:110px;">Preguntas</div>
   <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
 </div>
+
 <div class="row">
   <div class="col-lg-4 col-lg-offset-4">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
+      <input type="text" class="form-control" placeholder="Buscar alumno...">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
       </span>
@@ -60,8 +80,9 @@
                       </tr>
                     </tbody>
                     </table>
-
-
+                    <a type="submit" name="btnborrar" data-toggle="modal" data-target=".preguntas">
+                      <i class="glyphicon glyphicon-plus">Agregar pregunta</i>
+                    </a>
                 </div>
               </div>
             </div>
@@ -72,11 +93,7 @@
     </table>
   </div>
 </div>
-<form class="navbar-right" method="post">
-  <a type="submit" data-toggle="modal" data-target=".preguntas">
-    <i class="glyphicon glyphicon-plus">Agregar Pregunta</i>
-  </a>
-</form>
+
 @endsection
 <div class="modal fade preguntas" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
@@ -93,8 +110,13 @@
           {{ Form::text('pregunta','',array('class'=>'form-control','placeholder'=>'Pregunta')) }}
         </div>
         <div class="form-group">
-          <label>Categoria</label>
-          {{ Form::select('categoria',array('taller'=>
+          <label for="">Tipo de respuesta</label><br>
+          {{ Form::radio('tipo_respuesta', '0', true) }}<label for="tipo_respuesta">4 Opciones</label><br>
+          {{ Form::radio('tipo_respuesta', '1') }}<label for="tipo_respuesta">2 Opciones</label>
+        </div>
+        <div class="form-group">
+          <label>Categoría</label>
+          {{ Form::select('id_categoria',array('taller'=>
           'TECNICAS DE COMUNICACIÓN',
           'CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO',
           'VIOLENCIA FAMILIAR',
@@ -105,7 +127,7 @@
           'DESNUTRICION',
           'SEXUALIDAD',
           'ADICCIONES'
-          ), array('id'=>'disabledSelect','class'=>'form-control','placeholder'=>'Talleres')) }}
+          ), array('id'=>'disabledSelect','class'=>'form-control','placeholder'=>'Categorias')) }}
         </div>
         <div class="form-group">
           {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}

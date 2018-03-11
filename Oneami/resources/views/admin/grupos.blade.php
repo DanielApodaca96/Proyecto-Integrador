@@ -1,3 +1,21 @@
+    @if($errors->any())
+      <div class="conf alert alert-warning alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        <ul>
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+    @if(session()->has('mensaje'))
+      <div class="conf alert alert-success alert-dismissible fade in" data-backdrop="static">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        {{ session()->get('mensaje') }}
+      </div>
+    @endif
+
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
 
@@ -7,10 +25,11 @@
     <div class="title" style="text-align: center; padding-top:110px;">Grupos</div>
     <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
   </div>
+
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Buscar alumno...">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
         </span>
@@ -43,16 +62,21 @@
                         <tr>
                           <th>#</th>
                           <th>Nombre</th>
-                          <th>Instructor</th>
-                          <th>Descripcion</th>
+                          <th>Apellidos</th>
+                          <th>Dirección</th>
+                          <th>Teléfono</th>
+                          <th>Taller</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th>1</th>
-                          <th>Educacion Sexual</th>
-                          <th>Daniel Apodaca</th>
-                          <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+                          <th>#</th>
+
                           <th><form class="" action="#" method="post">
                             <button type="submit" name="btnimprimir">
                               <i class="glyphicon glyphicon-print"></i>
@@ -72,7 +96,7 @@
                       </tbody>
                       </table>
                       <a type="submit" name="btnborrar" data-toggle="modal" data-target=".grupo">
-                        <i class="glyphicon glyphicon-plus">Agregar Grupo</i>
+                        <i class="glyphicon glyphicon-plus">Agregar grupo</i>
                       </a>
                   </div>
                 </div>
@@ -84,32 +108,37 @@
       </table>
     </div>
   </div>
-
 @endsection
 <div class="modal fade grupo" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un grupo nuevo.</h4>
       </div>
       <div class="modal-body">
-      <fieldset>
-        <div class="form-group">
-          <label for="">Nombre</label>
-          <input type="text" id="" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Numero de Grupo</label>
-          <input type="text" id="" class="form-control">
-        </div>
+        <div class="card-body">
+          {{ Form::open (array('url'=>'/administracion/grupos')) }}
+          <fieldset>
+            <div class="form-group">
+              <label for="">Nombre</label>
+                {{ Form::text('nom_grupo','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
+            </div>
 
+            <div class="form-group">
+              <label for="">Numero de Grupo</label>
+              {{ Form::text('num_grupo','',array('class'=>'form-control','placeholder'=>'Numero de Grupo'))}}
+            </div>
+            <div class="form-group">
+                {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+            </div>
+          </fieldset>
 
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-      </fieldset>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          {{ Form::close() }}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

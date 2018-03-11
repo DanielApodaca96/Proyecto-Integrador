@@ -33,7 +33,7 @@
     <table class="table table-striped">
       <div class="col-lg-4 col-lg-offset-4">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Buscar...">
+          <input type="text" class="form-control" placeholder="Buscar usuarios...">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
           </span>
@@ -43,61 +43,42 @@
       <tbody>
         <tr>
           <th>
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <button type="submit" class="navbar-right" name="btnborrar">
-                  <i class="glyphicon glyphicon-trash"></i>
-                </button>
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapseOne">
-                    Grupo La Gaviota #701
-                  </a>
-                </h4>
-
-              </div>
-              <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Privilegios</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>1</th>
-                        <th>Daniel Apodaca</th>
-                        <th>Daniel@oneami.com</th>
-                        <th>Administrador.</th>
-                        <th><form class="" action="#" method="post">
-                          <button type="submit" name="btnimprimir">
-                            <i class="glyphicon glyphicon-print"></i>
-                          </button>
-                        </form> </th>
-                        <th><form class="" action="#" method="post">
-                          <button type="submit" name="btneditar">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                          </button>
-                        </form> </th>
-                        <th><form class="" action="#" method="post">
-                          <button type="submit" name="btnborrar">
-                            <i class="glyphicon glyphicon-trash"></i>
-                          </button>
-                        </form> </th>
-                      </tr>
-                    </tbody>
-                    </table>
-                    <a type="submit" name="btnborrar" data-toggle="modal" data-target=".usuarios">
-                      <i class="glyphicon glyphicon-plus">Agregar Alumno Nuevo</i>
-                    </a>
-                </div>
-              </div>
-            </div>
-            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Privilegios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <th>Daniel Apodaca</th>
+                  <th>Daniel@oneami.com</th>
+                  <th>Administrador</th>
+                  <th><form class="" action="#" method="post">
+                    <button type="submit" name="btnimprimir">
+                      <i class="glyphicon glyphicon-print"></i>
+                    </button>
+                  </form> </th>
+                  <th><form class="" action="#" method="post">
+                    <button type="submit" name="btneditar">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </button>
+                  </form> </th>
+                  <th><form class="" action="#" method="post">
+                    <button type="submit" name="btnborrar">
+                      <i class="glyphicon glyphicon-trash"></i>
+                    </button>
+                  </form> </th>
+                </tr>
+              </tbody>
+              </table>
+              <a type="submit" name="btnborrar" data-toggle="modal" data-target=".usuarios">
+                <i class="glyphicon glyphicon-plus">Agregar usuario</i>
+              </a>
           </th>
         </tr>
       </tbody>
