@@ -2,10 +2,10 @@
 -- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 11-03-2018 a las 19:22:16
--- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.2.1
+-- Host: localhost
+-- Generation Time: Mar 11, 2018 at 10:27 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `oneami`
+-- Database: `oneami`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -38,7 +38,7 @@ CREATE TABLE `categorias` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `datos`
+-- Table structure for table `datos`
 --
 
 CREATE TABLE `datos` (
@@ -48,7 +48,7 @@ CREATE TABLE `datos` (
   `apellidoM` varchar(30) DEFAULT NULL,
   `edad` int(3) DEFAULT NULL,
   `sexo` varchar(10) DEFAULT NULL,
-  `telefono` int(15) DEFAULT NULL,
+  `telefono` bigint(15) DEFAULT NULL,
   `estado_civil` varchar(15) DEFAULT NULL,
   `escolaridad` varchar(40) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -56,16 +56,20 @@ CREATE TABLE `datos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `datos`
+-- Dumping data for table `datos`
 --
 
 INSERT INTO `datos` (`id_persona`, `nombre`, `apellidoP`, `apellidoM`, `edad`, `sexo`, `telefono`, `estado_civil`, `escolaridad`, `created_at`, `updated_at`) VALUES
-(1, 'Lorenzo', 'Arredondo', 'Dominguez', 21, 'sexo', 2, 'estado', '2', '2018-03-10 16:09:50', '2018-03-10 16:09:50');
+(1, 'Lorenzo', 'Arredondo', 'Dominguez', 21, 'sexo', 2, 'estado', '2', '2018-03-10 16:09:50', '2018-03-10 16:09:50'),
+(2, 'Daniel Gustavo', 'Apodaca', 'Duron', 21, 'sexo', 636, 'estado', '2', '2018-03-12 02:06:23', '2018-03-12 02:06:23'),
+(3, 'Joel Eduardo', 'Gomez', 'Almanza', 22, 'sexo', 636, 'estado', '2', '2018-03-12 02:07:33', '2018-03-12 02:07:33'),
+(4, 'Ismael', 'Varela', 'Jurado', 22, 'sexo', 636106633, '0', '2', '2018-03-12 02:11:00', '2018-03-12 02:11:00'),
+(5, 'Carlos', 'Torres', 'Garcia', 22, 'sexo', 6361066334, 'estado', '2', '2018-03-12 02:16:43', '2018-03-12 02:16:43');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `grupos`
+-- Table structure for table `grupos`
 --
 
 CREATE TABLE `grupos` (
@@ -76,10 +80,17 @@ CREATE TABLE `grupos` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `grupos`
+--
+
+INSERT INTO `grupos` (`id_grupo`, `num_grupo`, `nom_grupo`, `created_at`, `updated_at`) VALUES
+(1, 465, 'Cerezo', '2018-03-12 03:41:32', '2018-03-12 03:41:32');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `inscripciones`
+-- Table structure for table `inscripciones`
 --
 
 CREATE TABLE `inscripciones` (
@@ -94,7 +105,7 @@ CREATE TABLE `inscripciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -106,7 +117,7 @@ CREATE TABLE `migrations` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `preguntas`
+-- Table structure for table `preguntas`
 --
 
 CREATE TABLE `preguntas` (
@@ -121,7 +132,7 @@ CREATE TABLE `preguntas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `resultados`
+-- Table structure for table `resultados`
 --
 
 CREATE TABLE `resultados` (
@@ -138,22 +149,29 @@ CREATE TABLE `resultados` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `talleres`
+-- Table structure for table `talleres`
 --
 
 CREATE TABLE `talleres` (
   `id_taller` int(8) NOT NULL,
   `nombre_taller` varchar(50) DEFAULT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
+  `descripcion` varchar(600) DEFAULT NULL,
   `instructor` varchar(30) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `talleres`
+--
+
+INSERT INTO `talleres` (`id_taller`, `nombre_taller`, `descripcion`, `instructor`, `created_at`, `updated_at`) VALUES
+(1, 'Educacion Sexual', 'La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.', 'Daniel Apodaca', '2018-03-12 03:00:54', '2018-03-12 03:00:54');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -168,7 +186,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `privilegios`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -183,29 +201,29 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `privilegios`, `remember
 (9, 'Enrique', 'e@gmail.com', '$2y$10$cg2cc6wUTfpafCPTe0M6UOIOjCijfYRUSLHYBJMy1hzPxLtL64B4u', '0', NULL, '2018-03-10 14:40:40', '2018-03-10 14:40:40');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `datos`
+-- Indexes for table `datos`
 --
 ALTER TABLE `datos`
   ADD PRIMARY KEY (`id_persona`);
 
 --
--- Indices de la tabla `grupos`
+-- Indexes for table `grupos`
 --
 ALTER TABLE `grupos`
   ADD PRIMARY KEY (`id_grupo`);
 
 --
--- Indices de la tabla `inscripciones`
+-- Indexes for table `inscripciones`
 --
 ALTER TABLE `inscripciones`
   ADD PRIMARY KEY (`id_inscripcion`),
@@ -213,20 +231,20 @@ ALTER TABLE `inscripciones`
   ADD KEY `id_persona` (`id_persona`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `preguntas`
+-- Indexes for table `preguntas`
 --
 ALTER TABLE `preguntas`
   ADD PRIMARY KEY (`id_pregunta`),
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `resultados`
+-- Indexes for table `resultados`
 --
 ALTER TABLE `resultados`
   ADD PRIMARY KEY (`id_resultado`),
@@ -235,88 +253,88 @@ ALTER TABLE `resultados`
   ADD KEY `id_inscripcion` (`id_inscripcion`);
 
 --
--- Indices de la tabla `talleres`
+-- Indexes for table `talleres`
 --
 ALTER TABLE `talleres`
   ADD PRIMARY KEY (`id_taller`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(8) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `datos`
+-- AUTO_INCREMENT for table `datos`
 --
 ALTER TABLE `datos`
-  MODIFY `id_persona` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_persona` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `grupos`
+-- AUTO_INCREMENT for table `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id_grupo` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_grupo` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `inscripciones`
+-- AUTO_INCREMENT for table `inscripciones`
 --
 ALTER TABLE `inscripciones`
   MODIFY `id_inscripcion` int(8) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `preguntas`
+-- AUTO_INCREMENT for table `preguntas`
 --
 ALTER TABLE `preguntas`
   MODIFY `id_pregunta` int(8) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `talleres`
+-- AUTO_INCREMENT for table `talleres`
 --
 ALTER TABLE `talleres`
-  MODIFY `id_taller` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_taller` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `inscripciones`
+-- Constraints for table `inscripciones`
 --
 ALTER TABLE `inscripciones`
   ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`id_grupo`) REFERENCES `grupos` (`id_grupo`) ON UPDATE CASCADE,
   ADD CONSTRAINT `inscripciones_ibfk_2` FOREIGN KEY (`id_persona`) REFERENCES `datos` (`id_persona`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `preguntas`
+-- Constraints for table `preguntas`
 --
 ALTER TABLE `preguntas`
   ADD CONSTRAINT `preguntas_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `resultados`
+-- Constraints for table `resultados`
 --
 ALTER TABLE `resultados`
   ADD CONSTRAINT `resultados_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `datos` (`id_persona`) ON UPDATE CASCADE,
