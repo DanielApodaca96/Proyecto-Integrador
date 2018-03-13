@@ -53,27 +53,39 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>1</th>
-                  <th>Daniel Apodaca</th>
-                  <th>Daniel@oneami.com</th>
-                  <th>Administrador</th>
-                  <th><form class="" action="#" method="post">
-                    <button type="submit" name="btnimprimir">
-                      <i class="glyphicon glyphicon-print"></i>
-                    </button>
-                  </form> </th>
-                  <th><form class="" action="#" method="post">
-                    <button type="submit" name="btneditar">
-                      <i class="glyphicon glyphicon-pencil"></i>
-                    </button>
-                  </form> </th>
-                  <th><form class="" action="#" method="post">
-                    <button type="submit" name="btnborrar">
-                      <i class="glyphicon glyphicon-trash"></i>
-                    </button>
-                  </form> </th>
-                </tr>
+                @forelse($usuarios as $usu)
+                  <tr>
+                    <th>{{ $usu->id }}</th>
+                    <th>{{ $usu->name }}</th>
+                    <th>{{ $usu->email }}</th>
+                    <th>{{ $usu->privilegios }}</th>
+
+                    <th>
+                      <form class="" action="#" method="post">
+                        <button type="submit" name="btnimprimir">
+                          <i class="glyphicon glyphicon-print"></i>
+                        </button>
+                      </form>
+                    </th>
+                    <th>
+                      <form class="" action="#" method="post">
+                        <button type="submit" name="btneditar">
+                          <i class="glyphicon glyphicon-pencil"></i>
+                        </button>
+                      </form>
+                    </th>
+                    <th>
+                      <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
+                      {!!  Form::open(array( 'route'=>['admin.usuarios.destroy', $usu->id], 'method'=>'delete' ))  !!}
+                        <button type="submit" name="btnborrar">
+                          <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                      {!!  Form::close()  !!}
+                    </th>
+                  </tr>
+                @empty
+                  <p>Sin Registros</p>
+                @endforelse
               </tbody>
               </table>
               <a type="submit" name="btnborrar" data-toggle="modal" data-target=".usuarios">

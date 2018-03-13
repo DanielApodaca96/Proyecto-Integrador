@@ -17,10 +17,21 @@ class UsuariosController extends Controller
   }
 
     public function index(){
-      $title = "Oneami - Usuarios";
-      return view('admin.usuarios')
-        ->with('title', $title);
+      //Consulta directamente a la tabla
+        $registros=\DB::table('users')
+            //->where('id','=','1')
+            //->take(10);
+            ->orderBy('id','name')
+            ->get();
+
+        $title = "Oneami - Usuarios";
+        return view('admin.usuarios')
+          ->with('title', $title)
+          ->with('usuarios', $registros);
+
+
     }
+    //Insertar
     public function store(Request $req){
       $validator = Validator::make($req->all(),[
         'nombre'=>'required|max:255',
@@ -57,4 +68,19 @@ class UsuariosController extends Controller
       }
 
     }
+    //Eliminar
+    public function destroy($id){
+      //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+      $usuario = User::find($id):
+      /*if(file_exists(public_path('/img/usuarios/' . $usuario->img_perfil))){
+        unlink(public_path('/img/usuarios/' . $usuario->img_perfil))
+      }
+      $usuario->delete();
+      return redirect('/admin/usuarios/ . $usuario-?img_perfil');
+
+      dd($usuario->img_perfil)*/
+
+      //imprime el id pa ver si si jala
+      //dd($id);
+    }//function destroy
 }
