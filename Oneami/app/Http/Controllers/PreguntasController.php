@@ -25,8 +25,8 @@ class PreguntasController extends Controller
     public function store(Request $req){
       $validator = Validator::make($req->all(),[
         'pregunta'=>'required|max:255',
-        'tipo_respuesta'=>'required|in:0,1',
-        'id_categoria'=>'required|max:255'
+        'tipo_respuesta'=>'required',
+        'id_categoria'=>'required'
       ]);
 
       if($validator->fails()){
@@ -41,7 +41,7 @@ class PreguntasController extends Controller
         ]);
         return redirect()->to('/administracion/preguntas')
           ->with('mensaje','Pregunta Agregada');
-
       }
+
     }
 }

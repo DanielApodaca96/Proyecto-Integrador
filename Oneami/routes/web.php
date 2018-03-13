@@ -36,6 +36,9 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
 
   Route::get('/usuarios','UsuariosController@index');
   Route::resource('usuarios','UsuariosController');
+
+  Route::get('/categorias','CategoriasController@index');
+  Route::resource('categorias','CategoriasController');
 });
 
 Auth::routes();

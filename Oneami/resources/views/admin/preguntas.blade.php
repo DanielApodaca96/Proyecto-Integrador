@@ -80,8 +80,11 @@
                       </tr>
                     </tbody>
                     </table>
+                    <button type="button" class="btn btn-default navbar-right" data-toggle="modal" data-target=".preguntas">
+                        <i class="glyphicon glyphicon-plus">Agregar</i>
+                    </button>
                     <a type="submit" name="btnborrar" data-toggle="modal" data-target=".preguntas">
-                      <i class="glyphicon glyphicon-plus">Agregar pregunta</i>
+
                     </a>
                 </div>
               </div>
@@ -93,6 +96,9 @@
     </table>
   </div>
 </div>
+<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias">
+    <i class="glyphicon glyphicon-plus"></i>
+</button>
 
 @endsection
 <div class="modal fade preguntas" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
@@ -116,7 +122,7 @@
         </div>
         <div class="form-group">
           <label>Categoría</label>
-          {{ Form::select('id_categoria',array('taller'=>
+          {{ Form::select('id_categoria',[
           'TECNICAS DE COMUNICACIÓN',
           'CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO',
           'VIOLENCIA FAMILIAR',
@@ -126,8 +132,35 @@
           'ESTABLECIMIENTO DE LIMITES',
           'DESNUTRICION',
           'SEXUALIDAD',
-          'ADICCIONES'
-          ), array('id'=>'disabledSelect','class'=>'form-control','placeholder'=>'Categorias')) }}
+          'ADICCIONES']) }}
+        </div>
+        <div class="form-group">
+          {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}
+        </div>
+      </fieldset>
+
+       {{ Form::close() }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade categorias" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una categoria nueva.</h4>
+      </div>
+      <div class="modal-body">
+        {{ Form::open (array('url'=>'administracion/categorias')) }}
+      <fieldset>
+        <div class="form-group">
+          <label for="">Nombre</label>
+          {{ Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Categoria')) }}
         </div>
         <div class="form-group">
           {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}

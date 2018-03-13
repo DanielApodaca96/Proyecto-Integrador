@@ -141,3 +141,13 @@ select{
   width: 50%;
   text-align: center;
 }
+button.btnagregar{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: blue;
+  border: none;
+  margin-right: 1%
+
+
+}
