@@ -46,23 +46,19 @@
                   <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Instructor</th>
                     <th>Descripción</th>
+                    <th>Instructor</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @forelse($talleres as $taller)
                   <tr>
-                    <th>1</th>
-                    <th>Educacion Sexual</th>
-                    <th>Daniel Apodaca</th>
-                    <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-                    <th>
-                      <form class="" action="#" method="post">
-                        <button type="submit" name="btnimprimir">
-                          <i class="glyphicon glyphicon-print"></i>
-                        </button>
-                      </form>
-                    </th>
+                    <th>{{ $taller->id_taller }}</th>
+                    <th>{{ $taller->nombre_taller }}</th>
+                    <th>{{ $taller->descripcion }}</th>
+                    <th>{{ $taller->instructor }}</th>
                     <th>
                       <form class="" action="#" method="post">
                         <button type="submit" name="btneditar">
@@ -78,6 +74,9 @@
                       </form>
                     </th>
                   </tr>
+                  @empty
+                    <p>Sin Registros</p>
+                  @endforelse
                 </tbody>
                 </table>
                 <a type="submit" name="btnborrar" data-toggle="modal" data-target=".taller">

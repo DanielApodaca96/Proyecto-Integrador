@@ -71,7 +71,7 @@ class UsuariosController extends Controller
     //Eliminar
     public function destroy($id){
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
-      $usuario = User::find($id):
+      $usuario = User::find($id);
       /*if(file_exists(public_path('/img/usuarios/' . $usuario->img_perfil))){
         unlink(public_path('/img/usuarios/' . $usuario->img_perfil))
       }

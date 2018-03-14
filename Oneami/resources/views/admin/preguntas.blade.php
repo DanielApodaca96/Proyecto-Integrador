@@ -64,20 +64,28 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @forelse($preguntas as $pre)
                       <tr>
-                        <th>1</th>
-                        <th>La educación entre iguales tiene en cuenta la importancia de las relaciones interpersonales del grupo.</th>
-                        <th><form class="" action="#" method="post">
+                        <th>{{ $pre->id_pregunta }}</th>
+                        <th>{{ $pre->pregunta }}</th>
+                        <th>
+                          <form class="" action="#" method="post">
                           <button type="submit" name="btneditar">
                             <i class="glyphicon glyphicon-pencil"></i>
                           </button>
-                        </form> </th>
-                        <th><form class="" action="#" method="post">
+                          </form>
+                        </th>
+                        <th>
+                          <form class="" action="#" method="post">
                           <button type="submit" name="btnborrar">
                             <i class="glyphicon glyphicon-trash"></i>
                           </button>
-                        </form> </th>
+                          </form>
+                        </th>
                       </tr>
+                      @empty
+                        <p>Sin registros</p>
+                      @endforelse
                     </tbody>
                     </table>
                     <button type="button" class="btn btn-default navbar-right" data-toggle="modal" data-target=".preguntas">
@@ -96,6 +104,9 @@
     </table>
   </div>
 </div>
+<div class="container">
+
+</div>
 <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias">
     <i class="glyphicon glyphicon-plus"></i>
 </button>
@@ -108,6 +119,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
       </div>
+
       <div class="modal-body">
         {{ Form::open (array('url'=>'administracion/preguntas')) }}
       <fieldset>
@@ -122,25 +134,21 @@
         </div>
         <div class="form-group">
           <label>Categoría</label>
-          {{ Form::select('id_categoria',[
-          'TECNICAS DE COMUNICACIÓN',
-          'CONOCIMIENTO DE LAS ETAPAS DE DESARROLLO DEL NIÑO',
-          'VIOLENCIA FAMILIAR',
-          'BAJA AUTOESTIMA / ESTRÉS',
-          'EQUIDAD DE GENERO',
-          'TIEMPO EFECTIVO EN LA FAMILIA',
-          'ESTABLECIMIENTO DE LIMITES',
-          'DESNUTRICION',
-          'SEXUALIDAD',
-          'ADICCIONES']) }}
+          <select class="cate" name="id_categoria">
+            @forelse($categorias as $cate)
+              <option value="{{$cate->id_categoria}}">{{ $cate->nombre }}</option>
+            @empty
+              <option value=""></option>
+            @endforelse
+          </select>
         </div>
         <div class="form-group">
           {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}
         </div>
       </fieldset>
-
        {{ Form::close() }}
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>

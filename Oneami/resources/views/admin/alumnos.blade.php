@@ -60,20 +60,28 @@
                         <tr>
                           <th>#</th>
                           <th>Nombre</th>
-                          <th>Apellidos</th>
-                          <th>Dirección</th>
-                          <th>Teléfono</th>
-                          <th>Taller</th>
+                          <th>Apellido P.</th>
+                          <th>Apellido M.</th>
+                          <th>Edad</th>
+                          <th>Sexo</th>
+                          <th>Telefono</th>
+                          <th>Estado Civil</th>
+                          <th>Escolaridad</th>
                         </tr>
                       </thead>
                       <tbody>
+                        @forelse($alumnos as $alu)
                         <tr>
-                          <th>#</th>
-                          <th>#</th>
-                          <th>#</th>
-                          <th>#</th>
-                          <th>#</th>
-                          <th>#</th>
+                          <th>{{ $alu->id_persona }}</th>
+                          <th>{{ $alu-> nombre }}</th>
+                          <th>{{ $alu->apellidoP }}</th>
+                          <th>{{ $alu->apellidoM }}</th>
+                          <th>{{ $alu->edad }}</th>
+                          <th>{{ $alu->sexo }}</th>
+                          <th>{{ $alu->telefono }}</th>
+                          <th>{{ $alu->estado_civil }}</th>
+                          <th>{{ $alu->escolaridad }}</th>
+
 
                           <th><form class="" action="#" method="post">
                             <button type="submit" name="btnimprimir">
@@ -91,6 +99,9 @@
                             </button>
                           </form> </th>
                         </tr>
+                        @empty
+                          <p>Sin Registros</p>
+                        @endforelse
                       </tbody>
                       </table>
                       <a type="submit" name="btnborrar" data-toggle="modal" data-target=".alumno">

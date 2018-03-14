@@ -17,9 +17,13 @@ class TalleresController extends Controller
   }
 
     public function index(){
+      $registro=\DB::table('talleres')
+        ->orderBy('id_taller')
+        ->get();
       $title = "Oneami - Talleres";
       return view('admin.talleres')
-        ->with('title', $title);
+        ->with('title', $title)
+        ->with('talleres', $registro);
     }
 
     public function store(Request $req){

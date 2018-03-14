@@ -17,9 +17,14 @@ class AlumnosController extends Controller
   }
 
     public function index(){
+      $registros=\DB::table('datos')
+        ->orderBy('id_persona','nombre')
+        ->get();
+
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')
-        ->with('title', $title);
+        ->with('title', $title)
+        ->with('alumnos',$registros);
     }
     public function store(Request $req){
       $validator = Validator::make($req->all(),[

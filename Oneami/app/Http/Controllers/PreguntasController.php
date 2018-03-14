@@ -17,9 +17,20 @@ class PreguntasController extends Controller
   }
 
     public function index(){
+      //categorias en el combobox
+      $registros=\DB::table('categorias')
+      ->orderBy('id_categoria')
+      ->get();
+      //
+      $registros2=\DB::table('preguntas')
+      ->orderBy('id_pregunta')
+      ->get();
+
       $title = "Oneami - Preguntas";
       return view('admin.preguntas')
-        ->with('title', $title);
+        ->with('title', $title)
+        ->with('categorias',$registros)
+        ->with('preguntas',$registros2);
     }
 
     public function store(Request $req){
@@ -28,7 +39,6 @@ class PreguntasController extends Controller
         'tipo_respuesta'=>'required',
         'id_categoria'=>'required'
       ]);
-
       if($validator->fails()){
         return redirect('/administracion/preguntas')
           ->withInput()
@@ -42,6 +52,5 @@ class PreguntasController extends Controller
         return redirect()->to('/administracion/preguntas')
           ->with('mensaje','Pregunta Agregada');
       }
-
     }
 }
