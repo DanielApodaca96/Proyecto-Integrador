@@ -17,8 +17,13 @@ class GruposController extends Controller
   }
 
     public function index(){
+      $registros=\DB::table('grupos')
+        ->orderBy('id_grupo')
+        ->get();
+
       $title = "Oneami - Grupos";
       return view('admin.grupos')
+        ->with('grupos',$registros)
         ->with('title', $title);
     }
 

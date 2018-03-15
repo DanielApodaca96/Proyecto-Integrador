@@ -46,6 +46,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     @yield('scripts')
+    @yield('jQuery')
     @yield('script-porcentajes')
   </body>
 </html>

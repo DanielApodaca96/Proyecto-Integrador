@@ -81,18 +81,14 @@
                           <th>{{ $alu->telefono }}</th>
                           <th>{{ $alu->estado_civil }}</th>
                           <th>{{ $alu->escolaridad }}</th>
+                          <th>
 
+                              <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btnedit"
+                              data-nombre="{{$alu->nombre}}">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                              </button>
 
-                          <th><form class="" action="#" method="post">
-                            <button type="submit" name="btnimprimir">
-                              <i class="glyphicon glyphicon-print"></i>
-                            </button>
-                          </form> </th>
-                          <th><form class="" action="#" method="post">
-                            <button type="submit" name="btneditar">
-                              <i class="glyphicon glyphicon-pencil"></i>
-                            </button>
-                          </form> </th>
+                          </th>
                           <th><form class="" action="#" method="post">
                             <button type="submit" name="btnborrar">
                               <i class="glyphicon glyphicon-trash"></i>
@@ -117,6 +113,64 @@
       </table>
     </div>
   </div>
+  <div class="modal fade editar" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Editar a: <b>Daniel</b>.</h4>
+        </div>
+          {!!  Form::open(array('url'=>'/administracion/alumnos')  )!!}
+        <div class="modal-body">
+          <div class="input-group">
+            <label for="">Nombre</label>
+            <input type="text" name="nameEditar" id="nameEditar "value="" class="form-control">
+          </div>
+          <div class="input-group">
+            <label for="">Apellido P</label>
+            <input type="text" name="nameApellidoP" id="nameApellidoP "value="" class="form-control">
+          </div>
+          <div class="input-group">
+            <label for="">Apellido M</label>
+            <input type="text" name="nameApellidoM" id="nameApellidoM "value="" class="form-control">
+          </div>
+          <div class="input-group">
+            <label for="">Edad</label>
+            <input type="text" name="nameEdad" id="nameEdad "value="" class="form-control">
+          </div>
+          <div class="input-group">
+            <label for="">Telefono</label>
+            <input type="text" name="nameTelefono" id="nameTelefono "value="" class="form-control">
+          </div>
+          <div class="input-group">
+            <label for="">Sexo</label>
+            <select class="form-control" name="editarSexo" id="editarSexo">
+
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="">Estado civil</label>
+            <select class="form-control" name="editarEstado" id="editarEstado">
+
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="">Escolaridad</label>
+            <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
+
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Editar</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+
 
 @endsection
 <div class="modal fade alumno" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
@@ -173,3 +227,16 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+@section('jQuery')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".btnedit").on("click", function(){
+        var nom=$(this).data('nombre');
+        //var em=$(this).data('email');
+        $('#nameEditar').val(nom);
+
+      });
+    });
+  </script>
+@endsection
