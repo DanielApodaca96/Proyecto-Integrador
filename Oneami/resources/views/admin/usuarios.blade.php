@@ -27,9 +27,7 @@
 </div>
 
 <div class="row">
-
   <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
-
     <table class="table table-striped">
       <div class="col-lg-4 col-lg-offset-4">
         <div class="input-group">
@@ -50,6 +48,8 @@
                   <th>Nombre</th>
                   <th>Correo</th>
                   <th>Privilegios</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,28 +59,45 @@
                     <th>{{ $usu->name }}</th>
                     <th>{{ $usu->email }}</th>
                     <th>{{ $usu->privilegios }}</th>
-
                     <th>
-                      <form class="" action="#" method="post">
-                        <button type="submit" name="btnimprimir">
-                          <i class="glyphicon glyphicon-print"></i>
-                        </button>
-                      </form>
+                      <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
+                      data-id="{{ $usu->id }}"
+                      data-name="{{  $usu->name  }}"
+                      data-email="{{  $usu->email  }}"
+                      data-privilegios="{{  $usu->privilegios  }}"
+                      >
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </button>
                     </th>
                     <th>
-                      <form class="" action="#" method="post">
-                        <button type="submit" name="btneditar">
-                          <i class="glyphicon glyphicon-pencil"></i>
-                        </button>
-                      </form>
-                    </th>
-                    <th>
-                      <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
-                      {!!  Form::open(array( 'route'=>['admin.usuarios.destroy', $usu->id], 'method'=>'delete' ))  !!}
-                        <button type="submit" name="btnborrar">
+                        <button class="btn" type="button"  data-toggle="modal" data-target=".eliminar{{ $usu->id }}">
                           <i class="glyphicon glyphicon-trash"></i>
                         </button>
-                      {!!  Form::close()  !!}
+
+                        <!-- Modal -->
+                        <div class="modal fade eliminar{{ $usu->id }}" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Eliminando registro: {{ $usu->name }}</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>Estas seguro/a de que deseas eliminar este registro?</p>
+                              </div>
+                              <div class="modal-footer">
+
+                                <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
+                                {!!  Form::open(array( 'route'=>['admin.usuarios.destroy', $usu->id], 'method'=>'delete' ))  !!}
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                  <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+                                {!!  Form::close()  !!}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </th>
                   </tr>
                 @empty
@@ -97,6 +114,44 @@
     </table>
   </div>
 </div>
+
+<div class="modal fade editar" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Editar a: <b id="nomModal">Daniel</b>.</h4>
+      </div>
+          {!!  Form::open(array('route'=>['admin.usuarios.edit', $usu->id], 'method'=>'GET' ))  !!}
+      <div class="modal-body">
+
+        <input type="hidden" name="id" id="idEditar" value="">
+
+        <div class="input-group">
+          <label for="">Nombre</label>
+          <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
+        </div>
+        <div class="input-group">
+          <label for="">Correo electronico</label>
+          <input type="text" name="nameEmail" id="nameEmail" value="" class="form-control">
+        </div>
+        <div class="input-group">
+          <label for="">Privilegios</label>
+          <select class="form-control" name="editarPrivilegios" id="editarPrivilegios">
+
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </div>
+      {!! Form::close() !!}
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
+
 @endsection
 <div class="modal fade usuarios" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
@@ -146,3 +201,24 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+@section('jQuery')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".btnedit").on("click", function(){
+        var nom=$(this).data('name');
+        var id = $(this).data('id');
+        var email = $(this).data('email');
+        var priv = $(this).data('privilegios');
+
+        //var em=$(this).data('email');
+        $("#idEditar").val(id);
+        $('#nameEditar').val(nom);
+        $('#nameEmail').val(email);
+        $('#editarPrivilegios').val(priv);
+        $("#nomModal").text(nom);
+
+      });
+    });
+  </script>
+@endsection

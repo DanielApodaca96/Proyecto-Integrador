@@ -48,4 +48,22 @@ class TalleresController extends Controller
 
       }
     }
+
+    public function destroy($id){
+      //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+      $talleres = Taller::find($id);
+      $talleres->delete();
+      return redirect('/administracion/talleres/');
+    }
+
+    public function edit(Request $req){
+      //Select * from..........
+      $talleres=Taller::find($req->id);
+      $talleres->nombre_taller=$req->nameEditar;
+      $talleres->descripcion=$req->nameDescripcion;
+      $talleres->instructor=$req->nameInstructor;
+      $talleres->save();
+      return redirect('/administracion/talleres/');
+      dd("Registro Actualizado");
+    }//llave editar
 }

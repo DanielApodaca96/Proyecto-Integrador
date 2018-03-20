@@ -57,4 +57,26 @@ class AlumnosController extends Controller
           ->with('mensaje','Alumno Agregado');
       }
     }
+    public function destroy($id){
+      //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+      $alumnos = Dato::find($id);
+      $alumnos->delete();
+      return redirect('/administracion/alumnos/');
+    }
+
+    public function edit(Request $req){
+      //Select * from..........
+      $alumnos=Dato::find($req->id);
+      $alumnos->nombre=$req->nameEditar;
+      $alumnos->apellidoP=$req->nameApellidoP;
+      $alumnos->apellidoM=$req->nameApellidoM;
+      $alumnos->edad=$req->nameEdad;
+      $alumnos->sexo=$req->editarSexo;
+      $alumnos->telefono=$req->nameTelefono;
+      $alumnos->estado_civil=$req->editarEstado;
+      $alumnos->escolaridad=$req->editarEscolaridad;
+      $alumnos->save();
+      return redirect('/administracion/alumnos/');
+      dd("Registro Actualizado");
+    }//llave editar
 }

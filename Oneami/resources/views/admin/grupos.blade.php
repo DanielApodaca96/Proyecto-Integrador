@@ -45,7 +45,7 @@
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
-                  <button type="submit" class="navbar-right" name="btnborrar">
+                  <button type="submit" class="navbar-right btn" name="btnborrar">
                     <i class="glyphicon glyphicon-trash"></i>
                   </button>
                   <h4 class="panel-title">
@@ -78,17 +78,17 @@
                           <th>#</th>
 
                           <th><form class="" action="#" method="post">
-                            <button type="submit" name="btnimprimir">
+                            <button class="btn" type="submit" name="btnimprimir">
                               <i class="glyphicon glyphicon-print"></i>
                             </button>
                           </form> </th>
                           <th><form class="" action="#" method="post">
-                            <button type="submit" name="btneditar">
+                            <button class="btn" type="submit" name="btneditar">
                               <i class="glyphicon glyphicon-pencil"></i>
                             </button>
                           </form> </th>
                           <th><form class="" action="#" method="post">
-                            <button type="submit" name="btnborrar">
+                            <button class="btn" type="submit" name="btnborrar">
                               <i class="glyphicon glyphicon-trash"></i>
                             </button>
                           </form> </th>
@@ -109,37 +109,3 @@
     </div>
   </div>
 @endsection
-<div class="modal fade grupo" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un grupo nuevo.</h4>
-      </div>
-      <div class="modal-body">
-        <div class="card-body">
-          {{ Form::open (array('url'=>'/administracion/grupos')) }}
-          <fieldset>
-            <div class="form-group">
-              <label for="">Nombre</label>
-                {{ Form::text('nom_grupo','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
-            </div>
-
-            <div class="form-group">
-              <label for="">Numero de Grupo</label>
-              {{ Form::text('num_grupo','',array('class'=>'form-control','placeholder'=>'Numero de Grupo'))}}
-            </div>
-            <div class="form-group">
-                {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
-            </div>
-          </fieldset>
-
-          {{ Form::close() }}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->

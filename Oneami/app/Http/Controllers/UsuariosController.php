@@ -72,6 +72,9 @@ class UsuariosController extends Controller
     public function destroy($id){
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
       $usuario = User::find($id);
+      $usuario->delete();
+      return redirect('/administracion/usuarios/');
+
       /*if(file_exists(public_path('/img/usuarios/' . $usuario->img_perfil))){
         unlink(public_path('/img/usuarios/' . $usuario->img_perfil))
       }
@@ -83,4 +86,14 @@ class UsuariosController extends Controller
       //imprime el id pa ver si si jala
       //dd($id);
     }//function destroy
+
+    public function edit(Request $req){
+      //Select * from..........
+      $usuario=User::find($req->id);
+      $usuario->name=$req->nameEditar;
+      $usuario->email=$req->nameEmail;
+      $usuario->save();
+      return redirect('/administracion/usuarios/');
+      dd("Registro Actualizado");
+    }//llave editar
 }
