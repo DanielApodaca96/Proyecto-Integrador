@@ -38,6 +38,7 @@
       @yield('talleres')
       @yield('usuarios')
       @yield('alumnos')
+      @yield('pre')
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

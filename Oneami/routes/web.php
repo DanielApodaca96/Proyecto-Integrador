@@ -22,6 +22,9 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/alumnos','AlumnosController@index');
   Route::resource('alumnos','AlumnosController');
 
+  Route::get('/pre_evaluacion','Pre_evaluacionController@index');
+  Route::resource('pre_evaluacion','Pre_evaluacionController');
+
   Route::get('/grupos','GruposController@index');
   Route::resource('grupos','GruposController');
 

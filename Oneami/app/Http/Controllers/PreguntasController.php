@@ -52,5 +52,13 @@ class PreguntasController extends Controller
         return redirect()->to('/administracion/preguntas')
           ->with('mensaje','Pregunta Agregada');
       }
-    }
+    }//llave store
+    public function edit(Request $req){
+      //Select * from..........
+      $pregunta=Pregunta::find($req->id);
+      $pregunta->pregunta=$req->nameEditar;
+      $pregunta->save();
+      return redirect('/administracion/preguntas/');
+      dd("Registro Actualizado");
+    }//llave editar
 }

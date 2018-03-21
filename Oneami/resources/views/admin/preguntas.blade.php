@@ -44,7 +44,7 @@
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
               <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingOne">
-                <button type="submit" class="navbar-right" name="btnborrar">
+                <button type="submit" class="navbar-right btn btnedit" name="btnborrar">
                   <i class="glyphicon glyphicon-trash"></i>
                 </button>
                 <h4 class="panel-title">
@@ -69,7 +69,11 @@
                         <th>{{ $pre->id_pregunta }}</th>
                         <th>{{ $pre->pregunta }}</th>
                         <th>
-                          <button class="btn" type="submit" name="btneditar">
+                          <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
+                          data-id="{{ $pre->id_pregunta }}"
+                          data-pregunta="{{  $pre->pregunta  }}"
+                          data-categoria="{{  $pre->id_categoria  }}"
+                          >
                             <i class="glyphicon glyphicon-pencil"></i>
                           </button>
                         </th>
@@ -151,6 +155,49 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<!--************************************EDITAR PREGUNTAS*************************************-->
+<div class="modal fade editar" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+      </div>
+
+      <div class="modal-body">
+        {!!  Form::open(array('route'=>['admin.preguntas.edit', $pre->id_pregunta], 'method'=>'GET' ))  !!}
+          <div class="modal-body">
+            <input type="hidden" name="id" id="idEditar" value="">
+            <div class="input-group">
+              <label for="">Pregunta</label>
+              <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
+            </div>
+            <div class="input-group">
+              <label for="">Tipo de pregunta</label><br>
+              <input type="radio" name="editarTipo" id="editarTipo" value=""><label for="tipo_respuesta">4 Opciones</label><br>
+              <input type="radio" name="editarTipo" id="editarTipo" value=""><label for="tipo_respuesta">2 Opciones</label>
+            </div>
+            <div class="input-group">
+              <label for="">Categoría</label>
+              <select class="form-control" name="editarCategoria" id="editarPrivilegios">
+
+              </select>
+            </div>
+          </div>
+      </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Editar</button>
+          </div>
+        {!! Form::close() !!}
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div class="modal fade categorias" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
@@ -179,3 +226,21 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+@section('jQuery')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".btnedit").on("click", function(){
+        var pre=$(this).data('pregunta');
+        var id = $(this).data('id');
+        var cate=$(this).data('categoria');
+        //var em=$(this).data('email');
+        $("#idEditar").val(id);
+        $('#nameEditar').val(pre);
+        $('#editarCategoria').val(cate);
+        $("#nomModal").text(pre);
+
+      });
+    });
+  </script>
+@endsection
