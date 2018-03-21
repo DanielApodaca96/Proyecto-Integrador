@@ -21,9 +21,14 @@ class AlumnosController extends Controller
         ->orderBy('id_persona','nombre')
         ->get();
 
+      $registros2=\DB::table('grupos')
+        ->orderBy('id_grupo')
+        ->get();
+
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')
         ->with('title', $title)
+        ->with('grupos',$registros2)
         ->with('alumnos',$registros);
     }
     public function store(Request $req){

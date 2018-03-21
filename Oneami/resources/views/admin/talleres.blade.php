@@ -121,33 +121,34 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Editar a: <b id="nomModal">Daniel</b>.</h4>
         </div>
-            {!!  Form::open(array('route'=>['admin.talleres.edit', $taller->id_taller], 'method'=>'GET' ))  !!}
-        <div class="modal-body">
+        @if(count($talleres)>=1)
+            {!!  Form::open(array('route'=>['admin.talleres.edit', $talleres{0}->id_taller], 'method'=>'GET' ))  !!}
+              <div class="modal-body">
 
-          <input type="hidden" name="id" id="idEditar" value="">
+                <input type="hidden" name="id" id="idEditar" value="">
 
-          <div class="input-group">
-            <label for="">Nombre del taller</label>
-            <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
-          </div>
+                <div class="input-group">
+                  <label for="">Nombre del taller</label>
+                  <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
+                </div>
 
-          <div class="input-group">
-            <label for="">Instructor</label>
-            <input type="text" name="nameInstructor" id="nameInstructor" value="" class="form-control">
-          </div>
+                <div class="input-group">
+                  <label for="">Instructor</label>
+                  <input type="text" name="nameInstructor" id="nameInstructor" value="" class="form-control">
+                </div>
 
-          <div class="input-group">
-            <label for="">Descripción</label>
-            <input type="text" name="nameDescripcion" id="nameDescripcion" value="" class="form-control">
-          </div>
+                <div class="input-group">
+                  <label for="">Descripción</label>
+                  <input type="text" name="nameDescripcion" id="nameDescripcion" value="" class="form-control">
+                </div>
 
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Editar</button>
-        </div>
-        {!! Form::close() !!}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
+              </div>
+            {!! Form::close() !!}
+        @endif
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 

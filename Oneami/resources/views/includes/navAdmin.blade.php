@@ -4,7 +4,7 @@
   <div class="navName">MENU</div>
   <ul class="nav nav-pills nav-stacked">
     <li role="presentation"><a href="{{ url('/administracion') }}"><i class="fas fa-home padRight"></i>Inicio</a></li>
-    <li role="presentation"><a href="{{ url('/administracion/grupos') }}"><i class="fas fa-users padRight"></i>Grupos</a></li>
+    <!--<li role="presentation"><a href="{{ url('/administracion/grupos') }}"><i class="fas fa-users padRight"></i>Grupos</a></li>-->
     <li role="presentation"><a href="{{ url('/administracion/talleres')}}"><i class="fas fa-book padRight"></i>Talleres</a></li>
     <li role="presentation"><a href="{{ url('/administracion/alumnos') }}"><i class="fas fa-user padRight"></i>Alumnos</a></li>
   </ul>

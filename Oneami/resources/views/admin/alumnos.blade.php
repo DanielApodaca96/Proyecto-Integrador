@@ -40,21 +40,21 @@
         <tbody>
           <tr>
             <th>
+              @foreach($grupos as $g)
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
-                  <button type="submit" class="navbar-right" name="btnborrar">
+                  <button type="submit" class="navbar-right btn" name="btnborrar">
                     <i class="glyphicon glyphicon-trash"></i>
                   </button>
                   <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapseOne">
-                      Grupo La Gaviota #701
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{  $g->id_grupo  }}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                      {{  $g->nom_grupo . " #" . $g->num_grupo  }}
                     </a>
                   </h4>
-
                 </div>
-                <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
+                <div id="collapse{{  $g->id_grupo  }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" expanded="false">
+                  <div class="panel-body" style="">
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -140,6 +140,7 @@
                 </div>
               </div>
               </div>
+              @endforeach
             </th>
           </tr>
         </tbody>
@@ -155,55 +156,58 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Editar a: <b id="nomModal">Daniel</b>.</h4>
         </div>
+
+        @if(count($alumnos)>=1)
             {!!  Form::open(array('route'=>['admin.alumnos.edit', $alu->id_persona], 'method'=>'GET' ))  !!}
-        <div class="modal-body">
+              <div class="modal-body">
 
-          <input type="hidden" name="id" id="idEditar" value="">
+                <input type="hidden" name="id" id="idEditar" value="">
 
-          <div class="input-group">
-            <label for="">Nombre</label>
-            <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
-          </div>
-          <div class="input-group">
-            <label for="">Apellido P</label>
-            <input type="text" name="nameApellidoP" id="nameApellidoP" value="" class="form-control">
-          </div>
-          <div class="input-group">
-            <label for="">Apellido M</label>
-            <input type="text" name="nameApellidoM" id="nameApellidoM" value="" class="form-control">
-          </div>
-          <div class="input-group">
-            <label for="">Edad</label>
-            <input type="text" name="nameEdad" id="nameEdad" value="" class="form-control">
-          </div>
-          <div class="input-group">
-            <label for="">Telefono</label>
-            <input type="text" name="nameTelefono" id="nameTelefono" value="" class="form-control">
-          </div>
-          <div class="input-group">
-            <label for="">Sexo</label>
-            <select class="form-control" name="editarSexo" id="editarSexo">
+                <div class="input-group">
+                  <label for="">Nombre</label>
+                  <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
+                </div>
+                <div class="input-group">
+                  <label for="">Apellido P</label>
+                  <input type="text" name="nameApellidoP" id="nameApellidoP" value="" class="form-control">
+                </div>
+                <div class="input-group">
+                  <label for="">Apellido M</label>
+                  <input type="text" name="nameApellidoM" id="nameApellidoM" value="" class="form-control">
+                </div>
+                <div class="input-group">
+                  <label for="">Edad</label>
+                  <input type="text" name="nameEdad" id="nameEdad" value="" class="form-control">
+                </div>
+                <div class="input-group">
+                  <label for="">Telefono</label>
+                  <input type="text" name="nameTelefono" id="nameTelefono" value="" class="form-control">
+                </div>
+                <div class="input-group">
+                  <label for="">Sexo</label>
+                  <select class="form-control" name="editarSexo" id="editarSexo">
 
-            </select>
-          </div>
-          <div class="input-group">
-            <label for="">Estado civil</label>
-            <select class="form-control" name="editarEstado" id="editarEstado">
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label for="">Estado civil</label>
+                  <select class="form-control" name="editarEstado" id="editarEstado">
 
-            </select>
-          </div>
-          <div class="input-group">
-            <label for="">Escolaridad</label>
-            <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label for="">Escolaridad</label>
+                  <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
 
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Editar</button>
-        </div>
-        {!! Form::close() !!}
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
+              </div>
+            {!! Form::close() !!}
+          @endif
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 
@@ -220,7 +224,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un alumno nuevo.</h4>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un alumno nuevo a este grupo.</h4><br>
+        <button type="button" data-toggle="modal" data-target=".editar" class="btn btn-success">
+          Inscribir nuevo alumno
+        </button>
       </div>
       <div class="modal-body">
         <div class="card-body">
@@ -248,15 +255,25 @@
             </div>
             <div class="form-group">
               <label for="">Sexo</label><br>
-              {{  Form::select('sexo',array('sexo'=>'Masculino','Femenino')  )}}
+              {{  Form::select('sexo',[
+              'Masculino' => 'Masculino',
+              'Femenino' => 'Femenino']  )}}
             </div>
             <div class="form-group">
               <label for="">Estado Civil</label><br>
-              {{  Form::select('estado_civil',array('estado'=>'Soltero/a','Casado/a','Divorciado/a','Viudo/a')  )}}
+              {{  Form::select('estado_civil', [
+              'Soltero/a' => 'Soltero/a',
+              'Casado/a' => 'Casado/a',
+              'Divorciado/a' => 'Divorciado/a',
+              'Viudo/a' => 'Viudo/a']  )}}
             </div>
             <div class="form-group">
               <label for="">Escolaridad</label><br>
-              {{  Form::select('escolaridad',array('esco'=>'Primaria','Secundaria','Media Superior','Superior')  )}}
+              {{  Form::select('escolaridad', [
+              'Primaria' => 'Primaria',
+              'Secundaria' => 'Secundaria',
+              'Media Superior' => 'Media Superior',
+              'Superior' => 'Superior']  )}}
             </div>
               {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
           </fieldset>

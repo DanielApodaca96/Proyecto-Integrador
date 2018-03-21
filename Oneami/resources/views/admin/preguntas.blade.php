@@ -69,18 +69,14 @@
                         <th>{{ $pre->id_pregunta }}</th>
                         <th>{{ $pre->pregunta }}</th>
                         <th>
-                          <form class="" action="#" method="post">
-                          <button type="submit" name="btneditar">
+                          <button class="btn" type="submit" name="btneditar">
                             <i class="glyphicon glyphicon-pencil"></i>
                           </button>
-                          </form>
                         </th>
                         <th>
-                          <form class="" action="#" method="post">
-                          <button type="submit" name="btnborrar">
+                          <button class="btn" type="submit" name="btnborrar">
                             <i class="glyphicon glyphicon-trash"></i>
                           </button>
-                          </form>
                         </th>
                       </tr>
                       @empty

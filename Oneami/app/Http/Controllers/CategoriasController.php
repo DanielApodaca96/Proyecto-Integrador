@@ -22,9 +22,6 @@ class CategoriasController extends Controller
 
     return view('admin.categorias')
       ->with('title', $title);
-
-
-
   }
 
   public function store(Request $req){
