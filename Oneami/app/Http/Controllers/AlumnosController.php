@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 
 use App\Dato;
+use App\Inscripcion;
 
 class AlumnosController extends Controller
 {
@@ -25,10 +26,16 @@ class AlumnosController extends Controller
         ->orderBy('id_grupo')
         ->get();
 
+      $registros3=\DB::table('inscripciones')
+        ->orderBy('id_inscripcion')
+        ->get();
+
+
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')
         ->with('title', $title)
         ->with('grupos',$registros2)
+        ->with('inscripcion',$registros3)
         ->with('alumnos',$registros);
     }
     public function store(Request $req){
@@ -64,6 +71,8 @@ class AlumnosController extends Controller
     }
     public function destroy($id){
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+      $alumnos= Inscripcion::where('id_persona','=',$id);
+      $alumnos->delete();
       $alumnos = Dato::find($id);
       $alumnos->delete();
       return redirect('/administracion/alumnos/');

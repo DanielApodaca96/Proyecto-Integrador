@@ -40,21 +40,11 @@
         <tbody>
           <tr>
             <th>
-              @foreach($grupos as $g)
-              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <button type="submit" class="navbar-right btn" name="btnborrar">
-                    <i class="glyphicon glyphicon-trash"></i>
-                  </button>
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{  $g->id_grupo  }}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                      {{  $g->nom_grupo . " #" . $g->num_grupo  }}
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse{{  $g->id_grupo  }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" expanded="false">
-                  <div class="panel-body" style="">
+
+
+
+
+
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -81,6 +71,11 @@
                           <th>{{ $alu->telefono }}</th>
                           <th>{{ $alu->estado_civil }}</th>
                           <th>{{ $alu->escolaridad }}</th>
+                          <th>
+                            <button type="button" name="btninscripcion" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="{{  $alu->id_persona  }}">
+                              Inscribir
+                            </button>
+                          </th>
                           <th>
                               <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
                               data-nombre="{{ $alu->nombre }}"
@@ -136,11 +131,7 @@
                       <a type="submit" name="btnborrar" data-toggle="modal" data-target=".alumno">
                         <i class="glyphicon glyphicon-plus">Agregar alumno</i>
                       </a>
-                  </div>
-                </div>
-              </div>
-              </div>
-              @endforeach
+
             </th>
           </tr>
         </tbody>
@@ -225,9 +216,6 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un alumno nuevo a este grupo.</h4><br>
-        <button type="button" data-toggle="modal" data-target=".editar" class="btn btn-success">
-          Inscribir nuevo alumno
-        </button>
       </div>
       <div class="modal-body">
         <div class="card-body">
@@ -274,6 +262,50 @@
               'Secundaria' => 'Secundaria',
               'Media Superior' => 'Media Superior',
               'Superior' => 'Superior']  )}}
+            </div>
+              {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+          </fieldset>
+          {{  Form::close()  }}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade inscripcion" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Inscribe a un grupo.</h4><br>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          {{  Form::open(array('url'=>'/administracion/inscripcion')  )}}
+          <fieldset>
+            <div class="form-group">
+            <input type="hidden" name="nameEditar" id="nameEditar" value="">
+
+            </div>
+            <div class="form-group">
+              <label for="">Grupo</label><br>
+              <select class="grupo" name="id_grupo">
+                @forelse($grupos as $g)
+                  <option value="{{ $g->id_grupo }}">{{ $g->nom_grupo }} {{ $g->num_grupo }}</option>
+                @empty
+                  <option value=""></option>
+                @endforelse
+              </select>
+             <div class="form-group">
+               <label for="">Fecha</label><br>
+                  <div class="input-group date tiempo">
+                    {{ Form::text('tiempo','',array('class'=>'form-control','placeholder'=>'Fecha')  )}}
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                  </div>
+            </div>
             </div>
               {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
           </fieldset>
@@ -349,6 +381,21 @@
         $("#nomModal").text(nom);
 
       });
+      $('.btninscripcion').on("click", function(){
+        var nom2=$(this).data('id');
+        $('#nameEditar').val(nom2);
+
+      });
+
     });
   </script>
+@endsection
+@section('fecha')
+<script src="{{ asset('js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+$('.tiempo').datepicker({
+    format: "dd/mm/yyyy"
+});
+
+</script>
 @endsection

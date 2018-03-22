@@ -17,14 +17,27 @@ class GruposController extends Controller
   }
 
     public function index(){
+      $registros=\DB::table('datos')
+        ->orderBy('id_persona','nombre')
+        ->get();
+
       $registros2=\DB::table('grupos')
         ->orderBy('id_grupo')
         ->get();
 
+      $grupos=\DB::table('datos')
+        ->select('datos.*','grupos.*','inscripciones.*')
+        ->join('inscripciones','datos.id_persona','=','inscripciones.id_persona')
+        ->join('grupos','inscripciones.id_grupo','=','grupos.id_grupo')
+        ->get();
+
+
       $title = "Oneami - Grupos";
-      return view('admin.alumnos')
+      return view('admin.grupos')
+        ->with('title', $title)
         ->with('grupos',$registros2)
-        ->with('title', $title);
+        ->with('alumnos',$registros)
+        ->with('grupos2',$grupos);
     }
 
     public function store(Request $req){
@@ -34,7 +47,7 @@ class GruposController extends Controller
       ]);
 
       if($validator->fails()){
-        return redirect('/administracion/alumnos')
+        return redirect('/administracion/grupos')
           ->withInput()
           ->withErrors($validator);
       }else{
@@ -42,7 +55,7 @@ class GruposController extends Controller
           'nom_grupo'=>$req->nom_grupo,
           'num_grupo'=>$req->num_grupo
         ]);
-        return redirect()->to('/administracion/alumnos')
+        return redirect()->to('/administracion/grupos')
           ->with('mensaje','Grupo Agregado');
 
       }
@@ -61,7 +74,25 @@ class GruposController extends Controller
       $grupos->num_grupo=$req->numGrupo;
       $grupos->nom_grupo=$req->nameGrupo;
       $grupos->save();
-      return redirect('/administracion/alumnos/');
+      return redirect('/administracion/grupos/');
       dd("Registro Actualizado");
     }//llave editar
+
+    public function editalu(Request $req){
+      //Select * from..........
+      $alumnos=Dato::find($req->id);
+      $alumnos->nombre=$req->nameEditar;
+      $alumnos->apellidoP=$req->nameApellidoP;
+      $alumnos->apellidoM=$req->nameApellidoM;
+      $alumnos->edad=$req->nameEdad;
+      $alumnos->sexo=$req->editarSexo;
+      $alumnos->telefono=$req->nameTelefono;
+      $alumnos->estado_civil=$req->editarEstado;
+      $alumnos->escolaridad=$req->editarEscolaridad;
+      $alumnos->save();
+      return redirect('/administracion/grupos/');
+      dd("Registro Actualizado");
+    }//llave editar
+
+
 }

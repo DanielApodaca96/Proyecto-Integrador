@@ -13,6 +13,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="{{ asset('css/adminPanel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -48,6 +49,7 @@
 
     @yield('scripts')
     @yield('jQuery')
+    @yield('fecha')
     @yield('script-porcentajes')
   </body>
 </html>
