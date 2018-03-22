@@ -57,7 +57,6 @@ class GruposController extends Controller
         ]);
         return redirect()->to('/administracion/grupos')
           ->with('mensaje','Grupo Agregado');
-
       }
     }
 

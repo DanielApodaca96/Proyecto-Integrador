@@ -46,9 +46,37 @@
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
-                  <button type="submit" class="navbar-right btn" name="btnborrar">
+
+                  <button class="navbar-right btn btnedit" type="button"  data-toggle="modal" data-target=".eliminar{{ $g->id_grupo }}">
                     <i class="glyphicon glyphicon-trash"></i>
                   </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade eliminar{{ $g->id_grupo }}" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Eliminando el grupo: {{ $g->nom_grupo }}</h4>
+                        </div>
+                        <div class="modal-body">
+                          <i class="glyphicon glyphicon-exclamation-sign deleteWarning"></i>
+                          <p class="">¿Estás seguro/a de que deseas eliminar este grupo de forma permanente junto con todo su contenido?</p>
+                        </div>
+                        <div class="modal-footer">
+
+                          <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
+
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{  $g->id_grupo  }}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
                       {{  $g->nom_grupo . " #" . $g->num_grupo  }}
@@ -116,7 +144,7 @@
                                     <h4 class="modal-title">Dando de baja a: {{ $alu->nombre }}</h4>
                                   </div>
                                   <div class="modal-body">
-                                    <p>Estas seguro/a de que deseas dar de baja de este grupo?</p>
+                                    <p>¿Estás seguro/a de que deseas dar de baja de este grupo?</p>
                                   </div>
                                   <div class="modal-footer">
 
@@ -129,6 +157,16 @@
                                 </div>
                               </div>
                             </div>
+                          </th>
+                          <th>
+                            <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit btn-success">
+                              <i class="glyphicon glyphicon-chevron-left"></i>
+                            </button>
+                          </th>
+                          <th>
+                            <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit btn-success">
+                              <i class="glyphicon glyphicon-chevron-right"></i>
+                            </button>
                           </th>
                           @endif
                         </tr>

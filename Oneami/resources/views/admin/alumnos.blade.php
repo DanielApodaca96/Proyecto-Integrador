@@ -40,97 +40,92 @@
         <tbody>
           <tr>
             <th>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido P.</th>
+                    <th>Apellido M.</th>
+                    <th>Edad</th>
+                    <th>Sexo</th>
+                    <th>Telefono</th>
+                    <th>Estado Civil</th>
+                    <th>Escolaridad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @forelse($alumnos as $alu)
+                  <tr>
+                    <th>{{ $alu->id_persona }}</th>
+                    <th>{{ $alu->nombre }}</th>
+                    <th>{{ $alu->apellidoP }}</th>
+                    <th>{{ $alu->apellidoM }}</th>
+                    <th>{{ $alu->edad }}</th>
+                    <th>{{ $alu->sexo }}</th>
+                    <th>{{ $alu->telefono }}</th>
+                    <th>{{ $alu->estado_civil }}</th>
+                    <th>{{ $alu->escolaridad }}</th>
+                    <th>
+                      <button type="button" name="btninscripcion" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="{{  $alu->id_persona  }}">
+                        Inscribir
+                      </button>
+                    </th>
+                    <th>
+                        <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
+                        data-nombre="{{ $alu->nombre }}"
+                        data-id="{{  $alu->id_persona  }}"
+                        data-ap="{{  $alu->apellidoP  }}"
+                        data-am="{{  $alu->apellidoM  }}"
+                        data-edad="{{  $alu->edad  }}"
+                        data-sexo="{{  $alu->sexo  }}"
+                        data-telefono="{{  $alu->telefono  }}"
+                        data-estado="{{  $alu->estado_civil  }}"
+                        data-escolaridad="{{  $alu->escolaridad  }}"
+                        >
+                          <i class="glyphicon glyphicon-pencil"></i>
+                        </button>
 
+                    </th>
+                    <th>
+                      <button class="btn" type="button"  data-toggle="modal" data-target=".eliminar{{ $alu->id_persona }}">
+                        <i class="glyphicon glyphicon-trash"></i>
+                      </button>
 
+                      <!-- Modal -->
+                      <div class="modal fade eliminar{{ $alu->id_persona }}" role="dialog">
+                        <div class="modal-dialog">
 
-
-
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Nombre</th>
-                          <th>Apellido P.</th>
-                          <th>Apellido M.</th>
-                          <th>Edad</th>
-                          <th>Sexo</th>
-                          <th>Telefono</th>
-                          <th>Estado Civil</th>
-                          <th>Escolaridad</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @forelse($alumnos as $alu)
-                        <tr>
-                          <th>{{ $alu->id_persona }}</th>
-                          <th>{{ $alu->nombre }}</th>
-                          <th>{{ $alu->apellidoP }}</th>
-                          <th>{{ $alu->apellidoM }}</th>
-                          <th>{{ $alu->edad }}</th>
-                          <th>{{ $alu->sexo }}</th>
-                          <th>{{ $alu->telefono }}</th>
-                          <th>{{ $alu->estado_civil }}</th>
-                          <th>{{ $alu->escolaridad }}</th>
-                          <th>
-                            <button type="button" name="btninscripcion" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="{{  $alu->id_persona  }}">
-                              Inscribir
-                            </button>
-                          </th>
-                          <th>
-                              <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
-                              data-nombre="{{ $alu->nombre }}"
-                              data-id="{{  $alu->id_persona  }}"
-                              data-ap="{{  $alu->apellidoP  }}"
-                              data-am="{{  $alu->apellidoM  }}"
-                              data-edad="{{  $alu->edad  }}"
-                              data-sexo="{{  $alu->sexo  }}"
-                              data-telefono="{{  $alu->telefono  }}"
-                              data-estado="{{  $alu->estado_civil  }}"
-                              data-escolaridad="{{  $alu->escolaridad  }}"
-                              >
-                                <i class="glyphicon glyphicon-pencil"></i>
-                              </button>
-
-                          </th>
-                          <th>
-                            <button class="btn" type="button"  data-toggle="modal" data-target=".eliminar{{ $alu->id_persona }}">
-                              <i class="glyphicon glyphicon-trash"></i>
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade eliminar{{ $alu->id_persona }}" role="dialog">
-                              <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Eliminando registro: {{ $alu->nombre }}</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <p>Estas seguro/a de que deseas eliminar este registro?</p>
-                                  </div>
-                                  <div class="modal-footer">
-
-                                    <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
-                                    {!!  Form::open(array( 'route'=>['admin.alumnos.destroy', $alu->id_persona], 'method'=>'delete' ))  !!}
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                      <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
-                                    {!!  Form::close()  !!}
-                                  </div>
-                                </div>
-                              </div>
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Eliminando registro: {{ $alu->nombre }}</h4>
                             </div>
-                          </th>
-                        </tr>
-                        @empty
-                          <p>Sin Registros</p>
-                        @endforelse
-                      </tbody>
-                      </table>
-                      <a type="submit" name="btnborrar" data-toggle="modal" data-target=".alumno">
-                        <i class="glyphicon glyphicon-plus">Agregar alumno</i>
-                      </a>
+                            <div class="modal-body">
+                              <p>¿Estás seguro/a de que deseas eliminar este registro?</p>
+                            </div>
+                            <div class="modal-footer">
+
+                              <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
+                              {!!  Form::open(array( 'route'=>['admin.alumnos.destroy', $alu->id_persona], 'method'=>'delete' ))  !!}
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+                              {!!  Form::close()  !!}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                  @empty
+                    <p>Sin Registros</p>
+                  @endforelse
+                </tbody>
+                </table>
+                <!-- <a type="submit" name="btnborrar" data-toggle="modal" data-target=".alumno">
+                  <i class="glyphicon glyphicon-plus">Agregar alumno</i>
+                </a> -->
 
             </th>
           </tr>
@@ -156,7 +151,7 @@
 
                 <div class="input-group">
                   <label for="">Nombre</label>
-                  <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
+                  <input type="text" name="nameNombre" id="nameNombre" value="" class="form-control">
                 </div>
                 <div class="input-group">
                   <label for="">Apellido P</label>
@@ -203,7 +198,7 @@
     </div><!-- /.modal-dialog -->
 
   </div><!-- /.modal -->
-  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".grupos">
+  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".alumno">
       <i class="glyphicon glyphicon-plus"></i>
   </button>
 
@@ -287,8 +282,7 @@
           {{  Form::open(array('url'=>'/administracion/inscripcion')  )}}
           <fieldset>
             <div class="form-group">
-            <input type="hidden" name="nameEditar" id="nameEditar" value="">
-
+              <input type="hidden" name="nameEditar" id="nameEditar" value="">
             </div>
             <div class="form-group">
               <label for="">Grupo</label><br>
@@ -319,41 +313,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div class="modal fade grupos" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un grupo nuevo.</h4>
-      </div>
-      <div class="modal-body">
-        <div class="card-body">
-          {{ Form::open (array('url'=>'/administracion/grupos')) }}
-          <fieldset>
-            <div class="form-group">
-              <label for="">Nombre</label>
-                {{ Form::text('nom_grupo','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
-            </div>
-
-            <div class="form-group">
-              <label for="">Numero de Grupo</label>
-              {{ Form::text('num_grupo','',array('class'=>'form-control','placeholder'=>'Numero de Grupo'))}}
-            </div>
-            <div class="form-group">
-                {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
-            </div>
-          </fieldset>
-
-          {{ Form::close() }}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 @section('jQuery')
   <script type="text/javascript">
     $(document).ready(function(){
@@ -370,7 +329,7 @@
 
         //var em=$(this).data('email');
         $("#idEditar").val(i);
-        $('#nameEditar').val(nom);
+        $('#nameNombre').val(nom);
         $('#nameApellidoP').val(ap);
         $('#nameApellidoM').val(am);
         $('#nameEdad').val(edad);

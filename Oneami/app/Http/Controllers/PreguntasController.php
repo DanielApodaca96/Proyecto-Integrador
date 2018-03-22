@@ -19,17 +19,23 @@ class PreguntasController extends Controller
     public function index(){
       //categorias en el combobox
       $registros=\DB::table('categorias')
-      ->orderBy('id_categoria')
-      ->get();
-      //
+        ->orderBy('id_categoria')
+        ->get();
+
       $registros2=\DB::table('preguntas')
       ->orderBy('id_pregunta')
       ->get();
+
+      $categorias2=\DB::table('preguntas')
+        ->select('categorias.*','preguntas.*')
+        ->join('categorias','preguntas.id_categoria','=','categorias.id_categoria')
+        ->get();
 
       $title = "Oneami - Preguntas";
       return view('admin.preguntas')
         ->with('title', $title)
         ->with('categorias',$registros)
+        ->with('categorias2', $categorias2)
         ->with('preguntas',$registros2);
     }
 
@@ -53,6 +59,13 @@ class PreguntasController extends Controller
           ->with('mensaje','Pregunta Agregada');
       }
     }//llave store
+    public function destroy($id){
+      //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+      $alumnos = Pregunta::find($id);
+      $alumnos->delete();
+      return redirect('/administracion/preguntas/');
+    }
+
     public function edit(Request $req){
       //Select * from..........
       $pregunta=Pregunta::find($req->id);

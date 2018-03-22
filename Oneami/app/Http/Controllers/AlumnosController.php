@@ -81,7 +81,7 @@ class AlumnosController extends Controller
     public function edit(Request $req){
       //Select * from..........
       $alumnos=Dato::find($req->id);
-      $alumnos->nombre=$req->nameEditar;
+      $alumnos->nombre=$req->nameNombre;
       $alumnos->apellidoP=$req->nameApellidoP;
       $alumnos->apellidoM=$req->nameApellidoM;
       $alumnos->edad=$req->nameEdad;

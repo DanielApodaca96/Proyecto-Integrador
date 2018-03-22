@@ -1,18 +1,22 @@
-Prevenir que se inscriba al mismo alumno en el mismo grupo
-Cambiar el boton + de color y que no se mueva para abajo alo meco
-Que el boton de eliminar la pregunta funcione
+﻿Prevenir que se inscriba al mismo alumno en el mismo grupo
+****HECHO****Cambiar el boton + de color
+Que el boton + no se mueva para abajo alo meco
+****HECHO****Que el boton de eliminar la pregunta funcione
 Cambiar los names de las preguntas generadas para que los input sean diferentes
-Que la seccion de preguntas nos genere todas las categorias
+****HECHO****Que la seccion de preguntas nos genere todas las categorias
 Que al editar cualquier cosa funcionen los select y radio button
--ELiminar los grupos que estan en los panel group con todo lo que contiene.
--Cambiar el modal de ingresar alumnos a la bola azul, borrar el link y borrar el modal del grupo
--poner dos botones en los grupos para hacer el pre y post
+
+****Solo le puse los modals pero aun no elimina nada****-ELiminar los grupos que estan en los panel group con todo lo que contiene.
+
+*****HECHO******-Cambiar el modal de ingresar alumnos a la bola azul, borrar el link y borrar el modal del grupo
+
+*****HECHO******-poner dos botones en los grupos para hacer el pre y post
 copiar pre
 
--tiro
-Agregar dos botones afuera(bolas)
-que se agreguen categorias en collapses
-y que las preguntas se muestren en sus collapses que les corresponde a su categoria
+***HECHO***-tiro
+****HECHO***Agregar dos botones afuera(bolas)
+****HECHO**que se agreguen categorias en collapses
+***HECHO****y que las preguntas se muestren en sus collapses que les corresponde a su categoria
 
 tiro mas perro
 que los grupos se inscriban a lo talleres

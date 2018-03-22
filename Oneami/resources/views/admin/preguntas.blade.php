@@ -41,63 +41,114 @@
       <tbody>
         <tr>
           <th>
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <button type="submit" class="navbar-right btn btnedit" name="btnborrar">
-                  <i class="glyphicon glyphicon-trash"></i>
-                </button>
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapseOne">
-                    Sexualidad humana
-                  </a>
-                </h4>
+            @foreach($categorias as $cate)
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingOne">
 
-              </div>
-              <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Pregunta</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @forelse($preguntas as $pre)
-                      <tr>
-                        <th>{{ $pre->id_pregunta }}</th>
-                        <th>{{ $pre->pregunta }}</th>
-                        <th>
-                          <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
-                          data-id="{{ $pre->id_pregunta }}"
-                          data-pregunta="{{  $pre->pregunta  }}"
-                          data-categoria="{{  $pre->id_categoria  }}"
-                          >
-                            <i class="glyphicon glyphicon-pencil"></i>
-                          </button>
-                        </th>
-                        <th>
-                          <button class="btn" type="submit" name="btnborrar">
-                            <i class="glyphicon glyphicon-trash"></i>
-                          </button>
-                        </th>
-                      </tr>
-                      @empty
-                        <p>Sin registros</p>
-                      @endforelse
-                    </tbody>
-                    </table>
-                    <button type="button" class="btn btn-default navbar-right" data-toggle="modal" data-target=".preguntas">
-                        <i class="glyphicon glyphicon-plus">Agregar</i>
+                    <button class="navbar-right btn btnedit" type="button"  data-toggle="modal" data-target=".eliminar{{ $cate->id_categoria }}">
+                      <i class="glyphicon glyphicon-trash"></i>
                     </button>
-                    <a type="submit" name="btnborrar" data-toggle="modal" data-target=".preguntas">
 
-                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade eliminar{{ $cate->id_categoria }}" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminando la categoría: {{ $cate->nombre }}</h4>
+                          </div>
+                          <div class="modal-body">
+                            <i class="glyphicon glyphicon-exclamation-sign deleteWarning"></i>
+                            <p class="">¿Estás seguro/a de que deseas eliminar esta categoría de forma permanente junto con todo su contenido?</p>
+                          </div>
+                          <div class="modal-footer">
+
+                            <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
+
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                              <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{  $cate->id_categoria  }}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                        {{  $cate->nombre  }}
+                      </a>
+                    </h4>
+
+                  </div>
+                  <div id="collapse{{  $cate->id_categoria  }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" expanded="false">
+                    <div class="panel-body">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Pregunta</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @forelse($categorias2 as $pre)
+                          <tr>
+                            @if($pre->id_categoria==$cate->id_categoria)
+                            <th>{{ $pre->id_pregunta }}</th>
+                            <th>{{ $pre->pregunta }}</th>
+                            <th>
+                              <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
+                              data-id="{{ $pre->id_pregunta }}"
+                              data-pregunta="{{  $pre->pregunta  }}"
+                              data-categoria="{{  $pre->id_categoria  }}"
+                              >
+                                <i class="glyphicon glyphicon-pencil"></i>
+                              </button>
+                            </th>
+                            <th>
+                              <button class="btn" type="button" data-toggle="modal" data-target=".eliminar{{ $pre->id_pregunta }}">
+                                <i class="glyphicon glyphicon-trash"></i>
+                              </button>
+
+                              <!-- Modal -->
+                              <div class="modal fade eliminar{{ $pre->id_pregunta }}" role="dialog">
+                                <div class="modal-dialog">
+
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Eliminando pregunta #{{ $pre->id_pregunta }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>¿Estás seguro/a de que deseas eliminar esta pregunta?</p>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                      <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
+                                      {!!  Form::open(array( 'route'=>['admin.preguntas.destroy', $pre->id_pregunta], 'method'=>'delete' ))  !!}
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+                                      {!!  Form::close()  !!}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </th>
+                            @endif
+                          </tr>
+                          @empty
+                            <p>Sin registros</p>
+                          @endforelse
+                        </tbody>
+                        </table>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            </div>
+            @endforeach
           </th>
         </tr>
       </tbody>
@@ -107,8 +158,11 @@
 <div class="container">
 
 </div>
-<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias">
+<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".preguntas">
     <i class="glyphicon glyphicon-plus"></i>
+</button>
+<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias" style="margin-left: 60px;">
+    <i class="glyphicon glyphicon-list"></i>
 </button>
 
 @endsection

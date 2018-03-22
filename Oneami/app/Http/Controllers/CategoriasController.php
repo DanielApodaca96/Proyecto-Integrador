@@ -17,11 +17,12 @@ class CategoriasController extends Controller
   public function index(){
 
 
-
     $title = "Oneami - Preguntas";
-
     return view('admin.categorias')
-      ->with('title', $title);
+      ->with('title', $title)
+      ->with('categorias', $categorias)
+
+      ->with('preguntas', $preguntas);
   }
 
   public function store(Request $req){
