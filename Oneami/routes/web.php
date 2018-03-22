@@ -28,6 +28,9 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/pre_evaluacion','Pre_evaluacionController@index');
   Route::resource('pre_evaluacion','Pre_evaluacionController');
 
+  Route::get('/post_evaluacion','Post_evaluacionController@index');
+  Route::resource('post_evaluacion','Post_evaluacionController');
+
   Route::get('/grupos','GruposController@index');
   Route::resource('grupos','GruposController');
 

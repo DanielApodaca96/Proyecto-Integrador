@@ -24,6 +24,10 @@
     <div class="title" style="text-align: center; padding-top:110px;">Talleres</div>
     <div class="subtitle" style="text-align: center">Informacion acerca de todos nuestros talleres</div>
   </div>
+
+  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".taller" style="margin-top: 325px;">
+      <i class="glyphicon glyphicon-plus"></i>
+  </button>
   <div class="row">
 
     <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
@@ -104,9 +108,6 @@
                   @endforelse
                 </tbody>
                 </table>
-                <a type="submit" name="btnborrar" data-toggle="modal" data-target=".taller">
-                  <i class="glyphicon glyphicon-plus">Agregar taller</i>
-                </a>
             </th>
           </tr>
         </tbody>

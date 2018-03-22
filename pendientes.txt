@@ -1,10 +1,16 @@
-﻿Prevenir que se inscriba al mismo alumno en el mismo grupo
+﻿----PENDIENTE----Prevenir que se inscriba al mismo alumno en el mismo grupo
+
 ****HECHO****Cambiar el boton + de color
-Que el boton + no se mueva para abajo alo meco
+
+****HECHO****Que el boton + no se mueva para abajo alo meco
+
 ****HECHO****Que el boton de eliminar la pregunta funcione
-Cambiar los names de las preguntas generadas para que los input sean diferentes
+
+****HECHOCambiar los names de las preguntas generadas para que los input sean diferentes
+
 ****HECHO****Que la seccion de preguntas nos genere todas las categorias
-Que al editar cualquier cosa funcionen los select y radio button
+
+****HECHO****Que al editar cualquier cosa funcionen los select y radio button
 
 ****Solo le puse los modals pero aun no elimina nada****-ELiminar los grupos que estan en los panel group con todo lo que contiene.
 

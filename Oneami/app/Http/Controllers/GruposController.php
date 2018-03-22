@@ -62,9 +62,17 @@ class GruposController extends Controller
 
     public function destroy($id){
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+      $alumnos= Inscripcion::where('id_grupo','=',$id);
+      $alumnos->delete();
       $grupos = Grupo::find($id);
       $grupos->delete();
-      return redirect('/administracion/alumnos/');
+      return redirect('/administracion/grupos/');
+
+      $borrarTodo = DB::table('grupos')
+            ->leftJoin('inscripciones', 'grupos.id_grupo', '=', 'inscripciones.id_grupo')
+            ->delete();
+
+
     }
 
     public function edit(Request $req){

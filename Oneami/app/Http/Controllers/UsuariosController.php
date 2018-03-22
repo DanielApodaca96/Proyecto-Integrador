@@ -92,8 +92,9 @@ class UsuariosController extends Controller
       $usuario=User::find($req->id);
       $usuario->name=$req->nameEditar;
       $usuario->email=$req->nameEmail;
+      $usuario->privilegios=$req->editarPrivilegios;
       $usuario->save();
-      return redirect('/administracion/usuarios/');
-      dd("Registro Actualizado");
+      return redirect('/administracion/usuarios/')
+        ->with('mensaje','Usuario Actualizado');
     }//llave editar
 }

@@ -11,8 +11,8 @@ class Pre_evaluacionController extends Controller
      $registros=\DB::table('preguntas')
      ->orderBy('id_pregunta')
      ->get();
-     
-     $title = "Oneami - Grupos";
+
+     $title = "Oneami - Pre-Evaluacion";
      return view('admin.pre_evaluacion')
        ->with('title', $title)
        ->with('pre', $registros);

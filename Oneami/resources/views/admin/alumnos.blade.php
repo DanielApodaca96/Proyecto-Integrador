@@ -34,6 +34,9 @@
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div>
+  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".alumno" style="margin-top: 325px;">
+      <i class="glyphicon glyphicon-plus"></i>
+  </button>
   <div class="row">
     <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
       <table class="table table-striped">
@@ -172,19 +175,26 @@
                 <div class="input-group">
                   <label for="">Sexo</label>
                   <select class="form-control" name="editarSexo" id="editarSexo">
-
+                    <option value="Maasculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
                   </select>
                 </div>
                 <div class="input-group">
                   <label for="">Estado civil</label>
                   <select class="form-control" name="editarEstado" id="editarEstado">
-
+                    <option value="Soltero/a">Soltero/a</option>
+                    <option value="Casado/a">Casado/a</option>
+                    <option value="Divorciado/a">Divorciado/a</option>
+                    <option value="Viudo/a">Viudo/a</option>
                   </select>
                 </div>
                 <div class="input-group">
                   <label for="">Escolaridad</label>
                   <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
-
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Media Superior">Media Superior</option>
+                    <option value="Superior">Superior</option>
                   </select>
                 </div>
               </div>
@@ -198,9 +208,7 @@
     </div><!-- /.modal-dialog -->
 
   </div><!-- /.modal -->
-  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".alumno">
-      <i class="glyphicon glyphicon-plus"></i>
-  </button>
+
 
 
 
@@ -334,8 +342,8 @@
         $('#nameApellidoM').val(am);
         $('#nameEdad').val(edad);
         $('#nameTelefono').val(telefono);
-        $('#editarSexo').val(sexo);
-        $('#editarEstado').val(estado);
+        $('#nameSexo').val(sexo);
+        $('#nameEstado').val(estado);
         $('#editarEscolaridad').val(escolaridad);
         $("#nomModal").text(nom);
 

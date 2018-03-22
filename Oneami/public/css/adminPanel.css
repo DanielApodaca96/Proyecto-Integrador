@@ -142,7 +142,7 @@ select{
   text-align: center;
 }
 div> input.field{
-  margin-right: 50px !important;
+  margin-left: 30px !important;
 }
 div.preguntas > label{
   font-size: 2rem;
@@ -154,12 +154,15 @@ button.btnagregar{
   background-color: #494ca7;
   color: white;
   border: none;
-  margin-right: 1%;
   position: fixed;
+  z-index: 100;
 }
 .deleteWarning{
   font-size: 15rem;
   color: #d9534f;
   text-align: center;
   margin: 0 auto;
+}
+.btneval > a{
+  color: white;
 }

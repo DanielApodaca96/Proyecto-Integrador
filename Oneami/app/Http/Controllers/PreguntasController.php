@@ -61,8 +61,10 @@ class PreguntasController extends Controller
     }//llave store
     public function destroy($id){
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
-      $alumnos = Pregunta::find($id);
+      $alumnos= Categoria::where('id_categoria','=',$id);
       $alumnos->delete();
+      $pregunta = Pregunta::find($id);
+      $pregunta->delete();
       return redirect('/administracion/preguntas/');
     }
 
@@ -70,6 +72,7 @@ class PreguntasController extends Controller
       //Select * from..........
       $pregunta=Pregunta::find($req->id);
       $pregunta->pregunta=$req->nameEditar;
+      $pregunta->tipo_respuesta=$req->editarTipo;
       $pregunta->save();
       return redirect('/administracion/preguntas/');
       dd("Registro Actualizado");

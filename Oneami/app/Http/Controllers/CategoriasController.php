@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 //Importamos el modelo User para poder insertar
 use App\Categoria;
+use App\Pregunta;
 
 class CategoriasController extends Controller
 {
@@ -41,5 +42,14 @@ class CategoriasController extends Controller
       return redirect()->to('/administracion/preguntas')
         ->with('mensaje','Categoria Agregada');
     }
+  }
+
+  public function destroy($id){
+    //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
+    $pregunta= Pregunta::where('id_categoria','=',$id);
+    $pregunta->delete();
+    $pregunta= Categoria::find($id);
+    $pregunta->delete();
+    return redirect('/administracion/preguntas/');
   }
 }

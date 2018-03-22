@@ -36,6 +36,9 @@
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div>
+  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".grupos" style="margin-top: 325px;">
+      <i class="glyphicon glyphicon-plus"></i>
+  </button>
   <div class="row">
     <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
       <table class="table table-striped">
@@ -47,12 +50,12 @@
                 <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
 
-                  <button class="navbar-right btn btnedit" type="button"  data-toggle="modal" data-target=".eliminar{{ $g->id_grupo }}">
+                  <button class="navbar-right btn btnedit" type="button"  data-toggle="modal" data-target=".eliminar2{{ $g->id_grupo }}">
                     <i class="glyphicon glyphicon-trash"></i>
                   </button>
 
                   <!-- Modal -->
-                  <div class="modal fade eliminar{{ $g->id_grupo }}" role="dialog">
+                  <div class="modal fade eliminar2{{ $g->id_grupo }}" role="dialog">
                     <div class="modal-dialog">
 
                       <!-- Modal content-->
@@ -68,10 +71,10 @@
                         <div class="modal-footer">
 
                           <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
-
+                            {!!  Form::open(array( 'route'=>['admin.grupos.destroy', $g->id_grupo], 'method'=>'delete' ))  !!}
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                             <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
-
+                            {!!  Form::close()  !!}
                         </div>
                       </div>
                     </div>
@@ -159,14 +162,10 @@
                             </div>
                           </th>
                           <th>
-                            <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit btn-success">
-                              <i class="glyphicon glyphicon-chevron-left"></i>
-                            </button>
+                              <a href="{{ url('/administracion/pre_evaluacion') }}">Pre-</a>
                           </th>
                           <th>
-                            <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit btn-success">
-                              <i class="glyphicon glyphicon-chevron-right"></i>
-                            </button>
+                              <a href="{{ url('/administracion/post_evaluacion') }}">Post</a>
                           </th>
                           @endif
                         </tr>
@@ -186,9 +185,7 @@
       </table>
     </div>
   </div>
-  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".grupos">
-      <i class="glyphicon glyphicon-plus"></i>
-  </button>
+
 
   <div class="modal fade grupos" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
@@ -262,19 +259,26 @@
                 <div class="input-group">
                   <label for="">Sexo</label>
                   <select class="form-control" name="editarSexo" id="editarSexo">
-
+                    <option value="Maasculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
                   </select>
                 </div>
                 <div class="input-group">
                   <label for="">Estado civil</label>
                   <select class="form-control" name="editarEstado" id="editarEstado">
-
+                    <option value="Soltero/a">Soltero/a</option>
+                    <option value="Casado/a">Casado/a</option>
+                    <option value="Divorciado/a">Divorciado/a</option>
+                    <option value="Viudo/a">Viudo/a</option>
                   </select>
                 </div>
                 <div class="input-group">
                   <label for="">Escolaridad</label>
                   <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
-
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Media Superior">Media Superior</option>
+                    <option value="Superior">Superior</option>
                   </select>
                 </div>
               </div>

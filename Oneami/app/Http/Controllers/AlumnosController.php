@@ -90,7 +90,7 @@ class AlumnosController extends Controller
       $alumnos->estado_civil=$req->editarEstado;
       $alumnos->escolaridad=$req->editarEscolaridad;
       $alumnos->save();
-      return redirect('/administracion/alumnos/');
-      dd("Registro Actualizado");
+      return redirect('/administracion/alumnos/')
+        ->with('mensaje','Alumno Actualizado');
     }//llave editar
 }

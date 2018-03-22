@@ -35,6 +35,13 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div>
+<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".preguntas" style="margin-top: 325px;">
+    <i class="glyphicon glyphicon-plus"></i>
+</button>
+<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias" style="margin-top:270px;">
+    <i class="glyphicon glyphicon-list"></i>
+</button>
+
 <div class="row">
   <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
     <table class="table table-striped">
@@ -67,9 +74,10 @@
                           <div class="modal-footer">
 
                             <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
-
+                                {!!  Form::open(array( 'route'=>['admin.categorias.destroy', $cate->id_categoria], 'method'=>'delete' ))  !!}
                               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                               <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+                                {!!  Form::close()  !!}
 
                           </div>
                         </div>
@@ -90,6 +98,7 @@
                           <tr>
                             <th>#</th>
                             <th>Pregunta</th>
+                            <th>Tipo de respuesta</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -98,22 +107,23 @@
                             @if($pre->id_categoria==$cate->id_categoria)
                             <th>{{ $pre->id_pregunta }}</th>
                             <th>{{ $pre->pregunta }}</th>
+                            <th>{{ $pre->tipo_respuesta }}</th>
                             <th>
                               <button type="button" name="btneditar" data-toggle="modal" data-target=".editar" class="btn btnedit"
                               data-id="{{ $pre->id_pregunta }}"
                               data-pregunta="{{  $pre->pregunta  }}"
-                              data-categoria="{{  $pre->id_categoria  }}"
+                              data-tipo_respuesta="{{  $pre->tipo_respuesta  }}"
                               >
                                 <i class="glyphicon glyphicon-pencil"></i>
                               </button>
                             </th>
                             <th>
-                              <button class="btn" type="button" data-toggle="modal" data-target=".eliminar{{ $pre->id_pregunta }}">
+                              <button class="btn" type="button" data-toggle="modal" data-target=".eliminar2{{ $pre->id_pregunta }}">
                                 <i class="glyphicon glyphicon-trash"></i>
                               </button>
 
                               <!-- Modal -->
-                              <div class="modal fade eliminar{{ $pre->id_pregunta }}" role="dialog">
+                              <div class="modal fade eliminar2{{ $pre->id_pregunta }}" role="dialog">
                                 <div class="modal-dialog">
 
                                   <!-- Modal content-->
@@ -153,19 +163,17 @@
         </tr>
       </tbody>
     </table>
+
   </div>
 </div>
-<div class="container">
+<div class="row">
+
+
 
 </div>
-<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".preguntas">
-    <i class="glyphicon glyphicon-plus"></i>
-</button>
-<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias" style="margin-left: 60px;">
-    <i class="glyphicon glyphicon-list"></i>
-</button>
 
 @endsection
+
 <div class="modal fade preguntas" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -183,8 +191,9 @@
         </div>
         <div class="form-group">
           <label for="">Tipo de respuesta</label><br>
-          {{ Form::radio('tipo_respuesta', '0', true) }}<label for="tipo_respuesta">4 Opciones</label><br>
-          {{ Form::radio('tipo_respuesta', '1') }}<label for="tipo_respuesta">2 Opciones</label>
+          {{  Form::select('tipo_respuesta',[
+          '4 Opciones' => '4 Opciones',
+          '2 Opciones' => '2 Opciones']  )}}
         </div>
         <div class="form-group">
           <label>Categoría</label>
@@ -228,15 +237,10 @@
             </div>
             <div class="input-group">
               <label for="">Tipo de pregunta</label><br>
-              <input type="radio" name="editarTipo" id="editarTipo" value=""><label for="tipo_respuesta">4 Opciones</label><br>
-              <input type="radio" name="editarTipo" id="editarTipo" value=""><label for="tipo_respuesta">2 Opciones</label>
-            </div>
-            <div class="input-group">
-              <label for="">Categoría</label>
-              <select class="form-control" name="editarCategoria" id="editarPrivilegios">
-
+              <select class="form-control" name="editarTipo" id="editarTipo">
+                <option value="4 Opciones">4 Opciones</option>
+                <option value="2 Opciones">2 Opciones</option>
               </select>
-            </div>
           </div>
       </div>
           <div class="modal-footer">
@@ -287,11 +291,11 @@
       $(".btnedit").on("click", function(){
         var pre=$(this).data('pregunta');
         var id = $(this).data('id');
-        var cate=$(this).data('categoria');
+        var tipo=$(this).data('tipo_respuesta');
         //var em=$(this).data('email');
         $("#idEditar").val(id);
         $('#nameEditar').val(pre);
-        $('#editarCategoria').val(cate);
+        $('#editarCategoria').val(tipo);
         $("#nomModal").text(pre);
 
       });

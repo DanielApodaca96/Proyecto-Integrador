@@ -25,7 +25,9 @@
   <div class="title" style="text-align: center; padding-top:110px;">Usuarios</div>
   <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
 </div>
-
+<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".usuarios" style="margin-top: 360px;">
+    <i class="glyphicon glyphicon-plus"></i>
+</button>
 <div class="row">
   <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
     <table class="table table-striped">
@@ -105,9 +107,7 @@
                 @endforelse
               </tbody>
               </table>
-              <a type="submit" name="btnborrar" data-toggle="modal" data-target=".usuarios">
-                <i class="glyphicon glyphicon-plus">Agregar usuario</i>
-              </a>
+
           </th>
         </tr>
       </tbody>
@@ -139,7 +139,8 @@
               <div class="input-group">
                 <label for="">Privilegios</label>
                 <select class="form-control" name="editarPrivilegios" id="editarPrivilegios">
-
+                  <option value="Administrador">Administrador</option>
+                  <option value="Editor">Editor</option>
                 </select>
               </div>
             </div>
@@ -185,8 +186,10 @@
                   {{ Form::password('contrasena2',array('class'=>'form-control','placeholder'=>'Confirma contraseña')  )}}
             </div>
             <div class="form-group">
-              <label for="disabledSelect">Privilegios</label>
-              {{ Form::select('privilegios',array('admin'=>'Administrador','Editor'),array('class'=>'form-control','placeholder'=>'Privilegios')  )}}
+              <label for="">Privilegios</label><br>
+              {{  Form::select('privilegios',[
+              'Administrador' => 'Administrador',
+              'Editor' => 'Editor']  )}}
             </div>
             <div class="form-group">
                 {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
