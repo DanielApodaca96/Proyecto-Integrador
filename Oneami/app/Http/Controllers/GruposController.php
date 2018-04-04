@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 //Importamos el modelo User para poder insertar
 use App\Grupo;
+use App\Inscripcion;
 
 class GruposController extends Controller
 {
@@ -67,12 +68,6 @@ class GruposController extends Controller
       $grupos = Grupo::find($id);
       $grupos->delete();
       return redirect('/administracion/grupos/');
-
-      $borrarTodo = DB::table('grupos')
-            ->leftJoin('inscripciones', 'grupos.id_grupo', '=', 'inscripciones.id_grupo')
-            ->delete();
-
-
     }
 
     public function edit(Request $req){

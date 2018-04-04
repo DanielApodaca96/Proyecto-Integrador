@@ -106,6 +106,7 @@
                         @forelse($grupos2 as $alu)
                         <tr>
                           @if($alu->id_grupo==$g->id_grupo)
+                          
                           <th>{{ $alu->id_persona }}</th>
                           <th>{{ $alu->nombre }}</th>
                           <th>{{ $alu->apellidoP }}</th>

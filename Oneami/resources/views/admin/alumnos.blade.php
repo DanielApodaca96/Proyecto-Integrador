@@ -266,7 +266,11 @@
               'Media Superior' => 'Media Superior',
               'Superior' => 'Superior']  )}}
             </div>
+            @if($alu->id_persona == $inscripcion->id_persona && $alu->id_grupo == $inscripcion->id_grupo)
+              echo 'Colita'
+            @else
               {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+            @endif
           </fieldset>
           {{  Form::close()  }}
         </div>

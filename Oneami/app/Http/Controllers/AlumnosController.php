@@ -21,7 +21,7 @@ class AlumnosController extends Controller
       $registros=\DB::table('datos')
         ->orderBy('id_persona','nombre')
         ->get();
-
+        
       $registros2=\DB::table('grupos')
         ->orderBy('id_grupo')
         ->get();
@@ -29,6 +29,8 @@ class AlumnosController extends Controller
       $registros3=\DB::table('inscripciones')
         ->orderBy('id_inscripcion')
         ->get();
+
+
 
 
       $title = "Oneami - Alumnos";
