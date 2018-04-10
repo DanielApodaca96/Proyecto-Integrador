@@ -31,6 +31,10 @@ class InscripcionController extends Controller
           ->withInput()
           ->withErrors($validator);
       }else{
+        /*Inscripcion::table('inscripciones')
+          ->where('id_persona' => $req->nameEditar)
+          ->where('id_grupo' => $req->id_grupo)*/
+
         Inscripcion::create([
           'id_persona'=>$req->nameEditar,
           'id_grupo'=>$req->id_grupo,

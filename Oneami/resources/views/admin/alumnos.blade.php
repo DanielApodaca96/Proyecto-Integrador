@@ -138,6 +138,11 @@
     </div>
   </div>
 
+  {!!  Form::open(array( 'url'=>['/administracion/alumnos/ajax'], 'method'=>'POST','id'=>'miForm' ))  !!}
+    <input type="text" name="id_persona"  id="idForm">
+    <button type="submit" name="button"></button>
+  {!!  Form::close()  !!}
+
   <div class="modal fade editar" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -266,11 +271,6 @@
               'Media Superior' => 'Media Superior',
               'Superior' => 'Superior']  )}}
             </div>
-            @if($alu->id_persona == $inscripcion->id_persona && $alu->id_grupo == $inscripcion->id_grupo)
-              echo 'Colita'
-            @else
-              {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
-            @endif
           </fieldset>
           {{  Form::close()  }}
         </div>
@@ -298,7 +298,7 @@
             </div>
             <div class="form-group">
               <label for="">Grupo</label><br>
-              <select class="grupo" name="id_grupo">
+              <select class="grupo" name="id_grupo" id="comboAjax">
                 @forelse($grupos as $g)
                   <option value="{{ $g->id_grupo }}">{{ $g->nom_grupo }} {{ $g->num_grupo }}</option>
                 @empty
@@ -355,6 +355,16 @@
       $('.btninscripcion').on("click", function(){
         var nom2=$(this).data('id');
         $('#nameEditar').val(nom2);
+        $('#idForm').val(nom2);
+        $.ajax({
+          method:'POST',
+          url:'/administracion/alumnos/ajax',
+          data: $('#miForm').serialize(),
+        }).done(function (respuesta){
+          $('#comboAjax').find('option').remove();
+          console.log(respuesta);
+          $('#comboAjax').append(respuesta);
+        });
 
       });
 

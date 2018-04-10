@@ -16,12 +16,34 @@ class AlumnosController extends Controller
   {
       $this->middleware('auth');
   }
+    public function ajax(Request $req){
+      $registros3=\DB::table('inscripciones')
+        ->where('id_persona','=',$req->id_persona)
+        ->get();
+      $grupos=\DB::table('grupos')
+          ->orderBy('id_grupo')
+          ->get();
+      $todo="";
 
+      for ($i=0; $i < count($grupos); $i++) {
+        $bandera=false;
+        for ($y=0; $y < count($registros3); $y++) {
+          if($registros3{$y}->id_grupo == $grupos{$i}->id_grupo){
+            $bandera=true;
+          }
+        }
+        if($bandera==false){
+           $todo=$todo.'<option value="'.$grupos{$i}->id_grupo.'">'.$grupos{$i}->nom_grupo.'</option>';
+        }
+      }
+
+    return $todo;
+    }
     public function index(){
       $registros=\DB::table('datos')
         ->orderBy('id_persona','nombre')
         ->get();
-        
+
       $registros2=\DB::table('grupos')
         ->orderBy('id_grupo')
         ->get();
@@ -33,11 +55,13 @@ class AlumnosController extends Controller
 
 
 
+
+
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')
         ->with('title', $title)
         ->with('grupos',$registros2)
-        ->with('inscripcion',$registros3)
+        ->with('inscripcion',json_encode($registros3))
         ->with('alumnos',$registros);
     }
     public function store(Request $req){

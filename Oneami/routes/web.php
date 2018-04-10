@@ -49,6 +49,9 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
 
   Route::get('/categorias','CategoriasController@index');
   Route::resource('categorias','CategoriasController');
+
+  Route::post('/alumnos/ajax','AlumnosController@ajax');
+
 });
 
 Auth::routes();
