@@ -12,6 +12,6 @@ class Grupo extends Model
     protected $table='grupos';
     //campos que se pueden manipular
     protected $fillable=[
-      'num_grupo','nom_grupo'
+      'num_grupo','nom_grupo','id_taller'
     ];
 }

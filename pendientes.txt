@@ -1,4 +1,4 @@
-﻿----PENDIENTE----Prevenir que se inscriba al mismo alumno en el mismo grupo
+﻿----HECHO----Prevenir que se inscriba al mismo alumno en el mismo grupo
 
 ****HECHO****Cambiar el boton + de color
 
@@ -12,7 +12,7 @@
 
 ****HECHO****Que al editar cualquier cosa funcionen los select y radio button
 
-****Solo le puse los modals pero aun no elimina nada****-ELiminar los grupos que estan en los panel group con todo lo que contiene.
+****HECHO****-ELiminar los grupos que estan en los panel group con todo lo que contiene.
 
 *****HECHO******-Cambiar el modal de ingresar alumnos a la bola azul, borrar el link y borrar el modal del grupo
 

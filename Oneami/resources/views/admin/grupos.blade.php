@@ -46,6 +46,9 @@
           <tr>
             <th>
               @foreach($grupos as $g)
+
+
+
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
@@ -81,11 +84,18 @@
                   </div>
 
                   <h4 class="panel-title">
+                    @forelse($taller as $t)
+                    @if($t->id_taller==$g->id_taller)
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{  $g->id_grupo  }}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                      {{  $g->nom_grupo . " #" . $g->num_grupo  }}
+                      {{  $g->nom_grupo . " #" . $g->num_grupo  }} {{" " . $t->nombre_taller}}
                     </a>
+                    @endif
+                    @empty
+                      <p>Sin Registros</p>
+                    @endforelse
                   </h4>
                 </div>
+
                 <div id="collapse{{  $g->id_grupo  }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" expanded="false">
                   <div class="panel-body" style="">
                     <table class="table table-striped">
@@ -106,7 +116,7 @@
                         @forelse($grupos2 as $alu)
                         <tr>
                           @if($alu->id_grupo==$g->id_grupo)
-                          
+
                           <th>{{ $alu->id_persona }}</th>
                           <th>{{ $alu->nombre }}</th>
                           <th>{{ $alu->apellidoP }}</th>
@@ -209,6 +219,16 @@
                 {{ Form::text('num_grupo','',array('class'=>'form-control','placeholder'=>'Numero de Grupo'))}}
               </div>
               <div class="form-group">
+                <label>Taller</label><br>
+                <select class="t" name="id_taller">
+                  @forelse($taller as $t)
+                    <option value="{{$t->id_taller}}">{{ $t->nombre_taller }}</option>
+                  @empty
+                    <option value=""></option>
+                  @endforelse
+                </select>
+              </div>
+              <div class="form-group">
                   {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
               </div>
             </fieldset>
@@ -232,7 +252,7 @@
         </div>
 
         @if(count($alumnos)>=1)
-            {!!  Form::open(array('route'=>['admin.alumnos.edit', $alu->id_persona], 'method'=>'GET' ))  !!}
+            {!!  Form::open(array('route'=>['admin.alumnos.edit', 0], 'method'=>'GET' ))  !!}
               <div class="modal-body">
 
                 <input type="hidden" name="id" id="idEditar" value="">

@@ -196,7 +196,7 @@
           '2 Opciones' => '2 Opciones']  )}}
         </div>
         <div class="form-group">
-          <label>Categoría</label>
+          <label>Categoría</label><br>
           <select class="cate" name="id_categoria">
             @forelse($categorias as $cate)
               <option value="{{$cate->id_categoria}}">{{ $cate->nombre }}</option>

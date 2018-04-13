@@ -8,6 +8,7 @@ use Validator;
 //Importamos el modelo User para poder insertar
 use App\Grupo;
 use App\Inscripcion;
+use App\Taller;
 
 class GruposController extends Controller
 {
@@ -26,25 +27,35 @@ class GruposController extends Controller
         ->orderBy('id_grupo')
         ->get();
 
+      $taller=\DB::table('talleres')
+        ->orderBy('id_taller')
+        ->get();
+
       $grupos=\DB::table('datos')
-        ->select('datos.*','grupos.*','inscripciones.*')
+        ->select('datos.*','grupos.*','inscripciones.*','talleres.*')
         ->join('inscripciones','datos.id_persona','=','inscripciones.id_persona')
         ->join('grupos','inscripciones.id_grupo','=','grupos.id_grupo')
+        ->join('talleres','grupos.id_taller','=','talleres.id_taller')
         ->get();
 
 
+
       $title = "Oneami - Grupos";
+
       return view('admin.grupos')
         ->with('title', $title)
         ->with('grupos',$registros2)
         ->with('alumnos',$registros)
-        ->with('grupos2',$grupos);
+        ->with('grupos2',$grupos)
+        ->with('taller',$taller);
+
     }
 
     public function store(Request $req){
       $validator = Validator::make($req->all(),[
         'nom_grupo'=>'required|max:255',
-        'num_grupo'=>'required|max:255'
+        'num_grupo'=>'required|max:255',
+        'id_taller'=>'required'
       ]);
 
       if($validator->fails()){
@@ -54,7 +65,8 @@ class GruposController extends Controller
       }else{
         Grupo::create([
           'nom_grupo'=>$req->nom_grupo,
-          'num_grupo'=>$req->num_grupo
+          'num_grupo'=>$req->num_grupo,
+          'id_taller'=>$req->id_taller
         ]);
         return redirect()->to('/administracion/grupos')
           ->with('mensaje','Grupo Agregado');

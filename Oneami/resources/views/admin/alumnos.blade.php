@@ -139,7 +139,7 @@
   </div>
 
   {!!  Form::open(array( 'url'=>['/administracion/alumnos/ajax'], 'method'=>'POST','id'=>'miForm' ))  !!}
-    <input type="text" name="id_persona"  id="idForm">
+    <input type="hidden" name="id_persona"  id="idForm">
     <button type="submit" name="button"></button>
   {!!  Form::close()  !!}
 
@@ -223,7 +223,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un alumno nuevo a este grupo.</h4><br>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un alumno nuevo.</h4><br>
       </div>
       <div class="modal-body">
         <div class="card-body">
@@ -277,6 +277,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
