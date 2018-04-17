@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 //Importamos el modelo User para poder insertar
 use App\Taller;
+use App\Grupo;
 
 class TalleresController extends Controller
 {
@@ -51,9 +52,30 @@ class TalleresController extends Controller
 
     public function destroy($id){
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
-      $talleres = Taller::find($id);
-      $talleres->delete();
-      return redirect('/administracion/talleres/');
+      $id_taller="";
+      $id_grupos="";
+      $taller=\DB::table('talleres')
+        ->where('id_taller','=',$id)
+        ->get();
+        foreach($taller as $t){
+          $id_taller=$t->id_taller;
+        }
+      $grupos=\DB::table('grupos')
+        ->where('id_taller','=',$id)
+        ->get();
+        foreach($grupos as $g){
+          $id_grupos=$g->id_taller;
+        }
+      if($id_taller==$id_grupos){
+          return redirect('/administracion/talleres/')
+        ->with('mensaje2','No se puede eliminar este taller porque pertenece a un grupo existente.');
+
+      }else{
+        $talleres = Taller::find($id);
+        $talleres->delete();
+        return redirect('/administracion/talleres/')
+        ->with('mensaje','Taller Eliminado.');
+      }
     }
 
     public function edit(Request $req){

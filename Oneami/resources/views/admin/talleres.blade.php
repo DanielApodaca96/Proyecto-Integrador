@@ -15,6 +15,12 @@
         {{ session()->get('mensaje') }}
       </div>
     @endif
+    @if(session()->has('mensaje2'))
+      <div class="conf alert alert-danger alert-dismissible fade in" data-backdrop="static">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+        {{ session()->get('mensaje2') }}
+      </div>
+    @endif
 
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
