@@ -27,7 +27,8 @@
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Buscar alumno...">
+        <input type="search" class="form-control" id="txtBusqueda" placeholder="Buscar alumno...">
+        <input type="hidden" name="" value="{{ csrf_token() }}" id="token">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
         </span>
@@ -113,7 +114,7 @@
                               <!--{!!  Form::open(array( 'route'=>['admin.usuarios.store','post'] ))  !!}-->
                               {!!  Form::open(array( 'route'=>['admin.alumnos.destroy', $alu->id_persona], 'method'=>'delete' ))  !!}
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" name="btnborrar" class="btn btn-danger">Eliminar</button>
+                                <button type="button" name="btnborrar" class="btn btn-danger btnAjax btnEliminar" data-dismiss="modal">Eliminar</button>
                               {!!  Form::close()  !!}
                             </div>
                           </div>
@@ -140,7 +141,6 @@
 
   {!!  Form::open(array( 'url'=>['/administracion/alumnos/ajax'], 'method'=>'POST','id'=>'miForm' ))  !!}
     <input type="hidden" name="id_persona"  id="idForm">
-    <button type="submit" name="button"></button>
   {!!  Form::close()  !!}
 
   <div class="modal fade editar" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
@@ -180,7 +180,7 @@
                 <div class="input-group">
                   <label for="">Sexo</label>
                   <select class="form-control" name="editarSexo" id="editarSexo">
-                    <option value="Maasculino">Masculino</option>
+                    <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                   </select>
                 </div>
@@ -272,7 +272,7 @@
               'Superior' => 'Superior']  )}}
             </div>
           </fieldset>
-          {{  Form::close()  }}
+
         </div>
       </div>
       <div class="modal-footer">
@@ -282,6 +282,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+{{  Form::close()  }}
 
 <div class="modal fade inscripcion" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
@@ -320,7 +321,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-default btnCloseModal" data-dismiss="modal">Cerrar</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -328,6 +329,10 @@
 
 @section('jQuery')
   <script type="text/javascript">
+
+    var formulario;
+    var tr;
+
     $(document).ready(function(){
       $(".btnedit").on("click", function(){
         var nom=$(this).data('nombre');
@@ -367,6 +372,45 @@
           $('#comboAjax').append(respuesta);
         });
 
+      });
+
+      //Evento para el input
+      $('#txtBusqueda').on('keyup', function(){
+        $.ajax({
+          method: 'POST',
+          url: '/administracion/alumnos/buscar',
+          data: {
+            nombre: $('#txtBusqueda').val(),
+            _token: $('#token').val()
+          },
+          beforeSend: function(){
+            console.log('Cargando...');
+          }
+        }).done(function(respuesta){
+          var todo="<tr><th>id_persona</th><th>nombre</th><th>apellidoP</th><th>apellidoM</th><th>edad</th><th>sexo</th><th>telefono</th><th>estado_civil</th><th>escolaridad</th>";
+          todo+="<th><button type="" name="" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="">Inscribir</button></th>";
+          todo+="<th><button type="" name="" data-toggle="modal" data-target=".editar" class="btn btnedit" data-nombre="" data-id="" data-ap="" data-am="" data-edad="" data-sexo="" data-telefono="" data-estado="" data-escolaridad=""><i class="glyphicon glyphicon-pencil"></i><i class="glyphicon glyphicon-pencil"></i></button></th>";
+          todo+="<th><button class="btn" type="button"  data-toggle="modal" data-target=".eliminar{{ $alu->id_persona }}"><i class="glyphicon glyphicon-trash"></i></button>";
+          console.log(respuesta);
+        })
+
+      });
+
+      //Eliminar con ajax
+      $('.btnEliminar').on('click', function(event){
+        event.preventDefault();
+        tr = $(this).parent('form').parent('div').parent('div').parent('div').parent('div').parent('th').parent('tr');
+        formulario = $(this).parent('form');
+      });
+
+      $('.btnAjax').on('click', function(){
+        $.ajax({
+          method: 'delete',
+          url: formulario.attr('action'),
+          data: formulario.serialize()
+        }).done(function(){
+          tr.fadeOut(600);
+        })
       });
 
     });

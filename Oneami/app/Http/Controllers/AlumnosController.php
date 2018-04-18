@@ -53,10 +53,6 @@ class AlumnosController extends Controller
         ->get();
 
 
-
-
-
-
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')
         ->with('title', $title)
@@ -101,7 +97,7 @@ class AlumnosController extends Controller
       $alumnos->delete();
       $alumnos = Dato::find($id);
       $alumnos->delete();
-      return redirect('/administracion/alumnos/');
+      return "Yeah";
     }
 
     public function edit(Request $req){
@@ -119,4 +115,17 @@ class AlumnosController extends Controller
       return redirect('/administracion/alumnos/')
         ->with('mensaje','Alumno Actualizado');
     }//llave editar
+
+    //Aqui se hace la busqueda por nombre
+    public function buscar(Request $req){
+      $registros=\DB::table('datos')
+      ->select("nombre","apellidoP","apellidoM","telefono")
+      ->orwhere('nombre','like','%' . $req->nombre . '%')
+      ->orwhere('apellidoP','like','%' . $req->nombre . '%')
+      ->orwhere('apellidoM','like','%' . $req->nombre . '%')
+      ->orwhere('telefono','like','%' . $req->nombre . '%')
+      ->get();
+      return json_encode($registros);
+    }
+
 }
