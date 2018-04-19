@@ -58,7 +58,7 @@
                     <th>Escolaridad</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                   @forelse($alumnos as $alu)
                   <tr>
                     <th>{{ $alu->id_persona }}</th>
@@ -387,11 +387,19 @@
             console.log('Cargando...');
           }
         }).done(function(respuesta){
-          var todo="<tr><th>id_persona</th><th>nombre</th><th>apellidoP</th><th>apellidoM</th><th>edad</th><th>sexo</th><th>telefono</th><th>estado_civil</th><th>escolaridad</th>";
-          todo+="<th><button type="" name="" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="">Inscribir</button></th>";
-          todo+="<th><button type="" name="" data-toggle="modal" data-target=".editar" class="btn btnedit" data-nombre="" data-id="" data-ap="" data-am="" data-edad="" data-sexo="" data-telefono="" data-estado="" data-escolaridad=""><i class="glyphicon glyphicon-pencil"></i><i class="glyphicon glyphicon-pencil"></i></button></th>";
-          todo+="<th><button class="btn" type="button"  data-toggle="modal" data-target=".eliminar{{ $alu->id_persona }}"><i class="glyphicon glyphicon-trash"></i></button>";
-          console.log(respuesta);
+          var arreglo = JSON.parse(respuesta);
+
+          $("#tbody").find('tr').remove();
+          for(var x=0; x<arreglo.length; x++){
+            var todo="<tr><th>" + arreglo[x].id_persona + "</th><th>" + arreglo[x].nombre + "</th><th>" + arreglo[x].apellidoP +
+            "</th><th>" + arreglo[x].apellidoM + "</th><th>" + arreglo[x].edad + "</th><th>" + arreglo[x].sexo + "</th><th>" +
+            arreglo[x].telefono + "</th><th>" + arreglo[x].estado_civil + "</th><th>" + arreglo[x].escolaridad + "</th>";
+            todo+='<th><button type="" name="" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="">Inscribir</button></th>';
+            todo+='<th><button type="" name="" data-toggle="modal" data-target=".editar" class="btn btnedit" data-nombre="" data-id="" data-ap="" data-am="" data-edad="" data-sexo="" data-telefono="" data-estado="" data-escolaridad=""><i class="glyphicon glyphicon-pencil"></i></button></th>';
+            todo+='<th><button class="btn" type="button"  data-toggle="modal" data-target=".eliminar'+arreglo[x].id_persona+'"><i class="glyphicon glyphicon-trash"></i></button>';
+            $("#tbody").append(todo);
+          }
+          console.log(arreglo);
         })
 
       });
