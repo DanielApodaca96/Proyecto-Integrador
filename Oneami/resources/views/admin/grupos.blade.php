@@ -173,11 +173,17 @@
                             </div>
                           </th>
                           <th>
-                              <a href="{{ url('/administracion/pre_evaluacion') }}">Pre-</a>
+                            <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion1" data-toggle="modal" data-target="#myModal"
+                            data-id="{{  $alu->id_persona  }}",
+                            data-inscripcion="{{  $alu->id_inscripcion  }}"
+                            >
+                            Pre
+                            </button>
                           </th>
                           <th>
                               <a href="{{ url('/administracion/post_evaluacion') }}">Post</a>
                           </th>
+
                           @endif
                         </tr>
                         @empty
@@ -197,6 +203,48 @@
     </div>
   </div>
 
+
+  <!-- Modal Evaluacion-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+            {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+          <input type="text" name="id_inscripcion" id="id_inscripcion" value="">
+          <input type="text" name="id_persona" id="id_persona" value=""><br>
+        @forelse($pre as $pr)
+
+
+        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="">{{ $pr->pregunta }}</label>
+        <div class="from-group">
+          {{ Form::radio('porcentaje', 100,false,['class' => 'field']) }}
+          <label for="100">100</label><br>
+          {{ Form::radio( 'porcentaje', 75,false,['class' => 'field']) }}
+          <label for="100">75</label><br>
+          {{ Form::radio( $pr->id_pregunta , 50,false,['class' => 'field']) }}
+          <label for="100">50</label><br>
+          {{ Form::radio( $pr->id_pregunta , 25,false,['class' => 'field']) }}
+          <label for="100">25</label><br>
+          {{ Form::radio( $pr->id_pregunta , 0,false,['class' => 'field']) }}
+          <label for="100">0</label><br>
+        </div>
+        @empty
+          <p>Sin registros</p>
+        @endforelse
+          <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+        {{  Form::close() }}
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="modal fade grupos" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
@@ -313,6 +361,9 @@
     </div><!-- /.modal-dialog -->
 
 
+
+
+
 @endsection
 @section('jQuery')
   <script type="text/javascript">
@@ -341,9 +392,13 @@
         $("#nomModal").text(nom);
 
       });
-      $('.btninscripcion').on("click", function(){
-        var nom2=$(this).data('id');
-        $('#nameEditar').val(nom2);
+      $('.btnevaluacion1').on("click", function(){
+        var per=$(this).data('id');
+        var ins=$(this).data('inscripcion')
+        var preg=$(this).data('pregunta')
+        $('#id_persona').val(per);
+        $('#id_inscripcion').val(ins);
+        $('#id_pregunta').val(preg);
 
       });
 

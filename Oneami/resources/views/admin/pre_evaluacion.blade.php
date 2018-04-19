@@ -27,7 +27,13 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="form-group preguntas">
+        {{  Form::open(array('url'=>'/administracion/')  )}}
+          <input type="text" name="id_inscripcion" id="id_inscripcion" value="">
+          <input type="text" name="id_persona" id="id_persona" value=""><br>
         @forelse($pre as $pr)
+
+          <input type="text" name="id_pregunta" id="id_pregunta" value="">
+
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="">{{ $pr->pregunta }}</label>
         <div class="from-group">
           {{ Form::radio($pr->id_pregunta, 100,false,['class' => 'field']) }}
@@ -40,12 +46,27 @@
           <label for="100">25</label><br>
           {{ Form::radio( $pr->id_pregunta , 0,false,['class' => 'field']) }}
           <label for="100">0</label><br>
-
         </div>
+
         @empty
           <p>Sin registros</p>
         @endforelse
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        {{  Form::close()  }}
       </div>
     </div>
   </div>
+@endsection
+
+@section('jQuery')
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+        var nom2=$(this).data('id');
+        $('#nameEditar').val(nom2);
+
+
+
+    });
+  </script>
 @endsection

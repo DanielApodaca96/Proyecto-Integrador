@@ -31,6 +31,10 @@ class GruposController extends Controller
         ->orderBy('id_taller')
         ->get();
 
+      $preguntas=\DB::table('preguntas')
+        ->orderBy('id_pregunta')
+        ->get();
+
       $grupos=\DB::table('datos')
         ->select('datos.*','grupos.*','inscripciones.*','talleres.*')
         ->join('inscripciones','datos.id_persona','=','inscripciones.id_persona')
@@ -47,6 +51,7 @@ class GruposController extends Controller
         ->with('grupos',$registros2)
         ->with('alumnos',$registros)
         ->with('grupos2',$grupos)
+        ->with('pre',$preguntas)
         ->with('taller',$taller);
 
     }

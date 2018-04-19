@@ -35,6 +35,9 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/grupos','GruposController@index');
   Route::resource('grupos','GruposController');
 
+  Route::get('/resultados','ResultadosController@index');
+  Route::resource('resultados','ResultadosController');
+
   Route::get('/metas','MetasController@index');
   Route::resource('metas','MetasController');
 
