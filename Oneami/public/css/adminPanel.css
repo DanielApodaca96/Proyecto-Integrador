@@ -140,6 +140,11 @@ div > ul.menu{
 select{
   width: 50%;
   text-align: center;
+  padding-bottom: 1%;
+  
+}
+div.from-group > select{
+  margin-bottom: 20px;
 }
 div> input.field{
   margin-left: 30px !important;

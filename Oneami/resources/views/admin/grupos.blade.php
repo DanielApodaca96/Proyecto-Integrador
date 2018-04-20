@@ -176,6 +176,7 @@
                             <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion1" data-toggle="modal" data-target="#myModal"
                             data-id="{{  $alu->id_persona  }}",
                             data-inscripcion="{{  $alu->id_inscripcion  }}"
+
                             >
                             Pre
                             </button>
@@ -219,19 +220,19 @@
         @forelse($pre as $pr)
 
 
-        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="">{{ $pr->pregunta }}</label>
+
+        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+        <input type="text" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
         <div class="from-group">
-          {{ Form::radio('porcentaje', 100,false,['class' => 'field']) }}
-          <label for="100">100</label><br>
-          {{ Form::radio( 'porcentaje', 75,false,['class' => 'field']) }}
-          <label for="100">75</label><br>
-          {{ Form::radio( $pr->id_pregunta , 50,false,['class' => 'field']) }}
-          <label for="100">50</label><br>
-          {{ Form::radio( $pr->id_pregunta , 25,false,['class' => 'field']) }}
-          <label for="100">25</label><br>
-          {{ Form::radio( $pr->id_pregunta , 0,false,['class' => 'field']) }}
-          <label for="100">0</label><br>
+          {{ Form::select('porcentaje', [
+            '100' => '100',
+            '75' => '75',
+            '50' => '50',
+            '25' => '25',
+            '0' => '0']
+          ) }}
         </div>
+
         @empty
           <p>Sin registros</p>
         @endforelse
@@ -398,7 +399,7 @@
         var preg=$(this).data('pregunta')
         $('#id_persona').val(per);
         $('#id_inscripcion').val(ins);
-        $('#id_pregunta').val(preg);
+
 
       });
 
