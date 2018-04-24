@@ -141,7 +141,7 @@ select{
   width: 50%;
   text-align: center;
   padding-bottom: 1%;
-  
+
 }
 div.from-group > select{
   margin-bottom: 20px;
@@ -170,4 +170,12 @@ button.btnagregar{
 }
 .btneval > a{
   color: white;
+}
+
+.btnCirculo{
+  bottom: 15px !important;
+}
+
+.btnCirculo2{
+  bottom: 75px !important;
 }

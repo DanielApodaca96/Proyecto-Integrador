@@ -31,7 +31,7 @@
     <div class="subtitle" style="text-align: center">Informacion acerca de todos nuestros talleres</div>
   </div>
 
-  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".taller" style="margin-top: 325px;">
+  <button type="button" class="btnagregar navbar-right btnCirculo" data-toggle="modal" data-target=".taller">
       <i class="glyphicon glyphicon-plus"></i>
   </button>
   <div class="row">

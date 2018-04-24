@@ -36,7 +36,7 @@
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div>
-  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".grupos" style="margin-top: 325px;">
+  <button type="button" class="btnagregar navbar-right btnCirculo" data-toggle="modal" data-target=".grupos">
       <i class="glyphicon glyphicon-plus"></i>
   </button>
   <div class="row">

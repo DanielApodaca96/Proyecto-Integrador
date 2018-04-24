@@ -35,7 +35,7 @@
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div>
-  <button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".alumno" style="margin-top: 325px;">
+  <button type="button" class="btnagregar navbar-right btnCirculo" data-toggle="modal" data-target=".alumno">
       <i class="glyphicon glyphicon-plus"></i>
   </button>
   <div class="row">
@@ -395,8 +395,9 @@
             "</th><th>" + arreglo[x].apellidoM + "</th><th>" + arreglo[x].edad + "</th><th>" + arreglo[x].sexo + "</th><th>" +
             arreglo[x].telefono + "</th><th>" + arreglo[x].estado_civil + "</th><th>" + arreglo[x].escolaridad + "</th>";
             todo+='<th><button type="" name="" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="">Inscribir</button></th>';
-            todo+='<th><button type="" name="" data-toggle="modal" data-target=".editar" class="btn btnedit" data-nombre="" data-id="" data-ap="" data-am="" data-edad="" data-sexo="" data-telefono="" data-estado="" data-escolaridad=""><i class="glyphicon glyphicon-pencil"></i></button></th>';
+            todo+='<th><button type="" name="" data-toggle="modal" data-target=".editar" class="btn btnedit" data-nombre="'+arreglo[x].nombre+'" data-id="'+arreglo[x].id_persona+'" data-ap="'+arreglo[x].apellidoP+'" data-am="'+arreglo[x].apellidoM+'" data-edad="'+arreglo[x].edad+'" data-sexo="'+arreglo[x].sexo+'" data-telefono="'+arreglo[x].telefono+'" data-estado="'+arreglo[x].estado_civil+'" data-escolaridad="'+arreglo[x].escolaridad+'"><i class="glyphicon glyphicon-pencil"></i></button></th>';
             todo+='<th><button class="btn" type="button"  data-toggle="modal" data-target=".eliminar'+arreglo[x].id_persona+'"><i class="glyphicon glyphicon-trash"></i></button>';
+            todo+='<div class="modal fade eliminar' + arreglo[x].id_persona + '" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">Eliminando registro: '+ arreglo[x].nombre +'</h4></div><div class="modal-body"><p>¿Estás seguro/a de que deseas eliminar este registro?</p></div><div class="modal-footer"><form method="post" action="/administracion/alumnos'+arreglo[x].id_persona+'"><input type="hidden" name="_token" value="{{ csrf_token() }}"><input type="hidden" name="_method" value="delete"><button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button><button type="button" name="btnborrar" class="btn btn-danger btnAjax btnEliminar" data-dismiss="modal">Eliminar</button></form></div></div></div></div></th>';
             $("#tbody").append(todo);
           }
           console.log(arreglo);

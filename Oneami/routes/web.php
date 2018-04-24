@@ -53,6 +53,9 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/categorias','CategoriasController@index');
   Route::resource('categorias','CategoriasController');
 
+  Route::get('/stats','StatsController@index');
+  Route::resource('stats','StatsController');
+
   Route::post('/alumnos/ajax','AlumnosController@ajax');
 
   Route::post('/alumnos/buscar', 'AlumnosController@buscar');

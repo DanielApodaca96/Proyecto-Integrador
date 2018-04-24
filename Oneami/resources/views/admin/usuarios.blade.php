@@ -25,7 +25,7 @@
   <div class="title" style="text-align: center; padding-top:110px;">Usuarios</div>
   <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
 </div>
-<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".usuarios" style="margin-top: 360px;">
+<button type="button" class="btnagregar navbar-right btnCirculo" data-toggle="modal" data-target=".usuarios">
     <i class="glyphicon glyphicon-plus"></i>
 </button>
 <div class="row">

@@ -35,10 +35,10 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div>
-<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".preguntas" style="margin-top: 325px;">
+<button type="button" class="btnagregar navbar-right btnCirculo2" data-toggle="modal" data-target=".preguntas">
     <i class="glyphicon glyphicon-plus"></i>
 </button>
-<button type="button" class="btnagregar navbar-right" data-toggle="modal" data-target=".categorias" style="margin-top:270px;">
+<button type="button" class="btnagregar navbar-right btnCirculo" data-toggle="modal" data-target=".categorias">
     <i class="glyphicon glyphicon-list"></i>
 </button>
 
