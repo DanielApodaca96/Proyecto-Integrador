@@ -14,7 +14,7 @@
           <h1 class="inicia-sesion">INICIA SESION</h1>
 
             <form class="" action="index.html" method="post">
-              <div class="input-group input-group-lg col-md-10 col-md-offset-1">
+              <div class="input-group input-group-l g col-md-10 col-md-offset-1">
                 <input type="text" class="input-style form-control" placeholder="Usuario" aria-describedby="sizing-addon1">
                 <span class="input-style input-group-addon" id="sizing-addon1">
                   <i class="glyphicon glyphicon-user"></i>
@@ -32,7 +32,7 @@
 
               <button type="button" id="boton" class="btn btn-default btn-lg col-md-10 col-md-offset-1 btn1" id="">ACEPTAR</button>
               <div class="diva">
-                <a href="#">Olvidaste tu contrasena?</a>
+                <a href="#">¿Olvidaste tu contraseña?</a>
               </div>
           </form>
         </div>

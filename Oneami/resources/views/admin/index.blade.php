@@ -11,6 +11,20 @@
   <div class="title" style="text-align: center; padding-top:110px;">Inicio</div>
   <div class="subtitle" style="text-align: center;padding-bottom:5px;">Bienvenido al panel de administración.</div>
 </div>
+<div class="row">
+  <div class="col-md-3 bg-color-red inicio">
+    <h4 class="titulo-inicio">Total personas registradas</h4>
+    <span class="titulo-inicio titulo-number">655</span>
+  </div>
+  <div class="col-md-3 bg-color-green inicio">
+    <h4 class="titulo-inicio">Total grupos abiertos</h4>
+    <span class="titulo-inicio titulo-number">25</span>
+  </div>
+  <div class="col-md-3 bg-color-blue inicio">
+    <h4 class="titulo-inicio">Total de talleres</h4>
+    <span class="titulo-inicio titulo-number">15</span>
+  </div>
+</div>
   <div class="row">
     <!--------------------------------- CHART.JS -------------------------->
     <div id="canvas-container" class="col-md-6">

@@ -280,8 +280,9 @@
             <option value="25">25</option>
             <option value="0">0</option>
           </select>
+          <button type="button" class="contestar btn btn-success">Enviar</button>
         </div>
-        <button type="button" class="contestar">Enviar</button>
+
         {{  Form::close() }}
         @empty
           <p>Sin registros</p>
