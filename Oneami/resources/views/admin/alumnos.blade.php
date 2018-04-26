@@ -157,34 +157,34 @@
 
                 <input type="hidden" name="id" id="idEditar" value="">
 
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Nombre</label>
                   <input type="text" name="nameNombre" id="nameNombre" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Apellido P</label>
                   <input type="text" name="nameApellidoP" id="nameApellidoP" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Apellido M</label>
                   <input type="text" name="nameApellidoM" id="nameApellidoM" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Edad</label>
                   <input type="text" name="nameEdad" id="nameEdad" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Telefono</label>
                   <input type="text" name="nameTelefono" id="nameTelefono" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Sexo</label>
                   <select class="form-control" name="editarSexo" id="editarSexo">
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                   </select>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Estado civil</label>
                   <select class="form-control" name="editarEstado" id="editarEstado">
                     <option value="Soltero/a">Soltero/a</option>
@@ -193,7 +193,7 @@
                     <option value="Viudo/a">Viudo/a</option>
                   </select>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Escolaridad</label>
                   <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
                     <option value="Primaria">Primaria</option>
@@ -253,7 +253,7 @@
               <label for="">Sexo</label><br>
               {{  Form::select('sexo',[
               'Masculino' => 'Masculino',
-              'Femenino' => 'Femenino']  )}}
+              'Femenino' => 'Femenino'], null,['class'=>'form-control']  )}}
             </div>
             <div class="form-group">
               <label for="">Estado Civil</label><br>
@@ -261,7 +261,7 @@
               'Soltero/a' => 'Soltero/a',
               'Casado/a' => 'Casado/a',
               'Divorciado/a' => 'Divorciado/a',
-              'Viudo/a' => 'Viudo/a']  )}}
+              'Viudo/a' => 'Viudo/a'], null,['class'=>'form-control']  )}}
             </div>
             <div class="form-group">
               <label for="">Escolaridad</label><br>
@@ -269,7 +269,7 @@
               'Primaria' => 'Primaria',
               'Secundaria' => 'Secundaria',
               'Media Superior' => 'Media Superior',
-              'Superior' => 'Superior']  )}}
+              'Superior' => 'Superior'], null,['class'=>'form-control']  )}}
             </div>
           </fieldset>
 
@@ -300,7 +300,7 @@
             </div>
             <div class="form-group">
               <label for="">Grupo</label><br>
-              <select class="grupo" name="id_grupo" id="comboAjax">
+              <select class="grupo form-control" name="id_grupo" id="comboAjax">
                 @forelse($grupos as $g)
                   <option value="{{ $g->id_grupo }}">{{ $g->nom_grupo }} {{ $g->num_grupo }}</option>
                 @empty
@@ -315,13 +315,15 @@
                   </div>
             </div>
             </div>
-              {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+
           </fieldset>
-          {{  Form::close()  }}
+
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btnCloseModal" data-dismiss="modal">Cerrar</button>
+        {{  Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+        {{  Form::close()  }}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -397,7 +399,7 @@
             todo+='<th><button type="" name="" data-toggle="modal" data-target=".inscripcion" class="btn btn-success btninscripcion" data-id="">Inscribir</button></th>';
             todo+='<th><button type="" name="" data-toggle="modal" data-target=".editar" class="btn btnedit" data-nombre="'+arreglo[x].nombre+'" data-id="'+arreglo[x].id_persona+'" data-ap="'+arreglo[x].apellidoP+'" data-am="'+arreglo[x].apellidoM+'" data-edad="'+arreglo[x].edad+'" data-sexo="'+arreglo[x].sexo+'" data-telefono="'+arreglo[x].telefono+'" data-estado="'+arreglo[x].estado_civil+'" data-escolaridad="'+arreglo[x].escolaridad+'"><i class="glyphicon glyphicon-pencil"></i></button></th>';
             todo+='<th><button class="btn" type="button"  data-toggle="modal" data-target=".eliminar'+arreglo[x].id_persona+'"><i class="glyphicon glyphicon-trash"></i></button>';
-            todo+='<div class="modal fade eliminar' + arreglo[x].id_persona + '" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">Eliminando registro: '+ arreglo[x].nombre +'</h4></div><div class="modal-body"><p>¿Estás seguro/a de que deseas eliminar este registro?</p></div><div class="modal-footer"><form method="post" action="/administracion/alumnos'+arreglo[x].id_persona+'"><input type="hidden" name="_token" value="{{ csrf_token() }}"><input type="hidden" name="_method" value="delete"><button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button><button type="button" name="btnborrar" class="btn btn-danger btnAjax btnEliminar" data-dismiss="modal">Eliminar</button></form></div></div></div></div></th>';
+            todo+='<div class="modal fade eliminar' + arreglo[x].id_persona + '" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">Eliminando registro: '+ arreglo[x].nombre +'</h4></div><div class="modal-body"><p>¿Estás seguro/a de que deseas eliminar este registro?</p></div><div class="modal-footer"><form method="post" action="/administracion/alumnos/'+arreglo[x].id_persona+'"><input type="hidden" name="_token" value="{{ csrf_token() }}"><input type="hidden" name="_method" value="delete"><button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button><button type="submit" name="btnborrar" class="btn btn-danger btnAjax btnEliminar" data-dismiss="modal">Eliminar</button></form></div></div></div></div></th>';
             $("#tbody").append(todo);
           }
           console.log(arreglo);

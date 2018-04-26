@@ -175,9 +175,7 @@
                           <th>
                             <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion1" data-toggle="modal" data-target="#myModal"
                             data-id="{{  $alu->id_persona  }}",
-                            data-inscripcion="{{  $alu->id_inscripcion  }}"
-
-                            >
+                            data-inscripcion="{{  $alu->id_inscripcion  }}">
                             Pre
                             </button>
                           </th>
@@ -211,7 +209,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="myModalLabel">Realizando Pre-Evaluación</h4>
         </div>
         <div class="modal-body">
 
@@ -220,10 +218,10 @@
 
 
         {{  Form::open(array('url'=>'/administracion/resultados')  )}}
-        <input type="text" name="id_inscripcion" class="id_inscripcion" value="">
-        <input type="text" name="id_persona" class="id_persona" value=""><br>
+        <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+        <input type="hidden" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
-        <input type="text" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
+        <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
         <div class="from-group">
           <select class="form-control" name="porcentaje">
             <option value="100">100</option>
@@ -271,7 +269,7 @@
               </div>
               <div class="form-group">
                 <label>Taller</label><br>
-                <select class="t" name="id_taller">
+                <select class="t form-control" name="id_taller">
                   @forelse($taller as $t)
                     <option value="{{$t->id_taller}}">{{ $t->nombre_taller }}</option>
                   @empty
@@ -279,14 +277,13 @@
                   @endforelse
                 </select>
               </div>
-              <div class="form-group">
-                  {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
-              </div>
             </fieldset>
 
-            {{ Form::close() }}
+
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+              {{ Form::close() }}
             </div>
           </div>
         </div>
@@ -308,34 +305,34 @@
 
                 <input type="hidden" name="id" id="idEditar" value="">
 
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Nombre</label>
                   <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Apellido P</label>
                   <input type="text" name="nameApellidoP" id="nameApellidoP" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Apellido M</label>
                   <input type="text" name="nameApellidoM" id="nameApellidoM" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Edad</label>
                   <input type="text" name="nameEdad" id="nameEdad" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Telefono</label>
                   <input type="text" name="nameTelefono" id="nameTelefono" value="" class="form-control">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Sexo</label>
                   <select class="form-control" name="editarSexo" id="editarSexo">
                     <option value="Maasculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                   </select>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Estado civil</label>
                   <select class="form-control" name="editarEstado" id="editarEstado">
                     <option value="Soltero/a">Soltero/a</option>
@@ -344,7 +341,7 @@
                     <option value="Viudo/a">Viudo/a</option>
                   </select>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Escolaridad</label>
                   <select class="form-control" name="editarEscolaridad" id="editarEscolaridad">
                     <option value="Primaria">Primaria</option>
@@ -395,6 +392,32 @@
         $("#nomModal").text(nom);
 
       });
+
+      //Evento para el input
+      $('#txtBusqueda').on('keyup', function(){
+        $.ajax({
+          method: 'POST',
+          url: '/administracion/grupos/buscar',
+          data: {
+            nombre: $('#txtBusqueda').val(),
+            _token: $('#token').val()
+          },
+          beforeSend: function(){
+            console.log('Cargando...');
+          }
+        }).done(function(respuesta){
+          var arreglo = JSON.parse(respuesta);
+
+          $("#tbody").find('tr').remove();
+          for(var x=0; x<arreglo.length; x++){
+            var todo="";
+            $("#tbody").append(todo);
+          }
+          console.log(arreglo);
+        })
+
+      });
+
       $('.btnevaluacion1').on("click", function(){
         var per=$(this).data('id');
         var ins=$(this).data('inscripcion')

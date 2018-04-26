@@ -7,6 +7,10 @@
 @endsection
 
 @section('contenido')
+<div class="row">
+  <div class="title" style="text-align: center; padding-top:110px;">Inicio</div>
+  <div class="subtitle" style="text-align: center;padding-bottom:5px;">Bienvenido al panel de administración.</div>
+</div>
   <div class="row">
     <!--------------------------------- CHART.JS -------------------------->
     <div id="canvas-container" class="col-md-6">

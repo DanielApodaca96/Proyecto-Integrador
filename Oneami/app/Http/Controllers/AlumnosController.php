@@ -119,11 +119,15 @@ class AlumnosController extends Controller
     //Aqui se hace la busqueda por nombre
     public function buscar(Request $req){
       $registros=\DB::table('datos')
-      ->select("nombre","apellidoP","apellidoM","telefono","id_persona")
+      ->select("nombre","apellidoP","apellidoM","edad","sexo","telefono","estado_civil","escolaridad","id_persona")
       ->orwhere('nombre','like','%' . $req->nombre . '%')
       ->orwhere('apellidoP','like','%' . $req->nombre . '%')
       ->orwhere('apellidoM','like','%' . $req->nombre . '%')
+      ->orwhere('edad','like','%' . $req->nombre . '%')
+      ->orwhere('sexo','like','%' . $req->nombre . '%')
       ->orwhere('telefono','like','%' . $req->nombre . '%')
+      ->orwhere('estado_civil','like','%' . $req->nombre . '%')
+      ->orwhere('escolaridad','like','%' . $req->nombre . '%')
       ->orwhere('id_persona','like','%' . $req->nombre . '%')
       ->get();
       return json_encode($registros);

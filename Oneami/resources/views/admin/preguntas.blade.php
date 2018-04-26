@@ -193,11 +193,11 @@
           <label for="">Tipo de respuesta</label><br>
           {{  Form::select('tipo_respuesta',[
           '4 Opciones' => '4 Opciones',
-          '2 Opciones' => '2 Opciones']  )}}
+          '2 Opciones' => '2 Opciones'],null, ['class'=>'form-control']  )}}
         </div>
         <div class="form-group">
           <label>Categoría</label><br>
-          <select class="cate" name="id_categoria">
+          <select class="cate form-control" name="id_categoria">
             @forelse($categorias as $cate)
               <option value="{{$cate->id_categoria}}">{{ $cate->nombre }}</option>
             @empty
@@ -205,15 +205,13 @@
             @endforelse
           </select>
         </div>
-        <div class="form-group">
-          {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}
-        </div>
       </fieldset>
-       {{ Form::close() }}
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        {{ Form::submit('Aceptar', array('class'=>'btn btn-primary')) }}
+      {{ Form::close() }}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -224,34 +222,32 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Editando pregunta.</h4>
       </div>
 
       <div class="modal-body">
         {!!  Form::open(array('route'=>['admin.preguntas.edit', $pre->id_pregunta], 'method'=>'GET' ))  !!}
           <div class="modal-body">
             <input type="hidden" name="id" id="idEditar" value="">
-            <div class="input-group">
+            <div class="form-group">
               <label for="">Pregunta</label>
               <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
             </div>
-            <div class="input-group">
+            <div class="form-group">
               <label for="">Tipo de pregunta</label><br>
               <select class="form-control" name="editarTipo" id="editarTipo">
                 <option value="4 Opciones">4 Opciones</option>
                 <option value="2 Opciones">2 Opciones</option>
               </select>
+            </div>
           </div>
-      </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dagner" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Editar</button>
-          </div>
-        {!! Form::close() !!}
+
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
+        {!! Form::close() !!}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

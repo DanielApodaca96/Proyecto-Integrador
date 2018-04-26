@@ -31,15 +31,6 @@
 <div class="row">
   <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
     <table class="table table-striped">
-      <div class="col-lg-4 col-lg-offset-4">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Buscar usuarios...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-          </span>
-        </div><!-- /input-group -->
-      </div>
-
       <tbody>
         <tr>
           <th>
@@ -128,15 +119,15 @@
 
               <input type="hidden" name="id" id="idEditar" value="">
 
-              <div class="input-group">
+              <div class="form-group">
                 <label for="">Nombre</label>
                 <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
               </div>
-              <div class="input-group">
+              <div class="form-group">
                 <label for="">Correo electronico</label>
                 <input type="text" name="nameEmail" id="nameEmail" value="" class="form-control">
               </div>
-              <div class="input-group">
+              <div class="form-group">
                 <label for="">Privilegios</label>
                 <select class="form-control" name="editarPrivilegios" id="editarPrivilegios">
                   <option value="Administrador">Administrador</option>
@@ -189,7 +180,7 @@
               <label for="">Privilegios</label><br>
               {{  Form::select('privilegios',[
               'Administrador' => 'Administrador',
-              'Editor' => 'Editor']  )}}
+              'Editor' => 'Editor'],null,['class'=>'form-control']  )}}
             </div>
             <div class="form-group">
                 {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}

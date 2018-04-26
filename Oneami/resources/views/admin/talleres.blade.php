@@ -39,15 +39,6 @@
     <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
 
       <table class="table table-striped">
-        <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar taller...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-            </span>
-          </div><!-- /input-group -->
-        </div>
-
         <tbody>
           <tr>
             <th>
@@ -134,17 +125,17 @@
 
                 <input type="hidden" name="id" id="idEditar" value="">
 
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Nombre del taller</label>
                   <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
                 </div>
 
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Instructor</label>
                   <input type="text" name="nameInstructor" id="nameInstructor" value="" class="form-control">
                 </div>
 
-                <div class="input-group">
+                <div class="form-group">
                   <label for="">Descripción</label>
                   <input type="text" name="nameDescripcion" id="nameDescripcion" value="" class="form-control">
                 </div>
@@ -167,7 +158,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un nuevo taller.</h4>
       </div>
       <div class="modal-body">
         <div class="card-body">
@@ -188,14 +179,13 @@
               {{ Form::text('descripcion','',array('class'=>'form-control','placeholder'=>'Descripción'))}}
 
             </div>
-            <div class="form-group">
-                {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
-            </div>
           </fieldset>
 
-          {{ Form::close() }}
+
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            {{ Form::submit('Aceptar',array('class'=>'btn btn-primary')  )}}
+            {{ Form::close() }}
           </div>
         </div>
       </div>
