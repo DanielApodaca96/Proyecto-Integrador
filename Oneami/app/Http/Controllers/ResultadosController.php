@@ -25,6 +25,7 @@ class ResultadosController extends Controller
         'id_persona'=>'required',
         'id_pregunta'=>'required',
         'porcentaje'=>'required|max:255',
+        'tipo'=>'required|max:255',
         'id_inscripcion'=>'required'
       ]);
       if($validator->fails()){
@@ -35,6 +36,7 @@ class ResultadosController extends Controller
           'id_persona'=>$req->id_persona,
           'id_pregunta'=>$req->id_pregunta,
           'porcentaje'=>$req->porcentaje,
+          'tipo'=>$req->tipo,
           'id_inscripcion'=>$req->id_inscripcion
         ]);
         return '1';

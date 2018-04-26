@@ -24,8 +24,10 @@ class StatsController extends Controller
 
         $sexos='';
         $valores1='';
+
         $estados_civiles = '';
         $valores2='';
+        
         $escolaridades = '';
         $valores3='';
 
@@ -39,7 +41,7 @@ class StatsController extends Controller
         }
         for($i = 0; $i<count($escolaridad); $i++){
           $escolaridades = $escolaridades . '"' . $escolaridad{$i}->escolaridad .'",';
-          $valores3=$valores3 . $estado_civil{$i}->cuantos . ',';
+          $valores3=$valores3 . $escolaridad{$i}->cuantos . ',';
         }
 
         $title = "Oneami - Estadisticas";

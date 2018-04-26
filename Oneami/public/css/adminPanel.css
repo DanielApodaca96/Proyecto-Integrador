@@ -143,6 +143,15 @@ select{
   padding-bottom: 1%;
 
 }
+select.metas{
+  width: 100%;
+}
+button.metas{
+  height: 30px;
+  border-radius: 100%;
+  border: none;
+  background-color: white
+}
 div.from-group > select{
   margin-bottom: 20px;
 }

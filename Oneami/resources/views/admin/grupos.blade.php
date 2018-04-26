@@ -180,7 +180,11 @@
                             </button>
                           </th>
                           <th>
-                              <a href="{{ url('/administracion/post_evaluacion') }}">Post</a>
+                            <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion2" data-toggle="modal" data-target="#myModal2"
+                            data-id="{{  $alu->id_persona  }}",
+                            data-inscripcion="{{  $alu->id_inscripcion  }}">
+                            Post
+                            </button>
                           </th>
 
                           @endif
@@ -218,7 +222,53 @@
 
 
         {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+
         <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+        <input type="hidden" name="tipo" class="tipo" value="pre">
+        <input type="hidden" name="id_persona" class="id_persona" value=""><br>
+        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+        <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
+        <div class="from-group">
+          <select class="form-control" name="porcentaje">
+            <option value="100">100</option>
+            <option value="75">75</option>
+            <option value="50">50</option>
+            <option value="25">25</option>
+            <option value="0">0</option>
+          </select>
+        </div>
+        <button type="button" class="contestar btn btn-success">Enviar</button>
+        {{  Form::close() }}
+        @empty
+          <p>Sin registros</p>
+        @endforelse
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Evaluacion 2-->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Realizando Post-Evaluación</h4>
+        </div>
+        <div class="modal-body">
+
+
+        @forelse($pre as $pr)
+
+
+        {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+        <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+          <input type="hidden" name="tipo" class="tipo" value="post">
         <input type="hidden" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
         <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
@@ -236,12 +286,10 @@
         @empty
           <p>Sin registros</p>
         @endforelse
-          <button type="submit" class="btn btn-success">Enviar</button>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -424,6 +472,16 @@
         var preg=$(this).data('pregunta')
         $('.id_persona').val(per);
         $('.id_inscripcion').val(ins);
+
+      });
+      $('.btnevaluacion2').on("click", function(){
+        var per=$(this).data('id');
+        var ins=$(this).data('inscripcion')
+        var preg=$(this).data('pregunta')
+        $('.id_persona').val(per);
+        $('.id_inscripcion').val(ins);
+
+
 
 
       });
