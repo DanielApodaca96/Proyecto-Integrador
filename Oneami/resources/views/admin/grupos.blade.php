@@ -214,31 +214,33 @@
           <h4 class="modal-title" id="myModalLabel">Modal title</h4>
         </div>
         <div class="modal-body">
-            {{  Form::open(array('url'=>'/administracion/resultados')  )}}
-          <input type="text" name="id_inscripcion" id="id_inscripcion" value="">
-          <input type="text" name="id_persona" id="id_persona" value=""><br>
+
+
         @forelse($pre as $pr)
 
 
-
+        {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+        <input type="text" name="id_inscripcion" class="id_inscripcion" value="">
+        <input type="text" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
         <input type="text" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
         <div class="from-group">
-          {{ Form::select('porcentaje', [
-            '100' => '100',
-            '75' => '75',
-            '50' => '50',
-            '25' => '25',
-            '0' => '0']
-          ) }}
+          <select class="form-control" name="porcentaje">
+            <option value="100">100</option>
+            <option value="75">75</option>
+            <option value="50">50</option>
+            <option value="25">25</option>
+            <option value="0">0</option>
+          </select>
         </div>
-
+        <button type="button" class="contestar">Enviar</button>
+        {{  Form::close() }}
         @empty
           <p>Sin registros</p>
         @endforelse
           <button type="submit" class="btn btn-success">Enviar</button>
         </div>
-        {{  Form::close() }}
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
@@ -397,10 +399,24 @@
         var per=$(this).data('id');
         var ins=$(this).data('inscripcion')
         var preg=$(this).data('pregunta')
-        $('#id_persona').val(per);
-        $('#id_inscripcion').val(ins);
+        $('.id_persona').val(per);
+        $('.id_inscripcion').val(ins);
 
 
+      });
+      $('.contestar').on("click",function(){
+        var form = $(this).parent('form');
+        $.ajax({
+          url:$(this).parent('form').attr('action'),
+          method:'POST',
+          data:$(this).parent('form').serialize()
+        }).done(function(res){
+          console.log(res);
+          var x = parseInt(res);
+          if(x==1){
+            form.fadeOut(1000);
+          }
+        });
       });
 
     });

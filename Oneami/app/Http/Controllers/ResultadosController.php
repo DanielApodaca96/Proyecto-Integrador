@@ -28,20 +28,17 @@ class ResultadosController extends Controller
         'id_inscripcion'=>'required'
       ]);
       if($validator->fails()){
-        return redirect('administracion/grupos')
-          ->withInput()
-          ->withErrors($validator);
+        return 'Error';
       }else{
-        foreach ($req as $r) {
+
         Resultado::create([
-          'id_persona'=>$r->id_persona,
-          'id_pregunta'=>$r->id_pregunta,
-          'porcentaje'=>$r->porcentaje,
-          'id_inscripcion'=>$r->id_inscripcion
+          'id_persona'=>$req->id_persona,
+          'id_pregunta'=>$req->id_pregunta,
+          'porcentaje'=>$req->porcentaje,
+          'id_inscripcion'=>$req->id_inscripcion
         ]);
-        return redirect()->to('administracion/grupos')
-          ->with('mensaje','Evaluacion enviada.');
-        }
+        return '1';
+
       }
 
   }
