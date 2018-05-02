@@ -229,10 +229,13 @@
         <div class="card-body">
           {{  Form::open(array('url'=>'/administracion/alumnos')  )}}
           <fieldset>
+
+            <input type="hidden" name="anio" value="{{ $tiempo }}">
             <div class="form-group">
               <label for="">Nombre</label>
               {{  Form::text('nombre','',array('class'=>'form-control','placeholder'=>'Nombre')  )}}
             </div>
+
             <div class="form-group">
               <label for="">Apellido Paterno</label>
               {{  Form::text('apellidoP','',array('class'=>'form-control','placeholder'=>'Apellido Paterno')  )}}

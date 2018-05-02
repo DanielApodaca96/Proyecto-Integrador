@@ -1,3 +1,21 @@
+@if($errors->any())
+  <div class="conf alert alert-warning alert-dismissible fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+    <ul>
+      @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
+@if(session()->has('mensaje'))
+  <div class="conf alert alert-success alert-dismissible fade in" data-backdrop="static">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+    {{ session()->get('mensaje') }}
+  </div>
+@endif
+
 @extends('admin.plantilla')
 @extends('includes.navAdmin')
 @section('metas')
@@ -15,7 +33,8 @@
     </select>
   </div> -->
   <div class="btn-group col-md-4 col-md-offset-4" >
-    <select  class="metas form-control" name="anio">
+    <select id="metas" class="metas form-control" name="anio">
+
       <option value="2018">2018</option>
       <option value="2019">2019</option>
     </select>
@@ -60,25 +79,58 @@
       <div class="modal-body">
 
       <h5>Cantidad de alumnos por año</h5>
-      <input type="text" name="meta" value="">
+      {{  Form::open(array('url'=>'/administracion/metas')  )}}
+      <input type="text" name="metas" value="">
       <button type="submit" class="contestar btn btn-success">OK</button>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
+      {{ Form::close()}}
     </div>
   </div>
 </div>
 
-
-
-
-
-
 @endsection
 @section('script-porcentajes')
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{{ asset('js/jquery.classyloader.js') }}"></script>
-<script src="{{ asset('js/porcentajes.js') }}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function (){
+    console.log({!! $metas !!});
+  });
+
+$('.loader1').ClassyLoader({
+    percentage: ({!!$contados1!!}*100)/({!! $metas !!}/3),
+    speed: 20,
+    fontFamily: 'Georgia',
+    fontColor: 'rgba(0,0,0,0.4)',
+    lineColor: 'rgba(255,0,0,0.4)',
+    lineWidth: 3,
+    remainingLineColor: 'rgba(0,0,0,0.1)'
+});
+
+$('.loader2').ClassyLoader({
+    percentage: ({!!$contados2!!}*100)/({!! $metas !!}/3),
+    speed: 20,
+    fontFamily: 'Georgia',
+    fontColor: 'rgba(0,0,0,0.4)',
+    lineColor: 'rgba(255,0,0,0.4)',
+    lineWidth: 3,
+    remainingLineColor: 'rgba(0,0,0,0.1)'
+});
+
+$('.loader3').ClassyLoader({
+    percentage: ({!!$contados3!!}*100)/({!! $metas !!}/3),
+    speed: 20,
+    fontFamily: 'Georgia',
+    fontColor: 'rgba(0,0,0,0.4)',
+    lineColor: 'rgba(255,0,0,0.4)',
+    lineWidth: 3,
+    remainingLineColor: 'rgba(0,0,0,0.1)'
+});
+</script>
+
+<!-- <script src="{{ asset('js/porcentajes.js') }}"></script> -->
 @endsection

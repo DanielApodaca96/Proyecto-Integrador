@@ -13,6 +13,6 @@ class Dato extends Model
     //campos que se pueden manipular
     protected $fillable=[
       'nombre','apellidoP','apellidoM','edad','sexo','telefono',
-      'estado_civil','escolaridad'
+      'estado_civil','escolaridad','anio'
     ];
 }

@@ -22,12 +22,30 @@ class StatsController extends Controller
           select escolaridad,count(*) as cuantos from datos group by escolaridad;
         ");
 
+        $countTotalPersonas=\DB::select("
+          select count(*) as cuantos from datos;
+        ");
+        $countTotalGrupos=\DB::select("
+          select count(*) as cuantos from grupos;
+        ");
+        $countTotalTalleres=\DB::select("
+          select count(*) as cuantos from talleres;
+        ");
+
+        $cTP = "";
+        $cTG = "";
+        $cTT = "";
+
+        $cTP = $cTP . '' . $countTotalPersonas{0}->cuantos . '';
+        $cTG = $cTG . '' . $countTotalGrupos{0}->cuantos . '';
+        $cTT = $cTT . '' . $countTotalTalleres{0}->cuantos . '';
+
         $sexos='';
         $valores1='';
 
         $estados_civiles = '';
         $valores2='';
-        
+
         $escolaridades = '';
         $valores3='';
 
@@ -52,7 +70,10 @@ class StatsController extends Controller
         ->with('estado_civil',$estados_civiles)
         ->with('valores2',$valores2)
         ->with('escolaridad',$escolaridades)
-        ->with('valores3',$valores3);
+        ->with('valores3',$valores3)
+        ->with('TotalPersonas',$cTP)
+        ->with('TotalGrupos',$cTG)
+        ->with('TotalTalleres',$cTT);
     }
 
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Validator;
+use Carbon;
 
 use App\Dato;
 use App\Inscripcion;
@@ -52,13 +53,15 @@ class AlumnosController extends Controller
         ->orderBy('id_inscripcion')
         ->get();
 
-
+      $time = Carbon\Carbon::now();
       $title = "Oneami - Alumnos";
       return view('admin.alumnos')
         ->with('title', $title)
         ->with('grupos',$registros2)
         ->with('inscripcion',json_encode($registros3))
-        ->with('alumnos',$registros);
+        ->with('alumnos',$registros)
+        ->with('tiempo',date_format($time, 'Y'));
+
     }
     public function store(Request $req){
       $validator = Validator::make($req->all(),[
@@ -69,7 +72,8 @@ class AlumnosController extends Controller
         'sexo'=>'required',
         'telefono'=>'required|max:255',
         'estado_civil'=>'required',
-        'escolaridad'=>'required'
+        'escolaridad'=>'required',
+        'anio'=>'required|max:255'
       ]);
 
       if($validator->fails()){
@@ -86,6 +90,7 @@ class AlumnosController extends Controller
           'telefono'=>$req->telefono,
           'estado_civil'=>$req->estado_civil,
           'escolaridad'=>$req->escolaridad,
+          'anio'=>$req->anio,
         ]);
         return redirect()->to('/administracion/alumnos')
           ->with('mensaje','Alumno Agregado');

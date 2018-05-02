@@ -14,15 +14,15 @@
 <div class="row">
   <div class="col-md-3 bg-color-red inicio">
     <h4 class="titulo-inicio">Total personas registradas</h4>
-    <span class="titulo-inicio titulo-number">655</span>
+    <span class="titulo-inicio titulo-number count">{{ $TotalPersonas }}</span>
   </div>
   <div class="col-md-3 bg-color-green inicio">
     <h4 class="titulo-inicio">Total grupos abiertos</h4>
-    <span class="titulo-inicio titulo-number">25</span>
+    <span class="titulo-inicio titulo-number count">{{ $TotalGrupos }}</span>
   </div>
   <div class="col-md-3 bg-color-blue inicio">
     <h4 class="titulo-inicio">Total de talleres</h4>
-    <span class="titulo-inicio titulo-number">15</span>
+    <span class="titulo-inicio titulo-number count">{{ $TotalTalleres }}</span>
   </div>
 </div>
 
@@ -49,6 +49,7 @@
       var ctx1 = document.getElementById("myChart1").getContext('2d');
       var ctx2 = document.getElementById("myChart2").getContext('2d');
       var ctx3 = document.getElementById("myChart3").getContext('2d');
+      var n1={!! $TotalPersonas !!};
       var myChart1 = new Chart(ctx1, {
           type: 'bar',
           data: {
@@ -157,5 +158,17 @@
               }
           }
       });
+//////////////////////////////////////////////////////////////////////////////
+    $('.count').each(function () {
+  $(this).prop('Counter',0).animate({
+        Counter: parseInt($(this).text())
+    }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
     </script>
 @endsection
