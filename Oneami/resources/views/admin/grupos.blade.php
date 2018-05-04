@@ -223,21 +223,39 @@
 
         {{  Form::open(array('url'=>'/administracion/resultados')  )}}
 
-        <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
-        <input type="hidden" name="tipo" class="tipo" value="pre">
-        <input type="hidden" name="id_persona" class="id_persona" value=""><br>
-        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
-        <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
-        <div class="from-group">
-          <select class="form-control" name="porcentaje">
-            <option value="100">100</option>
-            <option value="75">75</option>
-            <option value="50">50</option>
-            <option value="25">25</option>
-            <option value="0">0</option>
-          </select>
-        </div>
-        <button type="button" class="contestar btn btn-success">Enviar</button>
+        @if($pr->tipo_respuesta=="2 Opciones")
+          <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+          <input type="hidden" name="tipo" class="tipo" value="pre">
+          <input type="hidden" name="id_persona" class="id_persona" value=""><br>
+          <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+          <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
+          <div class="from-group">
+            <select class="form-control" name="porcentaje">
+              <option value="100">Si</option>
+              <option value="0">No</option>
+
+            </select>
+          </div>
+          <button type="button" class="contestar btn btn-success">Enviar</button>
+        @else
+          <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+          <input type="hidden" name="tipo" class="tipo" value="pre">
+          <input type="hidden" name="id_persona" class="id_persona" value=""><br>
+          <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+          <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
+          <div class="from-group">
+            <select class="form-control" name="porcentaje">
+              <option value="100">100</option>
+              <option value="75">75</option>
+              <option value="50">50</option>
+              <option value="25">25</option>
+              <option value="0">0</option>
+            </select>
+          </div>
+          <button type="button" class="contestar btn btn-success">Enviar</button>
+
+            @endif
+
         {{  Form::close() }}
         @empty
           <p>Sin registros</p>
@@ -267,21 +285,41 @@
 
 
         {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+        @if($pr->tipo_respuesta=="2 Opciones")
         <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
-          <input type="hidden" name="tipo" class="tipo" value="post">
+        <input type="hidden" name="tipo" class="tipo" value="pre">
         <input type="hidden" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
         <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
         <div class="from-group">
           <select class="form-control" name="porcentaje">
-            <option value="100">100</option>
-            <option value="75">75</option>
-            <option value="50">50</option>
-            <option value="25">25</option>
-            <option value="0">0</option>
+            <option value="100">Si</option>
+            <option value="0">No</option>
+
           </select>
-          <button type="button" class="contestar btn btn-success">Enviar</button>
         </div>
+        <button type="button" class="contestar btn btn-success">Enviar</button>
+        @else
+        <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+          <input type="hidden" name="tipo" class="tipo" value="post">
+        <input type="hidden" name="id_persona" class="id_persona" value=""><br>
+        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+        <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
+
+
+
+          <div class="from-group">
+            <select class="form-control" name="porcentaje">
+              <option value="100">100</option>
+              <option value="75">75</option>
+              <option value="50">50</option>
+              <option value="25">25</option>
+              <option value="0">0</option>
+            </select>
+            <button type="button" class="contestar btn btn-success">Enviar</button>
+          </div>
+          @endif
+
 
         {{  Form::close() }}
         @empty

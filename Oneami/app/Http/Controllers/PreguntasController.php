@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 //Importamos el modelo User para poder insertar
 use App\Pregunta;
+use App\Categoria;
 
 class PreguntasController extends Controller
 {
