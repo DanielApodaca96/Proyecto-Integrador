@@ -17,7 +17,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   </head>
   <body>
+<<<<<<< HEAD
     <div class="" id="todo">
+=======
+    <div id="todo">
+>>>>>>> master
       <div class="row">
         <div class="col-md-2 col-md-offset-2 col-xs-4 ">
           <a class="navbar-brand" >
@@ -37,8 +41,11 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script type="text/javascript">
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
     function imprimir(elemento){
       var respaldo = $('body').html();
       var div = $('#'+elemento).clone();
@@ -49,7 +56,10 @@
     $(document).ready(function(){
       imprimir('todo');
     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   </script>
 
 </html>
