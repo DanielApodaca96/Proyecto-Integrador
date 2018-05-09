@@ -17,6 +17,34 @@ class GruposController extends Controller
   {
       $this->middleware('auth');
   }
+  public function ajax(Request $req){
+    $resultados=\DB::table('resultados')
+      ->where('id_pregunta','=',$req->id_pregunta)
+      ->get();
+    $preguntas=\DB::table('preguntas')
+        ->orderBy('id_pregunta')
+        ->get();
+    $grupos=\DB::table('grupos')
+        ->orderBy('id_persona')
+        ->get();
+
+    $todo="";
+        for ($z=0; $z < count($preguntas); $z++) {
+            for ($i=0; $i < count($preguntas); $i++) {
+              $bandera=false;
+              for ($y=0; $y < count($resultados); $y++) {
+                if($resultados{$y}->id_pregunta == $preguntas{$i}->id_pregunta && $resultados{$y}->tipo == 'post' && $grupos{$z}->id_persona == $resultados{$y}->id_persona){
+                  $bandera=true;
+                }
+              }
+              if($bandera==false){
+                 $todo=$todo.'<option value="'.$preguntas{$i}->id_grupo.'">'.$preguntas{$i}->nom_grupo.'</option>';
+              }
+            }
+        }
+
+  return $todo;
+  }
 
     public function index(){
       $registros=\DB::table('datos')

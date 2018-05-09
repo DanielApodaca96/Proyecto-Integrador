@@ -125,10 +125,10 @@
       var myChart3 = new Chart(ctx3, {
           type: 'doughnut',
           data: {
-              labels: [  {!!  $escolaridad  !!}  ],
+              labels: [  {!!  $categoria  !!}  ],
               datasets: [{
                   label: '{{  $nombreGrafica  }}',
-                  data: [  {!!  $valores3  !!}  ],
+                  data: [  {!!  $categoria  !!}  ],
                   backgroundColor: [
                       'rgba(255, 99, 132, 1)',
                       'rgba(54, 162, 235, 1)',

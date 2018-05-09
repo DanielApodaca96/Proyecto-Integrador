@@ -21,6 +21,26 @@ class StatsController extends Controller
         $escolaridad=\DB::select("
           select escolaridad,count(*) as cuantos from datos group by escolaridad;
         ");
+        $categoria=\DB::select("
+          select nombre,count(*) as cuantos from categorias group by nombre;
+        ");
+
+       /*$promedio=\DB::select("
+          select id_persona, avg(porcentaje), categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
+          inner join categorias on categorias.id_categoria = preguntas.id_categoria
+          where resultados.tipo = 'pre' GROUP by categorias.nombre
+        ");*/
+
+
+        $promedio=\DB::table('resultados')
+          ->selectRaw('resultados.id_persona, avg(porcentaje), categorias.nombre')
+          ->join('preguntas','resultados.id_pregunta','=','preguntas.id_pregunta')
+          ->join('categorias','categorias.id_categoria','=','preguntas.id_categoria')
+          ->where('resultados.tipo','=','pre')
+          ->groupBy('categorias.nombre')
+          ->get();
+
+          dd($promedio);
 
         $countTotalPersonas=\DB::select("
           select count(*) as cuantos from datos;
@@ -49,6 +69,9 @@ class StatsController extends Controller
         $escolaridades = '';
         $valores3='';
 
+        $categorias = '';
+        $categorias1='';
+
         for($i = 0; $i<count($sexo); $i++){
           $sexos = $sexos . '"'.$sexo{$i}->sexo.'",';
           $valores1 = $valores1 . $sexo{$i}->cuantos.',';
@@ -61,6 +84,10 @@ class StatsController extends Controller
           $escolaridades = $escolaridades . '"' . $escolaridad{$i}->escolaridad .'",';
           $valores3=$valores3 . $escolaridad{$i}->cuantos . ',';
         }
+        for($i = 0; $i<count($categoria); $i++){
+          $categorias = $categorias . '"' . $categoria{$i}->nombre .'",';
+          $categorias1 = $categorias1 . $categoria{$i}->cuantos . ',';
+        }
 
         $title = "Oneami - Estadisticas";
         return view('admin.stats')
@@ -71,6 +98,8 @@ class StatsController extends Controller
         ->with('valores2',$valores2)
         ->with('escolaridad',$escolaridades)
         ->with('valores3',$valores3)
+        ->with('categoria',$categorias)
+        ->with('categoria1',$categorias)
         ->with('TotalPersonas',$cTP)
         ->with('TotalGrupos',$cTG)
         ->with('TotalTalleres',$cTT);

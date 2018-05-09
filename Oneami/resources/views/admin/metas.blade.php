@@ -32,21 +32,21 @@
       <option value="12">Septiembre - Diciembre</option>
     </select>
   </div> -->
-  <div class="btn-group col-md-4 col-md-offset-4" >
+  <!-- <div class="btn-group col-md-4 col-md-offset-4" >
     <select id="metas" class="metas form-control" name="anio">
 
       <option value="2018">2018</option>
       <option value="2019">2019</option>
     </select>
-  </div>
-
-  <button type="meta"class="metas" name="meta" data-toggle="modal" data-target="#myModal">
-    <i class="glyphicon glyphicon-cog"></i>
+  </div> -->
+<div class="btn-group col-md-4 col-md-offset-4" >
+  <button type="meta" class="metas" name="meta" data-toggle="modal" data-target="#myModal">
+    <i class="glyphicon glyphicon-cog"></i>ASIGNAR META ANUAL
   </button>
 
 </div>
+</div>
 
-<div class="container">
   <div class="row">
     <div class="col-md-3 graph">
       <h4 class="titleGraphs">ENERO - ABRIL</h4>
@@ -61,7 +61,6 @@
       <canvas class="loader3" width="400" height="400"></canvas>
     </div>
   </div>
-</div>
 
 <div class="col-md-12">
   <h4 style="text-align:center;">Porcentaje de alumnos registrados en este periodo.</h4>

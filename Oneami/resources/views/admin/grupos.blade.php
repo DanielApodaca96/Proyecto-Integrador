@@ -40,7 +40,7 @@
       <i class="glyphicon glyphicon-plus"></i>
   </button>
   <div class="row">
-    <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:80px; padding-right:80px;">
+    <div class="table col-md-10 col-sm-10 col-lg-10" style="padding-left:30px; padding-right:30px;">
       <table class="table table-striped">
         <tbody>
           <tr>
@@ -96,12 +96,12 @@
                   </h4>
                 </div>
 
-                <div id="collapse{{  $g->id_grupo  }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" expanded="false">
+                <div id="collapse{{  $g->id_grupo  }}" class="panel-collapse collapse reporte" role="tabpanel" aria-labelledby="headingOne" expanded="false">
                   <div class="panel-body" style="">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>#</th>
+
                           <th>Nombre</th>
                           <th>Apellido P.</th>
                           <th>Apellido M.</th>
@@ -117,7 +117,6 @@
                         <tr>
                           @if($alu->id_grupo==$g->id_grupo)
 
-                          <th>{{ $alu->id_persona }}</th>
                           <th>{{ $alu->nombre }}</th>
                           <th>{{ $alu->apellidoP }}</th>
                           <th>{{ $alu->apellidoM }}</th>
@@ -172,6 +171,7 @@
                               </div>
                             </div>
                           </th>
+
                           <th>
                             <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion1" data-toggle="modal" data-target="#myModal"
                             data-id="{{  $alu->id_persona  }}",
@@ -185,6 +185,9 @@
                             data-inscripcion="{{  $alu->id_inscripcion  }}">
                             Post
                             </button>
+                          </th>
+                          <th>
+                            <button type="button" name="button" class="btn btn-primary"> <i class="glyphicon glyphicon-stats"></i> </button>
                           </th>
 
                           @endif
@@ -287,7 +290,7 @@
         {{  Form::open(array('url'=>'/administracion/resultados')  )}}
         @if($pr->tipo_respuesta=="2 Opciones")
         <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
-        <input type="hidden" name="tipo" class="tipo" value="pre">
+        <input type="hidden" name="tipo" class="tipo" value="post">
         <input type="hidden" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
         <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
@@ -316,8 +319,9 @@
               <option value="25">25</option>
               <option value="0">0</option>
             </select>
-            <button type="button" class="contestar btn btn-success">Enviar</button>
+
           </div>
+          <button type="button" class="contestar btn btn-success">Enviar</button>
           @endif
 
 

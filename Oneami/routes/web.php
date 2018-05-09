@@ -60,6 +60,7 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::resource('reportes','ReportesController');
 
   Route::post('/alumnos/ajax','AlumnosController@ajax');
+  Route::post('/grupos/ajax','GruposController@ajax');
 
   Route::post('/alumnos/buscar', 'AlumnosController@buscar');
   Route::post('/grupos/buscar', 'GruposController@buscar');

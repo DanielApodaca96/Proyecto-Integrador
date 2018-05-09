@@ -357,8 +357,8 @@
         $('#nameApellidoM').val(am);
         $('#nameEdad').val(edad);
         $('#nameTelefono').val(telefono);
-        $('#nameSexo').val(sexo);
-        $('#nameEstado').val(estado);
+        $('#editarSexo').val(sexo);
+        $('#editarEstado').val(estado);
         $('#editarEscolaridad').val(escolaridad);
         $("#nomModal").text(nom);
 
