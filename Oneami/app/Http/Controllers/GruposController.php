@@ -73,13 +73,13 @@ class GruposController extends Controller
       $resultado1=\DB::select("
         select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
         inner join categorias on categorias.id_categoria = preguntas.id_categoria
-        where resultados.tipo = 'post' and resultados.id_persona = '1' GROUP by categorias.nombre
+        where resultados.tipo = 'pre' and resultados.id_persona = '4' GROUP by categorias.nombre
       ");
 
       $resultado2=\DB::select("
         select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
         inner join categorias on categorias.id_categoria = preguntas.id_categoria
-        where resultados.tipo = 'post' and resultados.id_persona = '1' GROUP by categorias.nombre
+        where resultados.tipo = 'post' and resultados.id_persona = '4' GROUP by categorias.nombre
       ");
 
       $resultados1="";
@@ -88,12 +88,12 @@ class GruposController extends Controller
       $valores2="";
 
       for($i = 0; $i<count($resultado1); $i++){
-        $resultados1 = $resultados1 . '"'.$resultado1{$i}->porcentaje.'",';
-        $valores1 = $valores1 . $resultado1{$i}->nombres.',';
+        $resultados1 = $resultados1 . '"' .$resultado1{$i}->nombre.'",';
+        $valores1 = $valores1 . $resultado1{$i}->porcentaje.',';
       }
       for($i = 0; $i<count($resultado2); $i++){
-        $resultados2 = $resultados2 . '"'.$resultado2{$i}->porcentaje.'",';
-        $valores2 = $valores2 . $resultado2{$i}->nombres.',';
+        $resultados2 = $resultados2 . '"'.$resultado2{$i}->nombre.'",';
+        $valores2 = $valores2 . $resultado2{$i}->porcentaje.',';
       }
 
 
@@ -109,9 +109,9 @@ class GruposController extends Controller
         ->with('pre',$preguntas)
         ->with('taller',$taller)
 
-        ->with('resultados',$resultados1)
+        ->with('resultados1',$resultados1)
         ->with('valores1',$valores1)
-        ->with('resultados',$resultados2)
+        ->with('resultados2',$resultados2)
         ->with('valores2',$valores2);
 
     }

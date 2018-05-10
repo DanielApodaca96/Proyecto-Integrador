@@ -87,6 +87,8 @@ class StatsController extends Controller
           $categorias1 = $categorias1 . $categoria{$i}->cuantos . ',';
         }
 
+        
+
         $title = "Oneami - Estadisticas";
         return view('admin.stats')
         ->with('nombreGrafica','Cantidad de sexos')
