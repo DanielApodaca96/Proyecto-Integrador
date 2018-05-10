@@ -28,10 +28,10 @@
 <div class="row">
   <div class="col-lg-4 col-lg-offset-4">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Buscar alumno...">
+      <!-- <input type="text" class="form-control" placeholder="Buscar alumno...">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-      </span>
+      </span> -->
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div>

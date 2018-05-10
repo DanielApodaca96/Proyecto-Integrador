@@ -29,10 +29,10 @@
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Buscar alumno...">
+        <!-- <input type="text" class="form-control" placeholder="Buscar alumno...">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-        </span>
+        </span> -->
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div>
@@ -187,7 +187,7 @@
                             </button>
                           </th>
                           <th>
-                            <button type="button" name="button" class="btn btn-primary"> <i class="glyphicon glyphicon-stats"></i> </button>
+                            <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3"> <i class="glyphicon glyphicon-stats"></i> </button>
                           </th>
 
                           @endif
@@ -333,6 +333,33 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Evaluacion-->
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Grafica de comparacion</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-11 graph">
+              <h4 class="titleGraphs">Mejoria entre el PRE y POST</h4>
+              <canvas id="myChart1" width="400" height="400"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
         </div>
       </div>
     </div>
@@ -543,6 +570,67 @@
         });
       });
 
+    });
+  </script>
+  <script src="{{ asset('js/Chart.bundle.min.js') }}" type="text/javascript"></script>
+  <script type="text/javascript">
+    var ctx1 = document.getElementById("myChart1").getContext('2d');
+    var myChart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: [  {!!  $resultados  !!}  ],
+            datasets: [{
+                label: '{{  $nombreGrafica1  }}',
+                data: [  {!!  $valores1  !!}  ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0)',
+                    'rgba(54, 162, 235, 0)',
+                    'rgba(255, 206, 86, 0)',
+                    'rgba(75, 192, 192, 0)',
+                    'rgba(153, 102, 255, 0)',
+                    'rgba(255, 159, 64, 0)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            },
+            {
+                label: '{{  $nombreGrafica2  }}',
+                data: [  {!!  $valores2  !!}  ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0)',
+                    'rgba(54, 162, 235, 0)',
+                    'rgba(255, 206, 86, 0)',
+                    'rgba(75, 192, 192, 0)',
+                    'rgba(153, 102, 255, 0)',
+                    'rgba(255, 159, 64, 0)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            }
+          ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
     });
   </script>
 @endsection

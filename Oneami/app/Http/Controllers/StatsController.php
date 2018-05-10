@@ -31,16 +31,14 @@ class StatsController extends Controller
           where resultados.tipo = 'pre' GROUP by categorias.nombre
         ");*/
 
-
-        $promedio=\DB::table('resultados')
-          ->selectRaw('resultados.id_persona, avg(porcentaje), categorias.nombre')
-          ->join('preguntas','resultados.id_pregunta','=','preguntas.id_pregunta')
-          ->join('categorias','categorias.id_categoria','=','preguntas.id_categoria')
-          ->where('resultados.tipo','=','pre')
-          ->groupBy('categorias.nombre')
-          ->get();
-
-          dd($promedio);
+        // $promedio=\DB::table('resultados')
+        //   ->selectRaw('resultados.id_persona, avg(porcentaje), categorias.nombre')
+        //   ->join('preguntas','resultados.id_pregunta','=','preguntas.id_pregunta')
+        //   ->join('categorias','categorias.id_categoria','=','preguntas.id_categoria')
+        //   ->where('resultados.tipo','=','pre')
+        //   ->groupBy('categorias.nombre')
+        //   ->get();
+        // dd($promedio);
 
         $countTotalPersonas=\DB::select("
           select count(*) as cuantos from datos;

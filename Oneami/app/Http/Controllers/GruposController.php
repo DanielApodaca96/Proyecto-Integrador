@@ -17,34 +17,34 @@ class GruposController extends Controller
   {
       $this->middleware('auth');
   }
-  public function ajax(Request $req){
-    $resultados=\DB::table('resultados')
-      ->where('id_pregunta','=',$req->id_pregunta)
-      ->get();
-    $preguntas=\DB::table('preguntas')
-        ->orderBy('id_pregunta')
-        ->get();
-    $grupos=\DB::table('grupos')
-        ->orderBy('id_persona')
-        ->get();
-
-    $todo="";
-        for ($z=0; $z < count($preguntas); $z++) {
-            for ($i=0; $i < count($preguntas); $i++) {
-              $bandera=false;
-              for ($y=0; $y < count($resultados); $y++) {
-                if($resultados{$y}->id_pregunta == $preguntas{$i}->id_pregunta && $resultados{$y}->tipo == 'post' && $grupos{$z}->id_persona == $resultados{$y}->id_persona){
-                  $bandera=true;
-                }
-              }
-              if($bandera==false){
-                 $todo=$todo.'<option value="'.$preguntas{$i}->id_grupo.'">'.$preguntas{$i}->nom_grupo.'</option>';
-              }
-            }
-        }
-
-  return $todo;
-  }
+  // public function ajax(Request $req){
+  //   $resultados=\DB::table('resultados')
+  //     ->where('id_pregunta','=',$req->id_pregunta)
+  //     ->get();
+  //   $preguntas=\DB::table('preguntas')
+  //       ->orderBy('id_pregunta')
+  //       ->get();
+  //   $grupos=\DB::table('grupos')
+  //       ->orderBy('id_persona')
+  //       ->get();
+  //
+  //   $todo="";
+  //       for ($z=0; $z < count($preguntas); $z++) {
+  //           for ($i=0; $i < count($preguntas); $i++) {
+  //             $bandera=false;
+  //             for ($y=0; $y < count($resultados); $y++) {
+  //               if($resultados{$y}->id_pregunta == $preguntas{$i}->id_pregunta && $resultados{$y}->tipo == 'post' && $grupos{$z}->id_persona == $resultados{$y}->id_persona){
+  //                 $bandera=true;
+  //               }
+  //             }
+  //             if($bandera==false){
+  //                $todo=$todo.'<option value="'.$preguntas{$i}->id_grupo.'">'.$preguntas{$i}->nom_grupo.'</option>';
+  //             }
+  //           }
+  //       }
+  //
+  // return $todo;
+  // }
 
     public function index(){
       $registros=\DB::table('datos')
@@ -70,17 +70,49 @@ class GruposController extends Controller
         ->join('talleres','grupos.id_taller','=','talleres.id_taller')
         ->get();
 
+      $resultado1=\DB::select("
+        select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
+        inner join categorias on categorias.id_categoria = preguntas.id_categoria
+        where resultados.tipo = 'post' and resultados.id_persona = '1' GROUP by categorias.nombre
+      ");
+
+      $resultado2=\DB::select("
+        select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
+        inner join categorias on categorias.id_categoria = preguntas.id_categoria
+        where resultados.tipo = 'post' and resultados.id_persona = '1' GROUP by categorias.nombre
+      ");
+
+      $resultados1="";
+      $valores1="";
+      $resultados2="";
+      $valores2="";
+
+      for($i = 0; $i<count($resultado1); $i++){
+        $resultados1 = $resultados1 . '"'.$resultado1{$i}->porcentaje.'",';
+        $valores1 = $valores1 . $resultado1{$i}->nombres.',';
+      }
+      for($i = 0; $i<count($resultado2); $i++){
+        $resultados2 = $resultados2 . '"'.$resultado2{$i}->porcentaje.'",';
+        $valores2 = $valores2 . $resultado2{$i}->nombres.',';
+      }
 
 
       $title = "Oneami - Grupos";
 
       return view('admin.grupos')
+        ->with('nombreGrafica1','Pre-Evaluación')
+        ->with('nombreGrafica2','Post-Evaluación')
         ->with('title', $title)
         ->with('grupos',$registros2)
         ->with('alumnos',$registros)
         ->with('grupos2',$grupos)
         ->with('pre',$preguntas)
-        ->with('taller',$taller);
+        ->with('taller',$taller)
+
+        ->with('resultados',$resultados1)
+        ->with('valores1',$valores1)
+        ->with('resultados',$resultados2)
+        ->with('valores2',$valores2);
 
     }
 
