@@ -226,7 +226,10 @@
       </div>
 
       <div class="modal-body">
-        {!!  Form::open(array('route'=>['admin.preguntas.edit', $pre->id_pregunta], 'method'=>'GET' ))  !!}
+
+
+
+        {!!  Form::open(array('route'=>['admin.preguntas.edit', 0], 'method'=>'GET' ))  !!}
           <div class="modal-body">
             <input type="hidden" name="id" id="idEditar" value="">
             <div class="form-group">
@@ -243,6 +246,9 @@
           </div>
 
       </div>
+
+
+
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

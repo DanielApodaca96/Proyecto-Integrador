@@ -61,6 +61,8 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
 
   Route::post('/alumnos/ajax','AlumnosController@ajax');
   Route::post('/grupos/ajax','GruposController@ajax');
+  Route::post('/grupos/ajax2','ResultadosController@ajax2');
+  Route::post('/grupos/ajaxGrafica','GruposController@ajaxGrafica');
 
   Route::post('/alumnos/buscar', 'AlumnosController@buscar');
   Route::post('/grupos/buscar', 'GruposController@buscar');

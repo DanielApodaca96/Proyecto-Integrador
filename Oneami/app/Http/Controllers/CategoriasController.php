@@ -7,6 +7,7 @@ use Validator;
 //Importamos el modelo User para poder insertar
 use App\Categoria;
 use App\Pregunta;
+use App\Resultado;
 
 class CategoriasController extends Controller
 {
@@ -48,6 +49,8 @@ class CategoriasController extends Controller
     //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
     $pregunta= Pregunta::where('id_categoria','=',$id);
     $pregunta->delete();
+    $alumnos2= Resultado::where('id_pregunta','=',$id);
+    $alumnos2->delete();
     $pregunta= Categoria::find($id);
     $pregunta->delete();
     return redirect('/administracion/preguntas/');

@@ -9,6 +9,7 @@ use Carbon;
 
 use App\Dato;
 use App\Inscripcion;
+use App\Resultado;
 
 class AlumnosController extends Controller
 {
@@ -100,6 +101,8 @@ class AlumnosController extends Controller
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
       $alumnos= Inscripcion::where('id_persona','=',$id);
       $alumnos->delete();
+      $alumnos2= Resultado::where('id_persona','=',$id);
+      $alumnos2->delete();
       $alumnos = Dato::find($id);
       $alumnos->delete();
       return "Yeah";

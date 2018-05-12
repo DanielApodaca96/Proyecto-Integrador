@@ -21,21 +21,14 @@ class ResultadosController extends Controller
 
   }
 
-  public function ajax2(){
-    $resultados2=\DB::table('resultados')
-      ->orderBy('id_resultado')
-      ->get();
-
-    for($i=0; $i<count($resultado2); $i++){
-      $bandera=false;
-      if($resultados2{$i}->id_persona == $resultados2{$i}->id_pregunta && $resultados2{$i}->tipo == 'pre'){
-        $bandera = true;
-        dd($resultados2);
-      }
-      if($bandera==false){
-      }
-    }
+  public function ajax2(Request $req){
+        $resultados=\DB::table('resultados')
+        ->where('id_persona','=',$req->nombre)
+        ->where('tipo','=',$req->tipo)
+        ->get();
+        return json_encode($resultados);
   }
+
   public function store(Request $req){
 
         $validator = Validator:: make($req->all(),[
@@ -58,9 +51,5 @@ class ResultadosController extends Controller
           ]);
           return '1';
         }
-
-
-
-
   }
 }

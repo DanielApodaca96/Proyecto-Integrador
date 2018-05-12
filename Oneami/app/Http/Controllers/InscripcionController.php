@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 //Importamos el modelo User para poder insertar
 use App\Inscripcion;
+use App\Resultado;
 
 class InscripcionController extends Controller
 {
@@ -49,6 +50,8 @@ class InscripcionController extends Controller
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
       $ins= Inscripcion::find($id);
       $ins->delete();
+      $alumnos2= Resultado::where('id_persona','=',$id);
+      $alumnos2->delete();
       return redirect('/administracion/grupos/');
     }
 }

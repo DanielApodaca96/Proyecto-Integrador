@@ -24,6 +24,10 @@
   <div class="row">
     <div class="title" style="text-align: center; padding-top:110px;">Grupos</div>
     <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
+    <form class="" action="/administracion/grupos/ajaxGrafica" method="post">
+      <button type="submit" name="button">sdfdsf</button>
+      <input type="hidden"  value="{{ csrf_token() }}" name="_token">
+    </form>
   </div>
 
   <div class="row">
@@ -113,6 +117,7 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <input type="hidden" name="" value="{{ csrf_token() }}" id="token">
                         @forelse($grupos2 as $alu)
                         <tr>
                           @if($alu->id_grupo==$g->id_grupo)
@@ -180,14 +185,14 @@
                             </button>
                           </th>
                           <th>
-                            <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion2" data-toggle="modal" data-target="#myModal2"
+                            <button type="button" class="btn btn-success btn-sm btnevaluacion2" name="evaluacion2" data-toggle="modal" data-target="#myModal2"
                             data-id="{{  $alu->id_persona  }}",
                             data-inscripcion="{{  $alu->id_inscripcion  }}">
                             Post
                             </button>
                           </th>
                           <th>
-                            <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3"> <i class="glyphicon glyphicon-stats"></i> </button>
+                            <button type="button" name="button" class="btn btn-primary btnGrafica" data-toggle="modal"   data-id="{{  $alu->id_persona  }}" data-target="#myModal3"> <i class="glyphicon glyphicon-stats"></i> </button>
                           </th>
 
                           @endif
@@ -223,8 +228,8 @@
 
         @forelse($pre as $pr)
 
-
-        {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+        @if(count($pr)>=1)
+        {{  Form::open(array('url'=>'/administracion/resultados' , 'id'=>'FormPre' . $pr->id_pregunta)  )}}
 
         @if($pr->tipo_respuesta=="2 Opciones")
           <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
@@ -238,14 +243,17 @@
               <option value="0">No</option>
 
             </select>
+
           </div>
           <button type="button" class="contestar btn btn-success">Enviar</button>
+
         @else
           <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
           <input type="hidden" name="tipo" class="tipo" value="pre">
           <input type="hidden" name="id_persona" class="id_persona" value=""><br>
           <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
           <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
+
           <div class="from-group">
             <select class="form-control" name="porcentaje">
               <option value="100">100</option>
@@ -254,12 +262,15 @@
               <option value="25">25</option>
               <option value="0">0</option>
             </select>
+
           </div>
           <button type="button" class="contestar btn btn-success">Enviar</button>
+
 
             @endif
 
         {{  Form::close() }}
+        @endif
         @empty
           <p>Sin registros</p>
         @endforelse
@@ -287,7 +298,7 @@
         @forelse($pre as $pr)
 
 
-        {{  Form::open(array('url'=>'/administracion/resultados')  )}}
+        {{  Form::open(array('url'=>'/administracion/resultados', 'id'=>'FormPost' . $pr->id_pregunta )) }}
         @if($pr->tipo_respuesta=="2 Opciones")
         <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
         <input type="hidden" name="tipo" class="tipo" value="post">
@@ -349,10 +360,8 @@
         <div class="modal-body">
 
           <div class="row">
-            <div class="col-md-11 graph">
               <h4 class="titleGraphs">Mejoria entre el PRE y POST</h4>
               <canvas id="myChart1" width="400" height="400"></canvas>
-            </div>
           </div>
 
         </div>
@@ -543,7 +552,40 @@
         $('.id_persona').val(per);
         $('.id_inscripcion').val(ins);
 
+
+        var form = $(this).parent('form');
+        $.ajax({
+          url:'/administracion/grupos/ajax2',
+          method:'POST',
+          data:{
+            nombre: per,
+            tipo: 'pre',
+            _token: $('#token').val()
+          }
+        }).done(function(res){
+            var convert = JSON.parse(res);
+            for(var x=0; x<convert.length; x++){
+              $('#FormPre'+ convert[x].id_pregunta).hide();
+            }
+        });
+
       });
+
+      $('.btnGrafica').on("click", function(){
+          var per=$(this).data('id');
+          console.log("Ghghg");
+          $.ajax({
+            url:'/administracion/grupos/ajaxGrafica',
+            method:'POST',
+            data:{
+              nombre: per,
+              _token: $('#token').val()}
+          }).done(function(res){
+            var arr=res.split('#');
+            console.log(arr[0]);
+          });
+      });
+
       $('.btnevaluacion2').on("click", function(){
         var per=$(this).data('id');
         var ins=$(this).data('inscripcion')
@@ -551,10 +593,24 @@
         $('.id_persona').val(per);
         $('.id_inscripcion').val(ins);
 
-
-
-
+        var form = $(this).parent('form');
+        $.ajax({
+          url:'/administracion/grupos/ajax2',
+          method:'POST',
+          data:{
+            nombre: per,
+            tipo: 'post',
+            _token: $('#token').val()
+          }
+        }).done(function(res){
+            var convert = JSON.parse(res);
+            console.log(res);
+            for(var x=0; x<convert.length; x++){
+              $('#FormPost'+ convert[x].id_pregunta).hide();
+            }
+        });
       });
+
       $('.contestar').on("click",function(){
         var form = $(this).parent('form');
         $.ajax({
@@ -568,69 +624,42 @@
             form.fadeOut(200);
           }
         });
-      });
-
+        });
     });
+
   </script>
   <script src="{{ asset('js/Chart.bundle.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
     var ctx1 = document.getElementById("myChart1").getContext('2d');
     var myChart1 = new Chart(ctx1, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: [  {!!  $resultados1  !!}  ],
             datasets: [{
                 label: '{{  $nombreGrafica1  }}',
+                borderColor : "rgba(151,187,205,1)",
                 data: [  {!!  $valores1  !!}  ],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 2
-            },
-            {
-                label: '{{  $nombreGrafica2  }}',
-                data: [  {!!  $valores2  !!}  ],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 2
-            }
-          ]
+          },
+          {
+      			label :'{{  $nombreGrafica2  }}',
+      			borderColor : "rgba(151,100,205,1)",
+      			data : [  {!!  $valores2  !!}  ]
+      		}
+
+        ]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
+        options : {
+          elements : {
+            rectangle : {
+              borderWidth : 1,
+              borderColor : "rgb(0,255,0)",
+              borderSkipped : 'bottom'
             }
+          },
+          responsive : true,
+          title : {
+            display : true
+          }
         }
     });
   </script>
