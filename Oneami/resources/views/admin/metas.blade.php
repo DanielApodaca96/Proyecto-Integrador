@@ -50,15 +50,15 @@
   <div class="row">
     <div class="col-md-3 graph">
       <h4 class="titleGraphs">ENERO - ABRIL</h4>
-        <canvas class="loader1" width="400" height="400"></canvas>
+        <canvas class="loader1" width="400" height="400" style="margin-left: 80px;"></canvas>
     </div>
     <div class="col-md-3 graph">
       <h4 class="titleGraphs">MAYO - AGOSTO</h4>
-      <canvas class="loader2" width="400" height="400"></canvas>
+      <canvas class="loader2" width="400" height="400" style="margin-left: 80px;"></canvas>
     </div>
     <div class="col-md-3 graph">
       <h4 class="titleGraphs">SEPTIEMBRE - DICIEMBRE</h4>
-      <canvas class="loader3" width="400" height="400"></canvas>
+      <canvas class="loader3" width="400" height="400" style="margin-left: 80px;"></canvas>
     </div>
   </div>
 
@@ -76,7 +76,7 @@
         <h4 class="modal-title" id="myModalLabel">Establezca la meta de alumnos por año.</h4>
       </div>
       <div class="modal-body">
-
+        La meta de este año es: {!! $metas !!} Personas
       <h5>Cantidad de alumnos por año</h5>
       {{  Form::open(array('url'=>'/administracion/metas')  )}}
       <input type="text" name="metas" value="">
@@ -84,7 +84,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
       {{ Form::close()}}
     </div>

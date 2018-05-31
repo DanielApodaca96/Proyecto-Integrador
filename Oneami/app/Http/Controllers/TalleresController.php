@@ -31,7 +31,7 @@ class TalleresController extends Controller
       $validator = Validator::make($req->all(),[
         'nombre_taller'=>'required|max:255',
         'instructor'=>'required|max:255',
-        'descripcion'=>'required|max:255'
+        'descripcion'=>'required|max:800'
       ]);
 
       if($validator->fails()){

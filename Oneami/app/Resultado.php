@@ -12,6 +12,6 @@ class Resultado extends Model
     protected $table='resultados';
     //campos que se pueden manipular
     protected $fillable=[
-      'id_persona','id_pregunta','tipo','porcentaje','id_inscripcion'
+      'id_persona','id_pregunta','tipo','porcentaje','id_inscripcion','id_categoria'
     ];
 }

@@ -37,7 +37,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <!-- <th>#</th> -->
                   <th>Nombre</th>
                   <th>Correo</th>
                   <th>Privilegios</th>
@@ -48,7 +48,7 @@
               <tbody>
                 @forelse($usuarios as $usu)
                   <tr>
-                    <th>{{ $usu->id }}</th>
+                    <!-- <th>{{ $usu->id }}</th> -->
                     <th>{{ $usu->name }}</th>
                     <th>{{ $usu->email }}</th>
                     <th>{{ $usu->privilegios }}</th>
@@ -152,7 +152,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega una pregunta nueva.</h4>
+        <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">Agrega un usuario nuevo.</h4>
       </div>
       <div class="modal-body">
         <div class="card-body">

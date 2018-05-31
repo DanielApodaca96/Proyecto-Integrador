@@ -1,5 +1,5 @@
     @if($errors->any())
-      <div class="conf alert alert-warning alert-dismissible fade in">
+      <div class="conf alert alert-warning alert-dismissible fade in MensajeAlerta">
         <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
         <ul>
           @foreach($errors->all() as $error)
@@ -10,7 +10,7 @@
     @endif
 
     @if(session()->has('mensaje'))
-      <div class="conf alert alert-success alert-dismissible fade in" data-backdrop="static">
+      <div class="conf alert alert-success alert-dismissible fade in MensajeAlerta" data-backdrop="static">
         <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
         {{ session()->get('mensaje') }}
       </div>
@@ -25,7 +25,7 @@
     <div class="title" style="text-align: center; padding-top:110px;">Grupos</div>
     <div class="subtitle" style="text-align: center">Consulta, agrega y elimina.</div>
     <form class="" action="/administracion/grupos/ajaxGrafica" method="post">
-      <button type="submit" name="button">sdfdsf</button>
+      <!-- <button type="submit" name="button">sdfdsf</button> -->
       <input type="hidden"  value="{{ csrf_token() }}" name="_token">
     </form>
   </div>
@@ -110,8 +110,8 @@
                           <th>Apellido P.</th>
                           <th>Apellido M.</th>
                           <th>Edad</th>
-                          <th>Sexo</th>
                           <th>Telefono</th>
+                          <th>Sexo</th>
                           <th>Estado Civil</th>
                           <th>Escolaridad</th>
                         </tr>
@@ -126,8 +126,8 @@
                           <th>{{ $alu->apellidoP }}</th>
                           <th>{{ $alu->apellidoM }}</th>
                           <th>{{ $alu->edad }}</th>
-                          <th>{{ $alu->sexo }}</th>
                           <th>{{ $alu->telefono }}</th>
+                          <th>{{ $alu->sexo }}</th>
                           <th>{{ $alu->estado_civil }}</th>
                           <th>{{ $alu->escolaridad }}</th>
                           <th>
@@ -178,6 +178,7 @@
                           </th>
 
                           <th>
+
                             <button type="button" class="btn btn-success btn-sm btnevaluacion1" name="evaluacion1" data-toggle="modal" data-target="#myModal"
                             data-id="{{  $alu->id_persona  }}",
                             data-inscripcion="{{  $alu->id_inscripcion  }}">
@@ -192,7 +193,14 @@
                             </button>
                           </th>
                           <th>
-                            <button type="button" name="button" class="btn btn-primary btnGrafica" data-toggle="modal"   data-id="{{  $alu->id_persona  }}" data-target="#myModal3"> <i class="glyphicon glyphicon-stats"></i> </button>
+                            {!!  Form::open(array( 'url'=>['/administracion/post_evaluacion/'.$alu->id_persona], 'method'=>'GET' ))  !!}
+                            <button type="submit" class="btn btn-success btn-sm btnGrafica" name="btnGrafica"
+                            data-id="{{  $alu->id_persona  }}",
+                            data-inscripcion="{{  $alu->id_inscripcion  }}">
+                            Grafica
+                            </button>
+
+                            {!!  Form::close()  !!}
                           </th>
 
                           @endif
@@ -204,6 +212,7 @@
                       </table>
                   </div>
                 </div>
+
               </div>
               </div>
               @endforeach
@@ -226,22 +235,23 @@
         <div class="modal-body">
 
 
-        @forelse($pre as $pr)
+        @forelse($cate as $pr)
 
         @if(count($pr)>=1)
         {{  Form::open(array('url'=>'/administracion/resultados' , 'id'=>'FormPre' . $pr->id_pregunta)  )}}
 
         @if($pr->tipo_respuesta=="2 Opciones")
           <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+          <input type="hidden" name="id_categoria" class="id_categoria" value="{{  $pr->id_categoria }}">
           <input type="hidden" name="tipo" class="tipo" value="pre">
           <input type="hidden" name="id_persona" class="id_persona" value=""><br>
-          <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+          <!-- <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label> -->
+          <label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
           <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
           <div class="from-group">
             <select class="form-control" name="porcentaje">
               <option value="100">Si</option>
               <option value="0">No</option>
-
             </select>
 
           </div>
@@ -249,9 +259,11 @@
 
         @else
           <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+          <input type="hidden" name="id_categoria" class="id_categoria" value="{{  $pr->id_categoria }}">
           <input type="hidden" name="tipo" class="tipo" value="pre">
           <input type="hidden" name="id_persona" class="id_persona" value=""><br>
-          <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
+          <!-- <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label> -->
+          <label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
           <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
 
           <div class="from-group">
@@ -295,12 +307,13 @@
         <div class="modal-body">
 
 
-        @forelse($pre as $pr)
+        @forelse($cate as $pr)
 
 
         {{  Form::open(array('url'=>'/administracion/resultados', 'id'=>'FormPost' . $pr->id_pregunta )) }}
         @if($pr->tipo_respuesta=="2 Opciones")
         <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
+        <input type="hidden" name="id_categoria" class="id_categoria" value="{{  $pr->id_categoria }}">
         <input type="hidden" name="tipo" class="tipo" value="post">
         <input type="hidden" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
@@ -315,7 +328,8 @@
         <button type="button" class="contestar btn btn-success">Enviar</button>
         @else
         <input type="hidden" name="id_inscripcion" class="id_inscripcion" value="">
-          <input type="hidden" name="tipo" class="tipo" value="post">
+        <input type="hidden" name="id_categoria" class="id_categoria" value="{{  $pr->id_categoria }}">
+        <input type="hidden" name="tipo" class="tipo" value="post">
         <input type="hidden" name="id_persona" class="id_persona" value=""><br>
         <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="" style="font-size: 1.5rem;">{{ $pr->pregunta }}</label>
         <input type="hidden" name="id_pregunta" id="id_pregunta" value="{{ $pr->id_pregunta}}">
@@ -351,7 +365,7 @@
 
   <!-- Modal Evaluacion-->
   <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -434,7 +448,7 @@
 
                 <div class="form-group">
                   <label for="">Nombre</label>
-                  <input type="text" name="nameEditar" id="nameEditar" value="" class="form-control">
+                  <input type="text" name="nameNombre" id="nameNombre" value="" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="">Apellido P</label>
@@ -455,7 +469,7 @@
                 <div class="form-group">
                   <label for="">Sexo</label>
                   <select class="form-control" name="editarSexo" id="editarSexo">
-                    <option value="Maasculino">Masculino</option>
+                    <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                   </select>
                 </div>
@@ -508,12 +522,12 @@
 
         //var em=$(this).data('email');
         $("#idEditar").val(i);
-        $('#nameEditar').val(nom);
+        $('#nameNombre').val(nom);
         $('#nameApellidoP').val(ap);
         $('#nameApellidoM').val(am);
         $('#nameEdad').val(edad);
-        $('#nameTelefono').val(telefono);
         $('#editarSexo').val(sexo);
+        $('#nameTelefono').val(telefono);
         $('#editarEstado').val(estado);
         $('#editarEscolaridad').val(escolaridad);
         $("#nomModal").text(nom);
@@ -548,9 +562,11 @@
       $('.btnevaluacion1').on("click", function(){
         var per=$(this).data('id');
         var ins=$(this).data('inscripcion')
+
         var preg=$(this).data('pregunta')
         $('.id_persona').val(per);
         $('.id_inscripcion').val(ins);
+
 
 
         var form = $(this).parent('form');
@@ -573,16 +589,16 @@
 
       $('.btnGrafica').on("click", function(){
           var per=$(this).data('id');
-          console.log("Ghghg");
+         console.log(per);
           $.ajax({
-            url:'/administracion/grupos/ajaxGrafica',
+            url:'/administracion/post_evaluacion/ajaxGrafica',
             method:'POST',
             data:{
               nombre: per,
               _token: $('#token').val()}
           }).done(function(res){
             var arr=res.split('#');
-            console.log(arr[0]);
+            console.log(res);
           });
       });
 
@@ -628,22 +644,22 @@
     });
 
   </script>
-  <script src="{{ asset('js/Chart.bundle.min.js') }}" type="text/javascript"></script>
+  <!-- <script src="{{ asset('js/Chart.bundle.min.js') }}" type="text/javascript"></script>
   <script type="text/javascript">
     var ctx1 = document.getElementById("myChart1").getContext('2d');
     var myChart1 = new Chart(ctx1, {
         type: 'line',
         data: {
-            labels: [  {!!  $resultados1  !!}  ],
+            labels: [   ],
             datasets: [{
-                label: '{{  $nombreGrafica1  }}',
+                label: '',
                 borderColor : "rgba(151,187,205,1)",
-                data: [  {!!  $valores1  !!}  ],
+                data: [  ],
           },
           {
-      			label :'{{  $nombreGrafica2  }}',
+      			label :'',
       			borderColor : "rgba(151,100,205,1)",
-      			data : [  {!!  $valores2  !!}  ]
+      			data : [    ]
       		}
 
         ]
@@ -662,5 +678,5 @@
           }
         }
     });
-  </script>
+  </script> -->
 @endsection

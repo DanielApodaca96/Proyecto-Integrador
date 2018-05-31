@@ -96,7 +96,7 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th>#</th>
+                            <!-- <th>#</th> -->
                             <th>Pregunta</th>
                             <th>Tipo de respuesta</th>
                           </tr>
@@ -105,7 +105,7 @@
                           @forelse($categorias2 as $pre)
                           <tr>
                             @if($pre->id_categoria==$cate->id_categoria)
-                            <th>{{ $pre->id_pregunta }}</th>
+                            <!-- <th>{{ $pre->id_pregunta }}</th> -->
                             <th>{{ $pre->pregunta }}</th>
                             <th>{{ $pre->tipo_respuesta }}</th>
                             <th>

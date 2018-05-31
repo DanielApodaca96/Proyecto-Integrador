@@ -36,10 +36,12 @@ class ResultadosController extends Controller
           'id_pregunta'=>'required',
           'porcentaje'=>'required|max:255',
           'tipo'=>'required|max:255',
-          'id_inscripcion'=>'required'
+          'id_inscripcion'=>'required',
+          'id_categoria'=>'required'
         ]);
         if($validator->fails()){
-          return 'Error';
+          return $req;
+
         }else{
 
           Resultado::create([
@@ -47,7 +49,8 @@ class ResultadosController extends Controller
             'id_pregunta'=>$req->id_pregunta,
             'porcentaje'=>$req->porcentaje,
             'tipo'=>$req->tipo,
-            'id_inscripcion'=>$req->id_inscripcion
+            'id_inscripcion'=>$req->id_inscripcion,
+            'id_categoria'=>$req->id_categoria
           ]);
           return '1';
         }

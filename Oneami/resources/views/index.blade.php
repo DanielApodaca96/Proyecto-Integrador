@@ -46,7 +46,7 @@
             </div>
             <div class="row">
               <div class="title modal-des">BIENVENIDO</div>
-              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="modal-text sans col-md-8 col-md-offset-2 text-justify">Bienvenido a nuestro sitio web, somos una asociación sin fines de lucro, que se encarga de ofrecer diversas pláticas, conferencias y talleres con el fin de contribuir en la formación y desarrollo de la sociedad. </p>
             </div>
           </div>
           <div class="modal-footer">
@@ -95,7 +95,7 @@
           <div class=".col-md-6 .col-md-offset-3 introtext">
             <div class="firstText">Hagamos de la familia</div>
             <div class="secondText">UN MEJOR LUGAR PARA CRECER</div>
-            <button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button>
+            <a href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"><button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button></a>
           </div>
       </div>
     </div>
@@ -105,7 +105,7 @@
           <div class=".col-md-6 .col-md-offset-3 introtext">
             <div class="firstText">Porque para educar</div>
             <div class="secondText">HAY QUE EDUCARSE A SÍ MISMO</div>
-            <button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button>
+<a href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"><button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button></a>
           </div>
       </div>
     </div>
@@ -115,7 +115,7 @@
           <div class=".col-md-6 .col-md-offset-3 introtext">
             <div class="firstText">La vida debe ser</div>
             <div class="secondText">UNA INCESANTE educación</div>
-            <button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button>
+<a href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"><button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button></a>
           </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
            Incrementar el número de padres de familia que ejerzan una paternidad responsable para mejorar la calidad de vida en las familias en la región de Nuevo Casas Grandes.
          </div>
          <br>
-         <button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button>
+<a href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"><button type="button" class="btn-xl btn-warning btnradius focus">SABER MÁS</button></a>
       </div>
     </div>
   </div>
@@ -407,7 +407,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">DOMINA EL MANEJO DEL ESTRéS</h4>
+            <h4 class="modal-title txtcenter-sans" id="gridSystemModalLabel">DOMINA EL MANEJO DEL ESTRÉS</h4>
           </div>
           <div class="modal-body">
             <div class="row">
@@ -573,8 +573,8 @@
              <div class="col-md-4">
                <a target="_blank" href="https://www.facebook.com/direcciononeamincg/?ref=br_rs"> <img class="icon-space" src="{{ asset('img/icons/fb.svg') }}" alt=""><br>Oneami escuela para padres</a>
              </div>
-             <div class="col-md-4"><img class="icon-space" src="{{ asset('img/icons/phone.svg') }}" alt=""><br>(636)-694-95-00</div>
-             <div class="col-md-4"><img class="icon-space" src="{{ asset('img/icons/arroba.svg') }}" alt=""><br>contacto@oneami.com</div>
+             <div class="col-md-4"><img class="icon-space" src="{{ asset('img/icons/phone.svg') }}" alt=""><br>(636)-109-38-75</div>
+             <div class="col-md-4"><img class="icon-space" src="{{ asset('img/icons/arroba.svg') }}" alt=""><br>oneamidireccionncg@hotmail.com</div>
 
 
            </div>
@@ -584,7 +584,7 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{  asset('js/jquery-3.3.1.min.js')  }}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/holder.min.js') }}"></script>

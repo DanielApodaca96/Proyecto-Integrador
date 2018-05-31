@@ -9,6 +9,8 @@ use App\Categoria;
 use App\Pregunta;
 use App\Resultado;
 
+
+
 class CategoriasController extends Controller
 {
   public function __construct()
@@ -49,8 +51,14 @@ class CategoriasController extends Controller
     //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
     $pregunta= Pregunta::where('id_categoria','=',$id);
     $pregunta->delete();
-    $alumnos2= Resultado::where('id_pregunta','=',$id);
-    $alumnos2->delete();
+    $pregunta= Resultado::where('id_categoria','=',$id);
+    $pregunta->delete();
+
+
+    //esto no funciono
+  /*  $q = 'DELETE resultados FROM resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta WHERE preguntas.id_categoria =' .$id.';';
+    $inscripcion = \DB::delete($q, array($id));*/
+
     $pregunta= Categoria::find($id);
     $pregunta->delete();
     return redirect('/administracion/preguntas/');

@@ -27,11 +27,11 @@
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <div class="input-group">
-        <input type="search" class="form-control" id="txtBusqueda" placeholder="Buscar alumno...">
+        <!-- <input type="search" class="form-control" id="txtBusqueda" placeholder="Buscar alumno..."> -->
         <input type="hidden" name="" value="{{ csrf_token() }}" id="token">
-        <span class="input-group-btn">
+        <!-- <span class="input-group-btn">
           <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-        </span>
+        </span> -->
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div>
@@ -47,13 +47,13 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <!-- <th>#</th> -->
                     <th>Nombre</th>
                     <th>Apellido P.</th>
                     <th>Apellido M.</th>
                     <th>Edad</th>
-                    <th>Sexo</th>
                     <th>Telefono</th>
+                    <th>Sexo</th>
                     <th>Estado Civil</th>
                     <th>Escolaridad</th>
                   </tr>
@@ -61,13 +61,13 @@
                 <tbody id="tbody">
                   @forelse($alumnos as $alu)
                   <tr>
-                    <th>{{ $alu->id_persona }}</th>
+                    <!-- <th>{{ $alu->id_persona }}</th> -->
                     <th>{{ $alu->nombre }}</th>
                     <th>{{ $alu->apellidoP }}</th>
                     <th>{{ $alu->apellidoM }}</th>
                     <th>{{ $alu->edad }}</th>
-                    <th>{{ $alu->sexo }}</th>
                     <th>{{ $alu->telefono }}</th>
+                    <th>{{ $alu->sexo }}</th>
                     <th>{{ $alu->estado_civil }}</th>
                     <th>{{ $alu->escolaridad }}</th>
                     <th>

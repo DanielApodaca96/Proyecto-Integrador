@@ -50,7 +50,7 @@ class InscripcionController extends Controller
       //Consulta directamente al modelo, usaremos este manera para borrar las imagenes
       $ins= Inscripcion::find($id);
       $ins->delete();
-      $alumnos2= Resultado::where('id_persona','=',$id);
+      $alumnos2= Resultado::where('id_inscripcion','=',$id);
       $alumnos2->delete();
       return redirect('/administracion/grupos/');
     }

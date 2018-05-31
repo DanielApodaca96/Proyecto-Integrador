@@ -71,31 +71,13 @@ class GruposController extends Controller
         ->join('talleres','grupos.id_taller','=','talleres.id_taller')
         ->get();
 
-        $resultado1=\DB::select("
-          select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
-          inner join categorias on categorias.id_categoria = preguntas.id_categoria
-          where resultados.tipo = 'pre' and resultados.id_persona = '4' GROUP by categorias.nombre
-        ");
 
-        $resultado2=\DB::select("
-          select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
-          inner join categorias on categorias.id_categoria = preguntas.id_categoria
-          where resultados.tipo = 'post' and resultados.id_persona = '4' GROUP by categorias.nombre
-        ");
 
-        $resultados1="";
-        $valores1="";
-        $resultados2="";
-        $valores2="";
+        $cate=\DB::table('categorias')
+          ->select('categorias.*','preguntas.*')
+          ->join('preguntas','categorias.id_categoria','=','preguntas.id_categoria')
+          ->get();
 
-        for($i = 0; $i<count($resultado1); $i++){
-          $resultados1 = $resultados1 . '"' .$resultado1{$i}->nombre.'",';
-          $valores1 = $valores1 . $resultado1{$i}->porcentaje.',';
-        }
-        for($i = 0; $i<count($resultado2); $i++){
-          $resultados2 = $resultados2 . '"'.$resultado2{$i}->nombre.'",';
-          $valores2 = $valores2 . $resultado2{$i}->porcentaje.',';
-        }
 
 
       $title = "Oneami - Grupos";
@@ -109,11 +91,7 @@ class GruposController extends Controller
         ->with('grupos2',$grupos)
         ->with('pre',$preguntas)
         ->with('taller',$taller)
-
-        ->with('resultados1',$resultados1)
-        ->with('valores1',$valores1)
-        ->with('resultados2',$resultados2)
-        ->with('valores2',$valores2);
+        ->with('cate',$cate);
 
     }
     public function ajaxGrafica(Request $r){
@@ -121,13 +99,13 @@ class GruposController extends Controller
       $resultado11=\DB::select("
         select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
         inner join categorias on categorias.id_categoria = preguntas.id_categoria
-        where resultados.tipo = 'pre' and resultados.id_persona = '4' GROUP by categorias.nombre
+        where resultados.tipo = 'pre' and resultados.id_persona = '1' GROUP by categorias.nombre
       ");
 
       $resultado21=\DB::select("
         select id_persona, avg(porcentaje) as porcentaje, categorias.nombre, resultados.tipo from resultados INNER JOIN preguntas ON resultados.id_pregunta = preguntas.id_pregunta
         inner join categorias on categorias.id_categoria = preguntas.id_categoria
-        where resultados.tipo = 'post' and resultados.id_persona = '4' GROUP by categorias.nombre
+        where resultados.tipo = 'post' and resultados.id_persona = '1' GROUP by categorias.nombre
       ");
 
       $resultados1="";
@@ -146,7 +124,7 @@ class GruposController extends Controller
       }
 
       $todo = $resultados1 ."#".$valores1."#".$resultados2 . "#" . $valores2;
-      return $todo;
+      
     }
 
     public function store(Request $req){
@@ -205,6 +183,7 @@ class GruposController extends Controller
       $alumnos->estado_civil=$req->editarEstado;
       $alumnos->escolaridad=$req->editarEscolaridad;
       $alumnos->save();
+      dd($alumnos);
       return redirect('/administracion/grupos/');
       dd("Registro Actualizado");
     }//llave editar

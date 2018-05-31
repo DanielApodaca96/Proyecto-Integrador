@@ -21,31 +21,78 @@
 
 @section('pre')
   <div class="row">
-    <div class="title" style="text-align: center; padding-top:110px;">Post-evaluación</div>
-    <div class="subtitle" style="text-align: center">Nombre del pelado seleccionado</div>
+    <div class="title" style="text-align: center; padding-top:110px;">Evaluaciones</div>
+    <h4 class="titleGraphs">Mejoria entre el PRE y POST</h4>
   </div>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="form-group preguntas">
-        @forelse($post as $pr)
-        <label for="">{{ $pr->id_pregunta.".-" }}&nbsp; </label><label for="">{{ $pr->pregunta }}</label>
-        <div class="from-group">
-          {{ Form::radio($pr->id_pregunta, 100,false,['class' => 'field']) }}
-          <label for="100">100</label><br>
-          {{ Form::radio( $pr->id_pregunta, 75,false,['class' => 'field']) }}
-          <label for="100">75</label><br>
-          {{ Form::radio( $pr->id_pregunta , 50,false,['class' => 'field']) }}
-          <label for="100">50</label><br>
-          {{ Form::radio( $pr->id_pregunta , 25,false,['class' => 'field']) }}
-          <label for="100">25</label><br>
-          {{ Form::radio( $pr->id_pregunta , 0,false,['class' => 'field']) }}
-          <label for="100">0</label><br>
-
-        </div>
-        @empty
-          <p>Sin registros</p>
-        @endforelse
-      </div>
+    <div class="col-md-12">
+      <canvas id="myChart1" width="200" height="550"></canvas>
     </div>
   </div>
+  <input type="hidden" name="" value="{{ csrf_token() }}" id="token">
+@endsection
+@section('graficasScript')
+</script>
+<script src="{{ asset('js/Chart.bundle.min.js') }}" type="text/javascript"></script>
+
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+    var per=$(this).data('id');
+    console.log(per);
+    $.ajax({
+      url:'/administracion/post_evaluacion/ajaxGrafica',
+      method:'POST',
+      data:{
+        nombre: per,
+        _token: $('#token').val()
+      }
+    }).done(function(res){
+      var arr=res.split('#');
+      console.log(arr);
+
+
+    });
+});
+</script> -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var ctx1 = document.getElementById("myChart1").getContext('2d');
+  ctx1.canvas.width = 500;
+  var myChart1 = new Chart(ctx1, {
+      type: 'line',
+      data: {
+          labels: [  {!! $resultados1 !!}  ],
+          datasets: [{
+              label: 'Pre-Evaluacion',
+              borderColor : "rgba(151,187,205,1)",
+              data: [  {!!  $valores1  !!}  ],
+        },
+        {
+          label :'Post-Evaluacion',
+          borderColor : "rgba(151,100,205,1)",
+          data : [  {!!  $valores2  !!}  ]
+        }
+
+      ]
+      },
+      options : {
+        elements : {
+          rectangle : {
+            borderWidth : 1,
+            borderColor : "rgb(0,255,0)",
+            borderSkipped : 'bottom'
+          }
+        },
+        responsive : true,
+        maintainAspectRatio: false,
+        title : {
+          display : true
+        }
+      }
+  });
+});
+
+
+</script>
 @endsection

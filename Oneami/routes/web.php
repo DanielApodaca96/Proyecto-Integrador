@@ -29,7 +29,7 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::get('/pre_evaluacion','Pre_evaluacionController@index');
   Route::resource('pre_evaluacion','Pre_evaluacionController');
 
-  Route::get('/post_evaluacion','Post_evaluacionController@index');
+  Route::get('/post_evaluacion/{id}','Post_evaluacionController@index');
   Route::resource('post_evaluacion','Post_evaluacionController');
 
   Route::get('/grupos','GruposController@index');
@@ -63,6 +63,7 @@ Route::group(['prefix'=>'administracion','as'=>'admin.'], function(){
   Route::post('/grupos/ajax','GruposController@ajax');
   Route::post('/grupos/ajax2','ResultadosController@ajax2');
   Route::post('/grupos/ajaxGrafica','GruposController@ajaxGrafica');
+  Route::post('/post_evaluacion/ajaxGrafica','Post_evaluacionController@ajaxGrafica');
 
   Route::post('/alumnos/buscar', 'AlumnosController@buscar');
   Route::post('/grupos/buscar', 'GruposController@buscar');

@@ -45,7 +45,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <!-- <th>#</th> -->
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Instructor</th>
@@ -56,7 +56,7 @@
                 <tbody>
                   @forelse($talleres as $taller)
                   <tr>
-                    <th>{{ $taller->id_taller }}</th>
+                    <!-- <th>{{ $taller->id_taller }}</th> -->
                     <th>{{ $taller->nombre_taller }}</th>
                     <th>{{ $taller->descripcion }}</th>
                     <th>{{ $taller->instructor }}</th>
