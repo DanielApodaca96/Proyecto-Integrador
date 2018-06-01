@@ -237,7 +237,7 @@
 
         @forelse($cate as $pr)
 
-        @if(count($pr)>=1)
+        @if(count($pr)>=0)
         {{  Form::open(array('url'=>'/administracion/resultados' , 'id'=>'FormPre' . $pr->id_pregunta)  )}}
 
         @if($pr->tipo_respuesta=="2 Opciones")
